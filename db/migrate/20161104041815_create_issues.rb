@@ -5,7 +5,7 @@ class CreateIssues < ActiveRecord::Migration[5.0]
       t.string :title, { limit: 64 }
       t.string :description
       t.boolean :open, default: false
-      t.integer :urgency
+      t.integer :urgency, default: 1
 
       t.timestamps
     end
