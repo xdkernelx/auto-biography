@@ -47,9 +47,9 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
-    bootstrap (4.0.0.alpha5)
-      autoprefixer-rails (>= 6.0.3)
-      sass (>= 3.4.19)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.6)
     coderay (1.1.1)
@@ -192,7 +192,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print (~> 1.7)
   better_errors
-  bootstrap
+  bootstrap-sass (~> 3.3.6)
   byebug
   devise
   hirb-unicode
@@ -211,4 +211,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.12.5
+   1.13.6
