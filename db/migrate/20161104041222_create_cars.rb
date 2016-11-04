@@ -1,7 +1,7 @@
 class CreateCars < ActiveRecord::Migration[5.0]
   def change
     create_table :cars do |t|
-      t.integer :vin
+      t.string :vin, { limit: 17 }
       t.integer :user_id
       t.integer :mileage
 
