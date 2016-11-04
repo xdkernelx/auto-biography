@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20161104212052) do
     t.string   "title",       limit: 64
     t.string   "description"
     t.boolean  "open",                   default: false
-    t.integer  "urgency"
+    t.integer  "urgency",                default: 1
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
   end
