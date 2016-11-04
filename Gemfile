@@ -25,7 +25,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'hirb-unicode'
 gem 'awesome_print', '~> 1.7'
 gem 'devise'
-gem 'bootstrap'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
