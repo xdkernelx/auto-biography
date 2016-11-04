@@ -5,7 +5,7 @@ class CreateTickets < ActiveRecord::Migration[5.0]
       t.string :title, { limit: 64 }
       t.string :description
       t.boolean :open, { default: true }
-      t.boolean :acces, { default: false }
+      t.boolean :access, { default: false }
 
       t.timestamps
     end
