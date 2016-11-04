@@ -26,4 +26,25 @@ RSpec.describe Issue, :type => :model do
     expect(@tail_light.car.user).to eq(@lindeman)
   end
 
+  it "Does not allow an urgency level at 0 or below" do
+    @dashboard_light = Issue.new(car_id: @star.id, title: "Engine won't turn on", description: "See Title", open: true, urgency: 0)
+    expect(@dashboard_light.valid?).to eq(false)
+    @dashboard_light = Issue.new(car_id: @star.id, title: "Engine won't turn on", description: "See Title", open: true, urgency: -1)
+    expect(@dashboard_light.valid?).to eq(false)
+  end
+
+  it "Does not allow an urgency level at 6 or above" do
+    @dashboard_light = Issue.new(car_id: @star.id, title: "Engine won't turn on", description: "See Title", open: true, urgency: 6)
+    expect(@dashboard_light.valid?).to eq(false)
+    @dashboard_light = Issue.new(car_id: @star.id, title: "Engine won't turn on", description: "See Title", open: true, urgency: 20)
+    expect(@dashboard_light.valid?).to eq(false)
+  end
+
+  it "Does allow a number between 1 and 5, inclusively" do
+    @dashboard_light = Issue.new(car_id: @star.id, title: "Engine won't turn on", description: "See Title", open: true, urgency: 5)
+    expect(@dashboard_light.valid?).to eq(true)
+    @dashboard_light = Issue.new(car_id: @star.id, title: "Engine won't turn on", description: "See Title", open: true, urgency: 1)
+    expect(@dashboard_light.valid?).to eq(true)
+  end
+
 end
