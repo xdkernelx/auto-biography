@@ -1,3 +1,27 @@
+commit 709270a0023cb625b423972f4bb3a2acc3594f33
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 21:21:42 2016 -0700
+
+    Write validations for the Issue model.
+
+commit 1cd3bcc2d092b6673104ff305b551a44fba2337b
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 21:20:36 2016 -0700
+
+    Create fields for the Issue model migration.
+
+commit 53f83ca7cbc534a01e387160f032063bfd410e18
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 21:18:36 2016 -0700
+
+    Create files post-Issue generation.
+
+commit df1c50268346559107f0edc3d89d34da1cc81b42
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 21:17:35 2016 -0700
+
+    Make a CHANEGLOG
+
 commit 606980993c414537a6b12e7b6b01f346236d09e4
 Author: Nestor Alvarez <grimreaper1169@gmail.com>
 Date:   Thu Nov 3 21:15:24 2016 -0700
