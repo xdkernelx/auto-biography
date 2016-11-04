@@ -4,11 +4,11 @@ class CreateReports < ActiveRecord::Migration[5.0]
       t.integer :report_type_id
       t.integer :ticket_id
       t.integer :user_id
-      t.integer :shop_id
+      # t.integer :shop_id
       t.string :title, { limit: 64 }
       t.string :description
       t.string :mechanic_notes, default: ""
-      t.integer :rating
+      t.integer :rating, default: 1
       t.date :date_completed
 
       t.timestamps

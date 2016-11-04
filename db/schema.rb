@@ -10,11 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161104040155) do
+=======
+ActiveRecord::Schema.define(version: 20161104041815) do
+>>>>>>> 82c4ad0cb0a4df8e5d66d6bfcc15611eb6b5c3a1
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
+=======
+  create_table "cars", force: :cascade do |t|
+    t.integer  "vin"
+    t.integer  "user_id"
+    t.integer  "mileage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> 82c4ad0cb0a4df8e5d66d6bfcc15611eb6b5c3a1
   create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id"
     t.string   "body"
@@ -22,6 +37,18 @@ ActiveRecord::Schema.define(version: 20161104040155) do
     t.datetime "updated_at",     null: false
   end
 
+<<<<<<< HEAD
+=======
+  create_table "issues", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "title",       limit: 64
+    t.string   "description"
+    t.integer  "urgency"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+>>>>>>> 82c4ad0cb0a4df8e5d66d6bfcc15611eb6b5c3a1
   create_table "report_types", force: :cascade do |t|
     t.string   "type",       limit: 32
     t.string   "name",       limit: 64
