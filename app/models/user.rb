@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :first_name, :last_name, { presence: true }
-  validates :phone, length: { is: 5 }, allow_blank: true
+  validates :phone, length: { is: 10 }, allow_blank: true
 
 end
