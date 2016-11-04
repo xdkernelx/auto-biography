@@ -3,6 +3,7 @@ class CreateShops < ActiveRecord::Migration[5.0]
     create_table :shops do |t|
       t.integer :owner_id
       t.string :name, { limit: 64 }
+      t.boolean :premium, { default: false }
       t.string :summary
       t.string :specialties
       t.string :address, { limit: 128 }
