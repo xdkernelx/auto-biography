@@ -21,17 +21,24 @@ RSpec.describe Repair, type: :model do
   end
 
   it "Tests several presence validations" do
-    @test = Repair.create(issue_id: @tail_light.id, description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
+    @test = Repair.new(issue_id: @tail_light.id, description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
     expect(@test.valid?).to eq(false)
 
-    @test = Repair.create(issue_id: @tail_light.id, title: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
+    @test = Repair.new(issue_id: @tail_light.id, title: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
     expect(@test.valid?).to eq(false)
 
-    @test = Repair.create(issue_id: @tail_light.id, title: "Tail light wiring messing with the engine", description: "Tail light wiring messing with the engine", date_completed: "11/04/2016")
+    @test = Repair.new(issue_id: @tail_light.id, title: "Tail light wiring messing with the engine", description: "Tail light wiring messing with the engine", date_completed: "11/04/2016")
     expect(@test.valid?).to eq(false)
 
-    @test = Repair.create(issue_id: @tail_light.id, title: "Tail light wiring messing with the engine", description: "Tail light wiring messing with the engine", mileage: 3200)
+    @test = Repair.new(issue_id: @tail_light.id, title: "Tail light wiring messing with the engine", description: "Tail light wiring messing with the engine", mileage: 3200)
     expect(@test.valid?).to eq(false)
+  end
+
+  it "Doesn't allow a title to be more than 64 characters" do
+    @test = Repair.new(issue_id: @tail_light.id, title: "1234567890123456789012345678901234567890123456789012345678901234", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
+    expect(@test.valid?).to eq(true)
+    @test = Repair.new(issue_id: @tail_light.id, title: "12345678901234567890123456789012345678901234567890123456789012345", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
+    expect{ @test.save }.to raise_error
   end
 
 end
