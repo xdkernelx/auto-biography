@@ -1,0 +1,209 @@
+commit 606980993c414537a6b12e7b6b01f346236d09e4
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 21:15:24 2016 -0700
+
+    Write simple validations for the Car model.
+
+commit 170c02296f2b79bbe4efb11723840abe04d39c59
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 21:14:27 2016 -0700
+
+    Write the fields for the Car model.
+
+commit 05276ca9bbbf5aa8569f3688965ec5457083fe09
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 21:12:37 2016 -0700
+
+    Create files for the Car model migration.
+
+commit df0dbfd536aae8d9c63c2349d41085c5222c10e3
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 21:11:22 2016 -0700
+
+    Write one, sole validation for the body of Comment.
+
+commit 271cf15ce9d39b0b0b6c2b59bc72a62803c41ab0
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 21:09:23 2016 -0700
+
+    Remove the commentable_type field inside the CreateComments.
+
+commit 68088cd0dc38746cc2067aaa4cd65aa008501f16
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 21:02:18 2016 -0700
+
+    Create files post-Comment generation.
+
+commit 1f7401ead56710a3bf175f20d86ea5240801b715
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 21:00:12 2016 -0700
+
+    Write validations for the Report model.
+
+commit bf50c527e97733f58b22a094efe650956004563b
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:57:03 2016 -0700
+
+    Create fields for the Report model migration.
+
+commit c11718d01e721e6e87cb068b724e0e8fbb3bf979
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:51:25 2016 -0700
+
+    Create files generated from Report model generation.
+
+commit f0208b422b5b03aa5bab2163e9c75c427e05ca61
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:50:39 2016 -0700
+
+    Add presence validation for fields in the ReporType model.
+
+commit 3ba3943bec3a276165473efb85d5bdfc5838daec
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:49:46 2016 -0700
+
+    Write the migration fields for the ReportTypes model.
+
+commit 9f8cba2adddb2202e363b4bd5a35e9e7bb2eced6
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:48:18 2016 -0700
+
+    Create files after generation of the ReportType model.
+
+commit 095e55d08c8c4481b14eebd9729786f4e1376ab6
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:47:10 2016 -0700
+
+    Write one, lonely validation for the Ticket model.
+
+commit 54e23e86f98ba1cf4e4cc3a3af4f09f8b44fa9fe
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:46:20 2016 -0700
+
+    Write migration file for our Ticket model.
+
+commit bcaab09527ec4a9365d7b5175dba60ef3d34ae25
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:44:24 2016 -0700
+
+    Create files generated from the Ticket model generation.:
+
+commit 34e61ef01e49dd391b02054694864beb53619803
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:43:17 2016 -0700
+
+    Add presence validations to several fields in the Shop class with the exception of specialties and summary.
+
+commit a8b3270e28bb34b4327775a697f39bad84603946
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:42:11 2016 -0700
+
+    Add a premium field into the Shop class.
+
+commit ffd42d65e1ecc4e645e6b39cbec489353e929c74
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:41:15 2016 -0700
+
+    Remove the change_table from the Model folder into the DB folder.
+
+commit 5934492061b93aafaedb4aecbb1072895829a932
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:40:03 2016 -0700
+
+    Write the migration fields for the Shop model.
+
+commit 705278c78001754bc6bf51c8a7690ecac9c3380a
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:35:31 2016 -0700
+
+    Create files from generation of Shop.
+
+commit f074fb453dc9fb6b3efaf4c15f7d40a8288cbade
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:31:27 2016 -0700
+
+    Have a default value for phone if none is supplied.
+
+commit ad6a24184decce4314393b595bdfa5b82dbc9cf3
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:30:49 2016 -0700
+
+    Remove phone presence validation, but add a validation that makes sure that the length of the given phone is 10 to include the area code in US format.
+
+commit 83a4d5ee60aeebdaa65e141070f5c54718e9b9a4
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:28:06 2016 -0700
+
+    Add presence validation for several fields in the User class.
+
+commit dc57ef12b09cef68578549505fb165d148646939
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:26:31 2016 -0700
+
+    Modify the default mail validation.
+
+commit d01fbe12c3d0527f66069ac99673993b484c6635
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:23:53 2016 -0700
+
+    Modify the migration file to include a first_name, a last_name, a phone, and a boolean mech_status.
+
+commit 997ef80d2c9a9037427b1599e05158988677fdf0
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:19:52 2016 -0700
+
+    Change the name of the app inside of our README.
+
+commit 59b950372d395948044f5b9b4f95a54e9a325a75
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:15:29 2016 -0700
+
+    Create files after the devise:user geneation.
+
+commit 73d984af914beb1a6951273c86ab4efbc734547a
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:14:43 2016 -0700
+
+    Routes automatically updated after devise:user generation.
+
+commit 311d84eabe65186c8a0c9e688cdd30a3552052e8
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:13:23 2016 -0700
+
+    Modify to include a default mailer URL.
+
+commit cd8e1ad22dc4157bb498db6acb44a161aa9727af
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:13:01 2016 -0700
+
+    Create DEVISE files after running default generation.
+
+commit ab2f6abaef4afe99e0ad8338725a957155999756
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:11:54 2016 -0700
+
+    Gemfile automatically updated.
+
+commit 829d839a09b99146f21caa803cc9c73b97b7f451
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 20:05:34 2016 -0700
+
+    Update the README.
+
+commit 5d0bc3114d7e5ee6b32813a04eba0ed96ad14ece
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 19:58:50 2016 -0700
+
+    Update the Gemfile to remove -CoffeeScript-- as well as add --Devise - Better_Errors - Awesome_Print - HIRB--
+
+commit 96f7b75806c536ab7d0ab354947bfcccf2317e5e
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 19:50:06 2016 -0700
+
+    Modify the .gitignore file to remove all the useless files that come from working with Macs.
+
+commit ec8679d052734792d072ab174faf851c9e275be5
+Author: Nestor Alvarez <grimreaper1169@gmail.com>
+Date:   Thu Nov 3 19:48:57 2016 -0700
+
+    Initial commit.
