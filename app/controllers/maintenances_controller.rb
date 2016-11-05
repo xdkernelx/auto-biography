@@ -1,9 +1,10 @@
 class MaintenancesController < ApplicationController
-	before_action :find_car_and_maintenance, only: [:edit, :update, :destroy]
+	before_action :find_car_and_maintenance, only: [:show, :edit, :update, :destroy]
 	before_action :find_car_and_new_maintenance, only: [:new, :create]
 
 	def index
 		@car = Car.find(params[:car_id])
+		@car.maintenances.order("date_completed DESC").all
 	end
 
 	def show
