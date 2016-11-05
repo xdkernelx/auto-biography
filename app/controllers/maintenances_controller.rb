@@ -1,4 +1,7 @@
 class MaintenancesController < ApplicationController
+	before_action :find_car_and_maintenance, only: [:edit, :update, :destroy]
+	before_action :find_car_and_new_maintenance, only: [:new, :create]
+
 	def index
 		@car = Car.find(params[:car_id])
 	end
@@ -7,18 +10,12 @@ class MaintenancesController < ApplicationController
 	end
 
 	def new
-		@car = Car.find(params[:car_id])
-		@maintenance = Maintenance.new
 	end
 
 	def edit
-		@car = Car.find(params[:car_id])
-		@maintenance = Maintenance.find(params[:id])
 	end
 
 	def create
-		@car = Car.find(params[:car_id])
-		@maintenance = Maintenance.new
 		@maintenance.assign_attributes(maintenance_params)
 		@maintenance.car_id = @car.id
 		if @maintenance.save
@@ -30,9 +27,6 @@ class MaintenancesController < ApplicationController
 	end
 
 	def update
-		@car = Car.find(params[:car_id])
-		@maintenance = Maintenance.find(params[:id])
-
 		if @maintenance.update(maintenance_params)
 			redirect_to car_maintenances_path(@car)
 		else
@@ -42,9 +36,6 @@ class MaintenancesController < ApplicationController
 	end
 
 	def destroy
-		@car = Car.find(params[:car_id])
-		@maintenance = Maintenance.find(params[:id])
-
 		@maintenance.destroy
 		redirect_to car_maintenances_path(@car)
 	end
@@ -53,5 +44,15 @@ class MaintenancesController < ApplicationController
 
 	def maintenance_params
 		params.require(:maintenance).permit(:title, :description, :mileage, :date_completed, :car_id)
+	end
+
+	def find_car_and_maintenance
+		@car = Car.find(params[:car_id])
+		@maintenance = Maintenance.find(params[:id])
+	end
+
+	def find_car_and_new_maintenance
+		@car = Car.find(params[:car_id])
+		@maintenance = Maintenance.new
 	end
 end
