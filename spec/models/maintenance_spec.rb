@@ -31,4 +31,8 @@ RSpec.describe Maintenance, type: :model do
     expect(@oil_change.car.user).to eq(@lindeman)
   end
 
+  it "can get the list of all the cars by parent user" do
+    expect(@oil_change.car.user.cars).to match_array([@star, @dust])
+  end
+
 end
