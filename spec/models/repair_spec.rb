@@ -37,8 +37,15 @@ RSpec.describe Repair, type: :model do
   it "Doesn't allow a title to be more than 64 characters" do
     @test = Repair.new(issue_id: @tail_light.id, title: "1234567890123456789012345678901234567890123456789012345678901234", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
     expect(@test.valid?).to eq(true)
+
     @test = Repair.new(issue_id: @tail_light.id, title: "12345678901234567890123456789012345678901234567890123456789012345", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
-    expect{ @test.save }.to raise_error
+    begin
+      @test.save
+    rescue
+      @test = nil
+    end
+
+    expect( @test ).to eq(nil)
   end
 
 end
