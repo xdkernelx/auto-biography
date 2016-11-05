@@ -17,6 +17,9 @@ class IssuesController < ApplicationController
 
 	def create
 		@issue = Issue.new(issue_params)
+		@car = Car.find(params[:car_id])
+		p params
+		p "88888888888"
 		if @issue.save
 			redirect_to car_issues_path(@car)
 		else
@@ -35,6 +38,13 @@ class IssuesController < ApplicationController
 			render 'edit'
 		end
 	end
+
+	def destroy 
+		@issue = Issue.find(params[:id])
+		@car = Car.find(params[:car_id])
+		@issue.destroy
+		redirect_to car_issues_path(@car)
+	end 
 	private
 
 	def issue_params
