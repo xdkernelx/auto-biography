@@ -4,12 +4,33 @@ RSpec.describe User, :type => :model do
 
   before(:each) do
     User.destroy_all
-    @lindeman = User.create!(first_name: "Andy", last_name: "Lindeman", password: "password", email: "tester@test.com")
-    @chelimsky = User.create!(first_name: "David", last_name: "Chelimsky", password: "password", email: "tester2@test.com")
+    Car.destroy_all
+    Issue.destroy_all
+    Repair.destroy_all
+    @lindeman = User.create(first_name: "Andy", last_name: "Lindeman", password: "password", email: "tester@test.com")
+    @star = Car.create(user_id: @lindeman.id, mileage: 100, vin: "11111111111111111")
+    @dust = Car.create(user_id: @lindeman.id, mileage: 20, vin: "11111111111111119")
+    @engine = Issue.create(car_id: @star.id, title: "Tail Light Problem", description: "The light will not turn on")
+    @tail_light = Issue.create(car_id: @star.id, title: "Engine won't turn on", description: "See Title", open: true)
+    @tail_light_fix = Repair.create(issue_id: @tail_light.id, title: "Tail Light Wiring", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
+    @engine_fix = Repair.create(issue_id: @engine.id, title: "Engine dead", description: "Engine is dead. Please buy a new one", mileage: 3200, date_completed: "11/04/2016")
+
   end
 
   it "allows the phone entry to be blank" do
     expect(@lindeman.phone).to eq("")
+  end
+
+  it "has an association with the cars that it has" do
+    expect(@lindeman.cars).to match_array([@star, @dust])
+  end
+
+  it "and it's cars have an association to the issues per car" do
+    expect(@lindeman.cars.find(@star.id).issues).to match_array([@engine, @tail_light])
+  end
+
+  it "and it's cars and it's issues have an association to the repair reports per issue" do
+    expect(@lindeman.cars.find(@star.id).issues.find(@tail_light.id).repairs).to match_array([@tail_light_fix])
   end
 
   it "is invalid if the email is already taken" do
