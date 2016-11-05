@@ -3,10 +3,16 @@
 <%= link_to "Create a New Maintenance Report", new_car_maintenance_path(@car) %><br><br>
 
 <% @car.maintenances.each do |maintenance| %>
-	<p>Title: <%= maintenance.title %></p>
+	<p>Title: <%= link_to maintenance.title, car_maintenance_path(@car, maintenance) %></p>
 	<p>Body: <%= maintenance.description %></p>
 	<p>Mileage: <%= maintenance.mileage %></p>
 	<p>Date completed: <%= maintenance.date_completed %></p>
+	<% if current_user %>
+		<% if owner?(@car) %>
+			<%= link_to 'Edit', edit_car_maintenance_path(@car, maintenance) %>
+			<%= link_to 'Delete', car_maintenance_path(@car, maintenance), method: :delete %>
+		<% end %>
+	<% end %>
 <% end %>
 
 
