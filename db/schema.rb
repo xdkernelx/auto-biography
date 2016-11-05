@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20161104212052) do
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             limit: 64
     t.string   "last_name",              limit: 64
-    t.integer  "phone"
+    t.string   "phone",                             default: ""
     t.string   "email",                             default: "", null: false
     t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"

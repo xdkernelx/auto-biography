@@ -9,7 +9,7 @@ RSpec.describe User, :type => :model do
   end
 
   it "allows the phone entry to be blank" do
-    expect(@lindeman.phone).to eq(nil)
+    expect(@lindeman.phone).to eq("")
   end
 
   it "is invalid if the email is already taken" do
