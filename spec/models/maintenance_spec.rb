@@ -23,4 +23,16 @@ RSpec.describe Maintenance, type: :model do
     expect(@test.valid?).to eq(false)
   end
 
+  it "has a parent association with a car" do
+    expect(@oil_change.car).to eq(@star)
+  end
+
+  it "has a parent association with a user" do
+    expect(@oil_change.car.user).to eq(@lindeman)
+  end
+
+  it "can get the list of all the cars by parent user" do
+    expect(@oil_change.car.user.cars).to match_array([@star, @dust])
+  end
+
 end
