@@ -1,22 +1,26 @@
-<% if current_user.id == @car.user_id %>
-	
-	<p><%= @car.vin %></p>
+<% if current_user %>
+	<% if current_user.id == @car.user_id %>
+		
+		<p><%= @car.vin %></p>
 
-	<%= link_to "Create a New Maintenance Report", new_car_maintenance_path(@car) %><br><br>
+		<%= link_to "Create a New Maintenance Report", new_car_maintenance_path(@car) %><br><br>
 
 
-	<% @car.maintenances.each do |maintenance| %>
-		<p>Mileage: <%= maintenance.mileage %></p>
-		<p>Title: <%= link_to maintenance.title, car_maintenance_path(@car, maintenance) %></p>
-		<p>Description: <%= maintenance.description %></p>
-		<p>Date completed: <%= maintenance.date_completed %></p>
-		<% if current_user %>
-			<% if owner?(@car) %>
-				<%= link_to 'Edit', edit_car_maintenance_path(@car, maintenance) %>
-				<%= link_to 'Delete', car_maintenance_path(@car, maintenance), method: :delete %>
+		<% @car.maintenances.each do |maintenance| %>
+			<p>Mileage: <%= maintenance.mileage %></p>
+			<p>Title: <%= link_to maintenance.title, car_maintenance_path(@car, maintenance) %></p>
+			<p>Description: <%= maintenance.description %></p>
+			<p>Date completed: <%= maintenance.date_completed %></p>
+			<% if current_user %>
+				<% if owner?(@car) %>
+					<%= link_to 'Edit', edit_car_maintenance_path(@car, maintenance) %>
+					<%= link_to 'Delete', car_maintenance_path(@car, maintenance), method: :delete %>
+				<% end %>
 			<% end %>
 		<% end %>
+	<% else %>
+		<h3>You are not authorized to view this page</h3>
 	<% end %>
 <% else %>
-	<h3>You are not authorized to view this page</h3>
+	<h3>You must be logged in to view this page</h3>
 <% end %>
