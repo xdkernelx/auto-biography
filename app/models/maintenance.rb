@@ -1,4 +1,5 @@
 class Maintenance < ApplicationRecord
+	# scope :recent, -> { order("date_completed ASC") }
 
   belongs_to :car
 
