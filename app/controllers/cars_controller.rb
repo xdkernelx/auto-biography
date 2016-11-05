@@ -3,7 +3,6 @@ class CarsController < ApplicationController
 		if user_signed_in?
 			@user = current_user
 			@cars = @user.cars
-			p@cars
 		else
 			@errors = 'sign in first'
 		end
@@ -25,8 +24,11 @@ class CarsController < ApplicationController
 		@car = Car.new(car_params)
 		@user = current_user
 		@car.user_id = @user.id
-		@car.save
-		redirect_to cars_path
+		if @car.save
+			redirect_to cars_path
+		else
+			render 'new'
+		end
 	end
 
 	def update
