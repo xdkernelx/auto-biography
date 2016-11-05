@@ -20,9 +20,11 @@
 	        </div>
 	        <center>
 	        	<% if current_user %>
+	        		<%= link_to 'Home', root_path %>
 							<%= link_to current_user.first_name, user_path(current_user) %>
 							<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 						<% else %>
+							<%= link_to 'Home', root_path %>
 		          <div class="navbar-collapse collapse" id="navbar-main">
 		      <!--          <ul class="nav navbar-nav">
 		                   <li class="active"><a href="#">Link</a>
