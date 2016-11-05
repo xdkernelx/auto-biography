@@ -35,13 +35,13 @@ class RepairsController < ApplicationController
 	# 	end
 	# end
 
-	# def destroy 
-	# 	@issue = Issue.find(params[:issue_id])
-	# 	@car = Car.find(params[:car_id])
-	# 	@repair = Repair.find(params[:id])
-	# 	@repair.destroy
-	# 	redirect_to car_issue(@car, @issue)
-	# end 
+	def destroy 
+		@issue = Issue.find(params[:issue_id])
+		@car = Car.find(params[:car_id])
+		@repair = Repair.find(params[:repair])
+		@repair.destroy
+		redirect_to car_issue_path(@car, @issue)
+	end 
 
 private 
   def issue_params
