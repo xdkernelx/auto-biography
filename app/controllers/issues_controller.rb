@@ -4,4 +4,8 @@ class IssuesController < ApplicationController
 		@issues = @car.issues
 		p params
 	end
+
+	def new
+		@issue = Issue.new
+	end 
 end
