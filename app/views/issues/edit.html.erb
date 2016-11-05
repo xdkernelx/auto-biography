@@ -1,16 +1,16 @@
 <h1>Edit issue:</h1>
 <%= form_for ([@car, @issue]) do |f| %>
 <p>
-	<%= f.label :title%>:
+  <%= f.label :title%>:
   <%= f.text_field :title %><br />
 </p>
 <p>
-	<%= f.label :description%>:
+  <%= f.label :description%>:
   <%= f.text_area :description %><br />
 </p>
 <p>
 	Urgency (1 is lowest): 
-	<%= f.radio_button :urgency, '1' %> 
+  <%= f.radio_button :urgency, '1' %> 
   <%= f.label :urgency, '1', :value => '1' %>
   <%= f.radio_button :urgency, '2' %> 
   <%= f.label :urgency, '2', :value => '2' %>
