@@ -2,6 +2,7 @@ class CarsController < ApplicationController
 	def index 
 		@user = current_user
 		@cars = @user.cars
+		p @cars
 	end
 
 	def show
@@ -13,17 +14,25 @@ class CarsController < ApplicationController
 	end 
 
 	def edit
+		@car = Car.find(params[:id])
 	end
 
 	def create
 		@car = Car.new(car_params)
-		p '*************************************'
 		@user = current_user
-		p '*************************************'
 		@car.user_id = @user.id
-		p '*************************************'
 		@car.save
 		redirect_to cars_path
+	end
+
+	def update
+		@car = Car.find(params[:id])
+
+		if @car.update(car_params)
+			redirect_to @car 
+		else
+			render 'edit'
+		end
 	end
 
 	private
