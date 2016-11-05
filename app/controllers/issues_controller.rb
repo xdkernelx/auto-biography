@@ -5,6 +5,12 @@ class IssuesController < ApplicationController
 		@issues = @car.issues
 	end
 
+	def show
+		@issue = Issue.find(params[:id])
+		@car = Car.find(params[:car_id])
+		@repairs = @issue.repairs 
+	end
+
 	def new
 		@car = Car.find(params[:car_id])
 		@issue = Issue.new
@@ -18,8 +24,6 @@ class IssuesController < ApplicationController
 	def create
 		@issue = Issue.new(issue_params)
 		@car = Car.find(params[:car_id])
-		p params
-		p "88888888888"
 		if @issue.save
 			redirect_to car_issues_path(@car)
 		else
