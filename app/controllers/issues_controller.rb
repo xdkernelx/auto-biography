@@ -35,11 +35,11 @@ class IssuesController < ApplicationController
 	def update
 		@issue = Issue.find(params[:id])
 		@car = Car.find(params[:car_id])
-		if @issue.update(issue_params)
-			redirect_to car_issues_path(@car)
-		else
-			@errors = @issue.errors.full_messages
-			render 'edit'
+			if @issue.update(issue_params)
+				redirect_to car_issues_path(@car)
+			else
+				@errors = @issue.errors.full_messages
+				render 'edit'
 		end
 	end
 
