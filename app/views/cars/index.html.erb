@@ -6,7 +6,8 @@
 		 <%= link_to car.make, car_path(car)%> |
 		<%= car.model %> |
 
-		<%= link_to 'edit', edit_car_path(car) %>
+		<%= link_to 'edit', edit_car_path(car) %> |
+		<%= link_to 'delete', car_path(car) %>
 		</li>
 	<% end %>
 	</ul>
