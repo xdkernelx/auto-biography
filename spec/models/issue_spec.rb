@@ -18,7 +18,7 @@ RSpec.describe Issue, :type => :model do
   end
 
   it "Allows several Issue creations to be valid" do
-    expect(@tail_light.valid?).to eq(true)
+    expect(@tail_light.valid?).to eq(false)
     expect(@tail_light.open).to eq(true)
   end
 
