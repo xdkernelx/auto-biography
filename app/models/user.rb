@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :cars
 
   validates :first_name, :last_name, { presence: true }
-  validates :phone, length: { is: 10 }
+  validates :phone, length: { is: 10 }, allow_blank: true
 
 end
