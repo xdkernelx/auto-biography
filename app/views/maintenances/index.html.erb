@@ -7,6 +7,12 @@
 	<p>Body: <%= maintenance.description %></p>
 	<p>Mileage: <%= maintenance.mileage %></p>
 	<p>Date completed: <%= maintenance.date_completed %></p>
+	<% if current_user %>
+		<% if owner?(@car) %>
+			<%= link_to 'Edit', edit_car_maintenance_path(@car, maintenance) %>
+			<%= link_to 'Delete', car_maintenance_path(@car, maintenance), method: :delete %>
+		<% end %>
+	<% end %>
 <% end %>
 
 

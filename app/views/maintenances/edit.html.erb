@@ -1,6 +1,14 @@
-<p>Create a Maintenance Report</p>
+<p>Edit Maintenance Report for <%= @maintenance.title %></p>
 
-<%= form_for([@car, @car.maintenances.build]) do |f| %>
+<% if @errors %>
+	<ul>
+		<% @errors.each do |error| %>
+			<li><%= error %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_for([@car, @maintenance]) do |f| %>
 	<p>
 		<%= f.label :title %>
 		<%= f.text_field :title, value: @maintenance.title %>
