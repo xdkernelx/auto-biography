@@ -1,18 +1,24 @@
 <h1>My Cars</h1>
+
+<div>
 <% if user_signed_in? %>
 	<ul>
 		<% @cars.each do |car| %>
 		<li><%= car.year %> |
-		 <%= link_to car.make, car_path(car)%> |
-		<%= car.model %> |
-
-		<%= link_to 'edit', edit_car_path(car) %> |
-		<%= link_to 'delete', car_path(car), method: :delete,
+		 	<%= link_to car.make, car_path(car)%> |
+			<%= car.model %> |
+			<%= link_to 'edit', edit_car_path(car) %> |
+			<%= link_to 'delete', car_path(car), method: :delete,
         	 data: { confirm: 'Are you sure?' } %>
 		</li>
-	<% end %>
+			<% end %>
 	</ul>
-	<% else %>
-		sign in 
+<% else %>
+	<%= @errors %>
 <% end %>
+</div>
+
+<div>
+<%= link_to 'add a car', new_car_path %>
+</div>
 

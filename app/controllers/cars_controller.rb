@@ -1,8 +1,12 @@
 class CarsController < ApplicationController
 	def index 
-		@user = current_user
-		@cars = @user.cars
-		p @cars
+		if user_signed_in?
+			@user = current_user
+			@cars = @user.cars
+			p@cars
+		else
+			@errors = 'sign in first'
+		end
 	end
 
 	def show
