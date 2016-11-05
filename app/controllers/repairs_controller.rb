@@ -1,28 +1,28 @@
 class RepairsController < ApplicationController
 
-	def edit
-		@issue = Issue.find(params[:issue_id])
-		@car = Car.find(params[:car_id])
-		@repairs = Repair.find(params[:id])
-	end
+  def edit
+    @issue = Issue.find(params[:issue_id])
+    @car = Car.find(params[:car_id])
+    @repairs = Repair.find(params[:id])
+  end
 
-	def new
-		@car = Car.find(params[:car_id])
-		@repair = Repair.new
-		@issue = Issue.find(params[:issue_id])
-	end 
+  def new
+    @car = Car.find(params[:car_id])
+    @repair = Repair.new
+    @issue = Issue.find(params[:issue_id])
+  end 
 
-	def create
-		@repair = Repair.new(issue_params)
-		@car = Car.find(params[:car_id])
-		@issue = Issue.find(params[:issue_id])
-		if @repair.save
-			redirect_to car_issue_path(@car, @issue)
-		else
-			@errors = @repair.errors.full_messages
-			render 'new'
-		end
-	end
+  def create
+    @repair = Repair.new(issue_params)
+    @car = Car.find(params[:car_id])
+    @issue = Issue.find(params[:issue_id])
+    if @repair.save
+      redirect_to car_issue_path(@car, @issue)
+    else
+      @errors = @repair.errors.full_messages
+      render 'new'
+    end
+  end
 
 	# def update
 	# 	@issue = Issue.find(params[:id])
@@ -43,9 +43,9 @@ class RepairsController < ApplicationController
 	# 	redirect_to car_issue(@car, @issue)
 	# end 
 
-	private 
-	def issue_params
-		params.require(:repair).permit(:title, :description, :mileage, :date_completed, :issue_id)
-	end
+private 
+  def issue_params
+    params.require(:repair).permit(:title, :description, :mileage, :date_completed, :issue_id)
+  end
 
 end
