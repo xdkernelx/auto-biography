@@ -1,0 +1,12 @@
+<h1><%= @car.vin %></h1>
+
+<%= link_to "Create a New Maintenance Report", new_car_maintenance_path(@car) %><br><br>
+
+<% @car.maintenances.each do |maintenance| %>
+	<p>Title: <%= maintenance.title %></p>
+	<p>Body: <%= maintenance.description %></p>
+	<p>Mileage: <%= maintenance.mileage %></p>
+	<p>Date completed: <%= maintenance.date_completed %></p>
+<% end %>
+
+

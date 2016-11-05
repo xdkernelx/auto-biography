@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users
   
   resources :cars do
-  	resources :maintenance
+  	resources :maintenances
   	resources :issues do
   		resources :repairs
   	end
