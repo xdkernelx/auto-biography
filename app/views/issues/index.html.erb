@@ -4,4 +4,6 @@
 <%= issue.title %><br>
 <%= issue.description %><br>
 <%= issue.urgency %><br>
+<%= link_to "Edit", edit_car_issue_path(@car, issue.id) %><br>
+<%= link_to "Delete", car_issue_path(@car, issue.id), controller: :issue, action: :delete %><br><br>
 <% end %>
