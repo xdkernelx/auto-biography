@@ -7,3 +7,8 @@
 	<li><%= @car.transmission %></li>
 	<li><%= @car.engine %></li></ul>
 </div>
+<div>
+	<%= link_to 'edit', edit_car_path(@car) %> |
+	<%= link_to 'delete', car_path(@car), method: :delete,
+	 data: { confirm: 'Are you sure?' } %>
+</div>
