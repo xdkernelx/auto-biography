@@ -21,10 +21,10 @@
 	        <center>
 	        	<div class="navbar-right">
 	        	<% if current_user %>
-	        		<%= link_to 'Home', root_path %>
-							<%= link_to current_user.first_name, user_path(current_user) %>
+							Welcome <%= current_user.first_name%> | 
+	        				<%= link_to 'Home', root_path %> |
 							<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-						<% else %>
+				<% else %>
 		          <div class="navbar-collapse collapse" id="navbar-main">
 		      <!--          <ul class="nav navbar-nav">
 		                   <li class="active"><a href="#">Link</a>
@@ -38,19 +38,22 @@
 		                   <li><a href="#">Link</a>
 		                   </li>
 			               </ul> -->
-			          <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline" }) do|f| %>
+			          	<%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline" }) do|f| %>
 			        		<div class="form-group">
-			          		<%= f.text_field :email, :placeholder => "Email", class: "form-control" %> 
+			          			<%= f.text_field :email, :placeholder => "Email", class: "form-control" %> 
 			        		</div>
+
 			        		<div class="form-group">
-			          		<%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
+			          			<%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
 			        		</div>
-			        		<%= f.submit 'Login', class: "btn btn-default" %><br>
+
+			        			<%= f.submit 'Login', class: "btn btn-default" %><br>
+
 			        		<div class="checkbox">
-			          		<%= f.check_box :remember_me %><%= f.label :remember_me %>
+			          			<%= f.check_box :remember_me %><%= f.label :remember_me %> |
+                				<%= link_to "Register",  new_user_registration_path%>
 			        		</div>
-								<% end %>
-                <%= link_to "Register",  new_user_registration_path%>
+						<% end %>
 		          </div>
 		        <% end %>
 		      </div>

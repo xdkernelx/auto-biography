@@ -13,12 +13,10 @@
 		</li>
 			<% end %>
 	</ul>
+<div>
+<%= link_to 'add a car', new_car_path %>
+</div>
 <% else %>
 	<%= @errors %>
 <% end %>
 </div>
-
-<div>
-<%= link_to 'add a car', new_car_path %>
-</div>
-
