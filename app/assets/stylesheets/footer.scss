@@ -1,147 +1,10 @@
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
-
-$font-stack: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-$header-font: 'Lato', sans-serif;
-$merriweather-font: 'Merriweather', serif;
-$primary-color: #000000;
-$white: #FFFFFF;
-
-html,body {
-    height: 100%
-}
-
-body {
-  padding-top: 60px;
-  font: $font-stack;
-  color: $primary-color;
-  text-align: center;
-  height: 100%
-}
-
-h1 {
-  margin-top: 50px;
-}
-
-.main-h2 { 
-  font-family: $header-font;
-  font-size: 60px;
-  position: absolute; 
-  top: 85px; 
-  width: 100%; 
-  color: $white;
-}
-
-.opacity-text {
-  background-color:rgba(255,255,255,.6);
-}
-
-.specialtron {
-  height: 300px;
-}
-
-.navbar-brand {
-  margin-top: 10px;
-  font-size: 40px;
-  color: #072D3B;
-  font-weight: bold;
-}
-
-.checkbox {
-  float: right;
-  margin-right: 150px;
-  padding-top: 5px;
-}
-
-.no-padding {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-#user_remember_me {
-  margin-right: 10px;
-}
-
-.image { 
-   position: relative; 
-   width: 100%; /* for IE 6 */
-}
-
-.footer {
-  position: relative;
-  background-color: #072D3B;
-  color: $white;
-  margin-top: -150px; /* negative value of footer height */
-  height: 150px;
-  clear:both;
-  padding-top:20px;
-} 
-
-.homepage-col {
-  padding: 20px;
-  background-color: #468966;
-  color: $white;
-}
-
-.col-md-4{
-  padding:50px;
-}
-
-#main {
-  overflow:auto;
-  padding-bottom:150px; /* this needs to be bigger than footer height*/
-}
-
-/////glyphicons 
-span.glyphicon-list-alt {
-  padding-bottom: 20px;
-  font-size: 3.5em;
-}
-
-span.glyphicon-check {
-  padding-bottom: 20px;
-  font-size: 3.5em;
-}
-
-span.glyphicon-paste {
- padding-bottom: 20px;
-  font-size: 3.5em;
-}
-
-span.glyphicon-wrench {
-  font-size: .8em;
-}
-/////
-
-.footer-text {
-  margin-right: 20px;
-  font-weight: bold;
-}
-
-.issue-title {
-  font-size: 40px;
-}
-
-#wrap {
-  min-height: 100%;
-}
-
-#main {
-  overflow:auto;
-  padding-bottom:150px; /* this needs to be bigger than footer height*/
-}
-
-
-//////////
-
 
 .footer-distributed{
-  background-color: #072D3B;
+  background-color: #292c2f;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   width: 100%;
   text-align: left;
-  font: bold 16px sans-serif;
 
   padding: 55px 50px;
   margin-top: 80px;
@@ -187,7 +50,7 @@ span.glyphicon-wrench {
 }
 
 .footer-distributed .footer-company-name{
-  color:  #072D3B;
+  color:  #8f9296;
   font-size: 14px;
   font-weight: normal;
   margin: 0;
@@ -200,7 +63,7 @@ span.glyphicon-wrench {
 }
 
 .footer-distributed .footer-center i{
-  background-color:  #072D3B;
+  background-color:  #33383b;
   color: #ffffff;
   font-size: 25px;
   width: 38px;
@@ -268,7 +131,7 @@ span.glyphicon-wrench {
   width: 35px;
   height: 35px;
   cursor: pointer;
-  background-color:  #072D3B;
+  background-color:  #33383b;
   border-radius: 2px;
 
   font-size: 20px;
