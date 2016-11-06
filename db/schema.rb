@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20161104212052) do
     t.string   "first_name",             limit: 64
     t.string   "last_name",              limit: 64
     t.string   "phone",                             default: ""
+    t.boolean  "mech_status"
     t.string   "email",                             default: "", null: false
     t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"

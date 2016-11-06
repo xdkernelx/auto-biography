@@ -5,7 +5,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :first_name, { limit: 64 }
       t.string :last_name,  { limit: 64 }
       t.string :phone, { default: "" }
-      t.boolean :mech_status, { default: false }
+      t.boolean :mech_status
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
