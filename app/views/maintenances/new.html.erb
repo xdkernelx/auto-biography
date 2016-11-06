@@ -36,6 +36,7 @@
 				<%= f.submit %>
 			</p>
 		<% end %>
+		<%= link_to 'back', car_path(@car) %>
 	<% else %>
 		<h3>You are not authorized to view this page</h3>
 	<% end %>
