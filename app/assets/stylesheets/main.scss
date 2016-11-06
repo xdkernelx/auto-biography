@@ -73,7 +73,33 @@ h2 {
   padding-top:20px;
 } 
 
+.homepage-col {
+  padding: 20px;
+  background-color: #468966;
+  color: $white;
+}
+
+.col-md-4{
+  padding:50px;
+}
+
 #main {
   overflow:auto;
   padding-bottom:150px; /* this needs to be bigger than footer height*/
 }
+
+span.glyphicon-list-alt {
+  padding-bottom: 20px;
+  font-size: 3.5em;
+}
+
+span.glyphicon-check {
+  padding-bottom: 20px;
+  font-size: 3.5em;
+}
+
+span.glyphicon-wrench {
+ padding-bottom: 20px;
+  font-size: 3.5em;
+}
+
