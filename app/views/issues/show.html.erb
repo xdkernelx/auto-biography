@@ -1,16 +1,24 @@
-<h1><%=@issue.title%></h1>
-  <%= @issue.description %><br>
-  <%= @issue.urgency %><br>
-  <hr>
-  <%= button_to "New Repair", new_car_issue_repair_path(@car, @issue), method: "get" %>
-  <% @repairs.each do |repair| %><br>
-   <div class="col-md-4">
-    <div class="card card-block">
-      <h3 class="card-title"><%= repair.title %></h3><br>
-      <p class="card-text"><%= repair.date_completed %><br>
-        <%= repair.description %><br></p>
-        <%= link_to "Edit", edit_car_issue_repair_path(@car, @issue.id, repair.id) %><br>
-  	     <%= link_to "Delete", car_issue_repair_path(@car, @issue, :repair => repair), method: :delete %><br><br>
-    </div>
-    </div>
+<% if current_user %>
+  <% if current_user.id == @car.user_id %>  
+    <h1><%=@issue.title%></h1>
+      <%= @issue.description %><br>
+      <%= @issue.urgency %><br>
+      <hr>
+      <%= button_to "New Repair", new_car_issue_repair_path(@car, @issue), method: "get" %>
+      <% @repairs.each do |repair| %><br>
+       <div class="col-md-4">
+        <div class="card card-block">
+          <h3 class="card-title"><%= repair.title %></h3><br>
+          <p class="card-text"><%= repair.date_completed %><br>
+            <%= repair.description %><br></p>
+            <%= link_to "Edit", edit_car_issue_repair_path(@car, @issue.id, repair.id) %><br>
+      	     <%= link_to "Delete", car_issue_repair_path(@car, @issue, :repair => repair), method: :delete %><br><br>
+        </div>
+        </div>
+      <% end %>
+  <% else %>
+    <h3>You are not authorized to view this page</h3>
   <% end %>
+<% else %>
+  <h3>You must be logged in to view this page</h3>
+<% end %>

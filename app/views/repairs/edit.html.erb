@@ -1,23 +1,31 @@
-<h1>Edit repairs:</h1>
-<%= form_for([@car, @issue, @repair]) do |f| %>
-<p>
-  <%= f.label :title%>:
-  <%= f.text_field :title %><br />
-</p>
-<p>
-  <%= f.label :mileage%>
-  <%= f.text_field :mileage %>
-</p>
-<p>
-<p>
-  <%= f.label :date_completed %>
-  <%= f.date_field :date_completed %>
-</p>
-<p>
-  <%= f.label :description%>:
-  <%= f.text_area :description %><br />
-</p>
-<%= f.hidden_field :issue_id, :value => @issue.id %>
+<% if current_user %>		
+	<% if current_user.id == @car.user_id %>
+		<h1>Edit repairs:</h1>
+		<%= form_for([@car, @issue, @repair]) do |f| %>
+		<p>
+		  <%= f.label :title%>:
+		  <%= f.text_field :title %><br />
+		</p>
+		<p>
+		  <%= f.label :mileage%>
+		  <%= f.text_field :mileage %>
+		</p>
+		<p>
+		<p>
+		  <%= f.label :date_completed %>
+		  <%= f.date_field :date_completed %>
+		</p>
+		<p>
+		  <%= f.label :description%>:
+		  <%= f.text_area :description %><br />
+		</p>
+		<%= f.hidden_field :issue_id, :value => @issue.id %>
 
-<%= f.submit %>
+		<%= f.submit %>
+		<% end %>
+	<% else %>
+		<h3>You are not authorized to view this page</h3>
+	<% end %>
+<% else %>
+	<h3>You must be logged in to view this page</h3>
 <% end %>
