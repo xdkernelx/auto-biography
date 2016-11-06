@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   </head>
 	<div class="navbar navbar-default navbar-fixed-top">
 	    <div class="container">
@@ -16,15 +17,14 @@
 	                <span class="icon-bar"></span>
 	            </button>
 	            <a class="navbar-brand" href="#">auto-biography</a>
-	            <p> chronicle your car's history <p>
 	        </div>
 	        <center>
+	        	<div class="navbar-right">
 	        	<% if current_user %>
 	        		<%= link_to 'Home', root_path %>
 							<%= link_to current_user.first_name, user_path(current_user) %>
 							<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 						<% else %>
-							<%= link_to 'Home', root_path %>
 		          <div class="navbar-collapse collapse" id="navbar-main">
 		      <!--          <ul class="nav navbar-nav">
 		                   <li class="active"><a href="#">Link</a>
@@ -52,10 +52,17 @@
 								<% end %>
 		          </div>
 		        <% end %>
+		      </div>
 	        </center>
 	    </div>
 	</div>
   <body>
     <%= yield %>
   </body>
-</html>
+  <div id="wrap">
+  	<div id="main" class="container clear-top">
+   	 <p>Your content here</p>
+  	</div>
+	</div>
+	<footer class="footer">This is something</footer>
+	</html>
