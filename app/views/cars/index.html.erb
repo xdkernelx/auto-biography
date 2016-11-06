@@ -2,23 +2,20 @@
 
 <div>
 <% if user_signed_in? %>
+	<div>
 	<ul>
 		<% @cars.each do |car| %>
 		<li><%= car.year %> |
 		 	<%= link_to car.make, car_path(car)%> |
-			<%= car.model %> |
-			<%= link_to 'edit', edit_car_path(car) %> |
-			<%= link_to 'delete', car_path(car), method: :delete,
-        	 data: { confirm: 'Are you sure?' } %>
+			<%= car.model %>
 		</li>
 			<% end %>
 	</ul>
+	</div>
+	<div>
+		<%= link_to 'add a car', new_car_path %>
+	</div>
 <% else %>
 	<%= @errors %>
 <% end %>
 </div>
-
-<div>
-<%= link_to 'add a car', new_car_path %>
-</div>
-

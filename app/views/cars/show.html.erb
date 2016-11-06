@@ -26,8 +26,13 @@
 	<li><%= @car.engine %></li></ul>
 </div>
 
-
-<%= link_to 'maintenance', car_maintenances_path(@car) %>
-<br>
-<%= link_to 'issues', car_issues_path(@car) %>
-
+<div>
+	<%= link_to 'maintenance history', car_maintenances_path(@car) %> |
+	<%= link_to 'add new maintenance', new_car_maintenance_path(@car) %><br>
+	<%= link_to 'issues history', car_issues_path(@car) %> |
+	<%= link_to 'add new issue', new_car_issue_path(@car) %><br> 
+	<%= link_to 'edit', edit_car_path(@car) %> |
+	<%= link_to 'delete', car_path(@car), method: :delete,
+	 data: { confirm: 'Are you sure?' } %><br>
+	 <%= link_to 'back', cars_path %>
+</div>
