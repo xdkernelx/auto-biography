@@ -14,5 +14,6 @@
 	<%= link_to 'add new issue', new_car_issue_path(@car) %><br> 
 	<%= link_to 'edit', edit_car_path(@car) %> |
 	<%= link_to 'delete', car_path(@car), method: :delete,
-	 data: { confirm: 'Are you sure?' } %>
+	 data: { confirm: 'Are you sure?' } %><br>
+	 <%= link_to 'back', cars_path %>
 </div>

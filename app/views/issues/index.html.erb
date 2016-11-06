@@ -6,4 +6,5 @@
   <%= issue.urgency %><br>
   <%= link_to "Edit", edit_car_issue_path(@car, issue.id) %><br>
   <%= link_to "Delete", car_issue_path(@car, issue), method: :delete %><br><br>
+  <%= link_to 'back', car_path(@car) %>
 <% end %>
