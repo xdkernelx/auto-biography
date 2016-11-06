@@ -16,16 +16,6 @@
 	<h3>You must be logged in to view this page</h3>
 <% end %>
 
-<h1><%= @car.year %>
-<div>
-	<%= @car.make %>
-	<%= @car.model %></h1>
-	<ul>
-	<li><%= @car.color %></li>
-	<li><%= @car.transmission %></li>
-	<li><%= @car.engine %></li></ul>
-</div>
-
 <div>
 	<%= link_to 'maintenance history', car_maintenances_path(@car) %> |
 	<%= link_to 'add new maintenance', new_car_maintenance_path(@car) %><br>
