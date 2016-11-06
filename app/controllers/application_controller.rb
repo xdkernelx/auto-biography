@@ -7,11 +7,19 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(user)
-   "/cars"
+    if !current_user.mech_status
+     "/cars"
+    else
+      "/mechanic"
+    end
   end
 
   def after_sign_up_path_for(resource)
-    "/cars"
+    if !current_user.mech_status
+     "/cars"
+    else
+      "/mechanic"
+    end
   end
 
   def configure_permitted_parameters
