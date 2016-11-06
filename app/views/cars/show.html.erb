@@ -7,3 +7,7 @@
 	<li><%= @car.transmission %></li>
 	<li><%= @car.engine %></li></ul>
 </div>
+
+<%= link_to 'maintenance', car_maintenances_path(@car) %>
+<br>
+<%= link_to 'issues', car_issues_path(@car) %>
