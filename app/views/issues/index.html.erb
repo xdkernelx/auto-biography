@@ -1,15 +1,4 @@
-<<<<<<< HEAD
-<h1>Issues</h1>
-<%= button_to "New Issue", new_car_issue_path(@car), method: "get" %>
-<% @issues.each do |issue| %>
-  <span class="issue-title"><%=link_to issue.title, car_issue_path(@car, issue)%></span><br>
-  <%= issue.description %><br>
-  <%= issue.urgency %><br>
-  <%= link_to "Edit", edit_car_issue_path(@car, issue.id) %><br>
-  <%= link_to "Delete", car_issue_path(@car, issue), method: :delete %><br><br>
-  <%= link_to 'back', car_path(@car) %>
-<% end %>
-=======
+
 <% if current_user %>	
 	<% if current_user.id == @car.user_id %>	
 		<h1>Issues</h1>
@@ -20,6 +9,7 @@
 		  <%= issue.urgency %><br>
 		  <%= link_to "Edit", edit_car_issue_path(@car, issue.id) %><br>
 		  <%= link_to "Delete", car_issue_path(@car, issue), method: :delete %><br><br>
+		  <%= link_to 'back', car_path(@car) %>
 		<% end %>
 	<% else %>
 		<h3>You are not authorized to view this page</h3>
@@ -27,4 +17,3 @@
 <% else %>
 	<h3>You must be logged in to view this page</h3>
 <% end %>
->>>>>>> f3eccbf4893076cac61027d5e3f42723e4e14618
