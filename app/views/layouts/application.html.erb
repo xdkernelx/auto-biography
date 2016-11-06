@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HealthyCar</title>
+    <title>auto-biography</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -16,7 +16,7 @@
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="#">auto-biography</a>
+	            <a class="navbar-brand" href="#">auto-biography <span class="glyphicon glyphicon-wrench"></span></a>
 	        </div>
 	        <center>
 	        	<div class="navbar-right">
@@ -63,10 +63,59 @@
   <body>
     <%= yield %>
   </body>
-  <div id="wrap">
-  	<div id="main" class="container clear-top">
-   	 <p>Your content here</p>
-  	</div>
-	</div>
-	<footer class="footer">This is something</footer>
-	</html>
+<div id="wrap">
+  <div id="main" class="container clear-top">
+  </div>
+</div>
+    <footer class="footer-distributed">
+
+      <div class="footer-left">
+
+        <h3><span>auto-biography</span></h3>
+
+        <p class="footer-links">
+          <a href="#">Home</a>
+          ·
+          <a href="#">About</a>
+          ·
+          <a href="#">Faq</a>
+          ·
+          <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Team NO DRAMA &copy; 2016</p>
+      </div>
+
+      <div class="footer-center">
+
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span>633 Folsom St</span> San Francisco, CA 94107</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:support@company.com">support@company.com</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+
+        <p class="footer-company-about">
+          <span>About the company</span>
+          Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+        </p>
+
+        <div class="footer-icons">
+
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-github"></i></a>
+
+        </div>
+
+      </div>
+
+    </footer>
