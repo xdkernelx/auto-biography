@@ -1,18 +1,35 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-$font-stack: Arial, sans-serif;
+$font-stack: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+$header-font: 'Lato', sans-serif;
+$merriweather-font: 'Merriweather', serif;
 $primary-color: #000000;
+$white: #FFFFFF;
 
 body {
   padding-top: 60px;
   font: $font-stack;
   color: $primary-color;
   text-align: center;
+  height: 100%;
 }
 
-.navbar {
-  background-color: #072D3B;
+h1 {
+  margin-top: 50px;
+}
+
+h2 { 
+  font-family: $header-font;
+  font-size: 60px;
+  position: absolute; 
+  top: 85px; 
+  width: 100%; 
+  color: $white;
+}
+
+.opacity-text {
+  background-color:rgba(255,255,255,.6);
 }
 
 .specialtron {
@@ -20,14 +37,43 @@ body {
 }
 
 .navbar-brand {
+  margin-top: 10px;
 	font-size: 40px;
+  color: $white;
+  font-weight: bold;
 }
 
 .checkbox {
-	text-align: right;
+  float: right;
+  margin-right: 150px;
+  padding-top: 5px;
 }
 
 .no-padding {
   padding-left: 0;
   padding-right: 0;
+}
+
+#user_remember_me {
+  margin-right: 10px;
+}
+
+.image { 
+   position: relative; 
+   width: 100%; /* for IE 6 */
+}
+
+.footer {
+  position: relative;
+  background-color: #072D3B;
+  color: $white;
+  margin-top: -150px; /* negative value of footer height */
+  height: 150px;
+  clear:both;
+  padding-top:20px;
+} 
+
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
 }
