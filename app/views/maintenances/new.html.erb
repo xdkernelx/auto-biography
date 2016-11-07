@@ -1,46 +1,41 @@
 <div class="container">
-	<% if current_user %>
-	<% if current_user.id == @car.user_id %>
+<% if current_user %>
+	<p>Create a Maintenance Report</p>
 
-		<h1>Create a Maintenance Report</h1>
-
-		<% if @errors %>
-			<ul>
-				<% @errors.each do |error| %>
-					<li><%= error %></li>
-				<% end %>
-			</ul>
-		<% end %>
-
-		<%= form_for([@car, @car.maintenances.build]) do |f| %>
-			<p>
-				<%= f.label :title %>
-				<%= f.text_field :title, value: @maintenance.title %>
-			</p>
-
-			<p>
-				<%= f.label :description %>
-				<%= f.text_area :description, value: @maintenance.description %>
-			</p>
-
-			<p>
-				<%= f.label :mileage %>
-				<%= f.number_field :mileage, value: @maintenance.mileage %>
-			</p>
-
-			<p>
-				<%= f.label :date_completed %>
-				<%= f.date_field :date_completed, value: @maintenance.date_completed %>
-			</p>
-
-			<p>
-				<%= f.submit %>
-			</p>
-		<% end %>
-		<%= link_to 'back', car_path(@car) %>
-	<% else %>
-		<h3>You are not authorized to view this page</h3>
+	<% if @errors %>
+		<ul>
+			<% @errors.each do |error| %>
+				<li><%= error %></li>
+			<% end %>
+		</ul>
 	<% end %>
+	
+	<%= form_for([@car, @car.maintenances.build]) do |f| %>
+		<p>
+			<%= f.label :title %>
+			<%= f.text_field :title, value: @maintenance.title %>
+		</p>
+
+		<p>
+			<%= f.label :description %>
+			<%= f.text_area :description, value: @maintenance.description %>
+		</p>
+
+		<p>
+			<%= f.label :mileage %>
+			<%= f.number_field :mileage, value: @maintenance.mileage %>
+		</p>
+
+		<p>
+			<%= f.label :date_completed %>
+			<%= f.date_field :date_completed, value: @maintenance.date_completed %>
+		</p>
+
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+	<%= link_to 'back', car_path(@car) %>
 <% else %>
 	<h3>You must be logged in to view this page</h3>
 <% end %>
