@@ -23,19 +23,4 @@ class Maintenance < ApplicationRecord
 
   end
 
-  def authenticate_mileage
-
-    begin
-      issue = Issue.find(self.issue_id)
-    rescue
-      errors.add(:issue_id, "Could not find associated issue.")
-    else
-      issue = Issue.find(self.issue_id)
-      if (self.mileage < issue.car.mileage)
-        errors.add(:mileage, "mileage cannot be lower than the current state.")
-      end
-    end
-
-  end
-
 end
