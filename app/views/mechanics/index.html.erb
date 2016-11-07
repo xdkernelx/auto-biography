@@ -17,6 +17,6 @@
 
 <ul>
 	<% @available_issues.each do |issue| %>
-		<%= link_to issue.title,  %>
+		<%= link_to issue.title, car_issue_path(issue.car_id, issue) %>
 	<% end %>
 </ul>
