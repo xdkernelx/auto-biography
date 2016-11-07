@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Maintenance, type: :model do
-  before(:each) do
+  before(:all) do
     User.destroy_all
     Car.destroy_all
     Maintenance.destroy_all
