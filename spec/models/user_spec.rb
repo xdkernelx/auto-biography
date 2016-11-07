@@ -2,13 +2,13 @@ require "rails_helper"
 
 RSpec.describe User, :type => :model do
 
-  before(:all) do
+  before(:each) do
     User.destroy_all
     Car.destroy_all
     Issue.destroy_all
     Repair.destroy_all
     @lindeman = User.create(first_name: "Andy", last_name: "Lindeman", password: "password", email: "tester@test.com")
-    @travis = User.create(first_name: "Bob", last_name: "Builder", password: "password", email: "tester2@test.com")
+    @travis = User.create(first_name: "Bob", last_name: "Builder", password: "password", email: "tester2@test.com", mech_status: true)
     @star = Car.create(user_id: @lindeman.id, mileage: 100, vin: "11111111111111111")
     @dust = Car.create(user_id: @lindeman.id, mileage: 20, vin: "11111111111111119")
     @engine = Issue.create(car_id: @star.id, title: "Tail Light Problem", description: "The light will not turn on")
@@ -34,7 +34,7 @@ RSpec.describe User, :type => :model do
   end
 
   it "and it's cars and it's issues have an association to the repair reports per issue" do
-    expect(@lindeman.cars.find(@star.id).issues.find(@tail_light.id)).to eq(@tail_light_fix.issue)
+    expect(@lindeman.cars.find(@star.id).issues.find(@tail_light.id).repairs).to match_array([@tail_light_fix])
   end
 
   it "is invalid if the email is already taken" do
