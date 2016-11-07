@@ -1,16 +1,13 @@
 <div class="container">
 	<% if current_user %>	
 		<h1><%= @car.year %> <%=@car.make %> <%= @car.model %></h1>
-			<span>Color: <%= @car.color %><br></span>
-			<span>Transmission: <%= @car.transmission %><br></span>
-			<span> Engine: <%= @car.engine %><br></span>
+			<h3>Color: <%= @car.color %><br></h3>
+			<h3>Transmission: <%= @car.transmission %><br></h3>
+			<h3> Engine: <%= @car.engine %><br></h3>
 <% else %>
 	<h3>You must be logged in to view this page</h3>
 <% end %>
-
 <div>
-	<%= link_to 'maintenance history', car_maintenances_path(@car) %> |
-	<%= link_to 'issues history', car_issues_path(@car) %> |
 	<%= link_to 'edit', edit_car_path(@car) %> |
 	<%= link_to 'delete', car_path(@car)%><br>
 	 <%= link_to 'back', cars_path %>
@@ -21,7 +18,8 @@
 	    <li><a href="#fragment-2">Issues</a></li>
 	  </ul>
 	  <div id="fragment-1">
-	  	<%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %><br>
+	  	<%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %><br><br>
+	  	<%= link_to 'Maintenance History', car_maintenances_path(@car), class: "btn btn-green" %> 
 	    <p> <% @car.maintenances.each do |maintenance|%>
 	    	<%= maintenance.title %><br>
 	    	<%= maintenance.date_completed %><br>
@@ -30,7 +28,8 @@
 	   </p>
 	  </div>
 	  <div id="fragment-2">
-	  	<%= link_to 'Add New Issue', new_car_issue_path(@car), class: "btn btn-red" %><br> 
+	  	<%= link_to 'Add New Issue', new_car_issue_path(@car), class: "btn btn-red" %><br><br>
+			<%= link_to 'Issue History', car_issues_path(@car), class: "btn btn-red" %> 
 	    <p><% @car.issues.each do |issue|%>
 	    	<%= issue.title %><br>
 	    	<%= issue.description%><br>

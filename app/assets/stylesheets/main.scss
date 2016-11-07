@@ -30,9 +30,6 @@ h1 {
   color: $dark-gray-accent;
 }
 
-h3 {
-  margin-top: 50px;
-}
 
 .devise-form-div {
   display: block;
@@ -369,6 +366,9 @@ span.glyphicon-wrench {
   font-size: 18px;
 } 
 
+#tabs .ui-tabs-panel {
+  min-height: 500px;
+}
 
 ///*button styling*////
 
@@ -398,7 +398,12 @@ span.glyphicon-wrench {
   font-size: 16px;
   color: #FFFFFF !important;
   }
-  
+
+.btn-red:hover {
+  background-color: #000000, !important;
+  background: #000000, !important;
+}
+
 .btn-green {
   background: #468966 !important;
   border-color: #468966 !important;
