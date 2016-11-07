@@ -1,2 +1,14 @@
 <h1>Mechanic landing page  </h1>
 <p>List all of the repairs that the mechanic needs to review</p>
+
+<h2>Past Repairs</h2>
+
+<ul>
+	<% @mechanic.repairs.each do |repair| %>
+		<li><%= repair.title %></li>
+		<li><%= repair.description %></li>
+		<li><%= repair.mileage %></li>
+		<li><%= repair.date_completed %></li>
+		<li><%= repair.issue_id %></li>
+	<% end %>
+</ul>
