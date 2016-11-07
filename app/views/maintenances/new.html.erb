@@ -1,6 +1,6 @@
 <div class="container">
 <% if current_user %>
-	<p>Create a Maintenance Report</p>
+	<h1>Create a Maintenance Report</h1>
 
 	<% if @errors %>
 		<ul>
@@ -32,13 +32,11 @@
 		</p>
 
 		<p>
-			<%= f.submit%>
+			<%= f.submit "Create report", class: 'btn btn-primary'%>
 		</p>
-	<% end %>
+	<% end %><br><br>
 	<%= link_to 'back', car_path(@car) %>
 <% else %>
 	<h3>You must be logged in to view this page</h3>
 <% end %>
 </div>
-
-199CCC
