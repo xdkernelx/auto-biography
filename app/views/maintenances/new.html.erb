@@ -1,7 +1,8 @@
-<% if current_user %>
+<div class="container">
+	<% if current_user %>
 	<% if current_user.id == @car.user_id %>
 
-		<p>Create a Maintenance Report</p>
+		<h1>Create a Maintenance Report</h1>
 
 		<% if @errors %>
 			<ul>
@@ -43,3 +44,4 @@
 <% else %>
 	<h3>You must be logged in to view this page</h3>
 <% end %>
+</div>

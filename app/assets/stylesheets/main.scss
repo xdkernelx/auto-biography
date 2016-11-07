@@ -248,7 +248,7 @@ span.glyphicon-wrench {
 
 .footer-distributed .footer-company-about{
   line-height: 20px;
-  color:  #92999f;
+  color: #e3e3e3;
   font-size: 13px;
   font-weight: normal;
   margin: 0;
@@ -307,39 +307,36 @@ span.glyphicon-wrench {
 
 /*tab edits*/
 
-#tabs .ui-widget-header {
-  background-color: #FFFFFF !important;
-}
 
-.ui-tabs .ui-tabs-hide {
-    display: none;
+/*Do not show grey background (folder style)*/
+#tabs .ui-widget-header { border: none; background: none; }
+
+#tabs .ui-tabs-tab {
+  align: center;
+  text-align: center;
 }
 
 #tabs .ui-tabs-nav {
-    margin: 0;
-    padding: 0 0 0 0.5em;
-    overflow: hidden;
+  float: none; text-align: center;  
 }
 
 #tabs .ui-tabs-nav li {
-    float: left;
-    list-style-type: none;
-    background: #d0d0d0;
-    margin: 0 0.5em 0 0;
-    padding: 0.25em 1em;
+  display: inline-block; float: none;  
 }
 
-#tabs .ui-tabs-nav li.ui-tabs-selected {
-    background: #e3e3e3;
+#tabs .ui-tabs .ui-tabs-nav li.ui-tabs-active a {
+    color: #000000;
 }
 
-#tabs .ui-tabs-nav a {
-    text-decoration: none;
-    font-family: $header-font;
-    font-size: 1.2em;
-}
+#tabs .ui-tabs-nav li a {
+  float: none;
+  color: #468966;
+  line-height: 400%;
+} 
 
-#tabs .ui-tabs-panel {
-    background: #FFFFFF;
-    padding: 0.75em 1em;
-}
+#tabs .ui-tabs-nav li a {
+  float: none;
+  color: #1581A8;
+  line-height: 300%;
+  font-size: 18px;
+} 
