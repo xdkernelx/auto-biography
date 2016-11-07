@@ -1,13 +1,9 @@
 <div class="container">
 	<% if current_user %>	
-		<h1><%= @car.year %></h1>
-		<div>
-			<%= @car.make %>
-			<%= @car.model %></h1>
-			<%= @car.color %>
-			<%= @car.transmission %>
-			<%= @car.engine %>
-		</div>
+		<h1><%= @car.year %> <%=@car.make %> <%= @car.model %></h1>
+			<%= @car.color %><br>
+			<%= @car.transmission %><br>
+			<%= @car.engine %><br>
 <% else %>
 	<h3>You must be logged in to view this page</h3>
 <% end %>
@@ -18,8 +14,7 @@
 	<%= link_to 'issues history', car_issues_path(@car) %> |
 	<%= link_to 'add new issue', new_car_issue_path(@car) %><br> 
 	<%= link_to 'edit', edit_car_path(@car) %> |
-	<%= link_to 'delete', car_path(@car), method: :delete,
-	 data: { confirm: 'Are you sure?' } %><br>
+	<%= link_to 'delete', car_path(@car)><br>
 	 <%= link_to 'back', cars_path %>
 </div>
 	<div id="tabs">
