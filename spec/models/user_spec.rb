@@ -16,6 +16,10 @@ RSpec.describe User, :type => :model do
     @engine_fix = Repair.create(issue_id: @engine.id, title: "Engine dead", description: "Engine is dead. Please buy a new one", mileage: 3200, date_completed: "11/04/2016")
   end
 
+  it "makes sure that @lindeman exists" do
+    expect(@lindeman).to eq(@lindeman)
+  end
+
   it "allows the phone entry to be blank" do
     expect(@lindeman.phone).to eq("")
   end

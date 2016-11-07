@@ -24,20 +24,8 @@
 							Welcome <%= current_user.first_name%> | 
 	        				<%= link_to 'Home', cars_path %> |
 							<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-				<% else %>
+				    <% else %>
 		          <div class="navbar-collapse collapse" id="navbar-main">
-		      <!--          <ul class="nav navbar-nav">
-		                   <li class="active"><a href="#">Link</a>
-		                   </li>
-		                   <li><a href="#">Link</a>
-		                   </li>d
-		                   <li><a href="#">Link</a>
-		                   </li>
-		                   <li><a href="#">Link</a>
-		                   </li>
-		                   <li><a href="#">Link</a>
-		                   </li>
-			               </ul> -->
 			          	<%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline" }) do|f| %>
 			        		<div class="form-group">
 			          			<%= f.text_field :email, :placeholder => "Email", class: "form-control" %> 
@@ -53,7 +41,7 @@
 			          			<%= f.check_box :remember_me %><%= f.label :remember_me %> |
                 				<%= link_to "Register",  new_user_registration_path%>
 			        		</div>
-						<% end %>
+						  <% end %>
 		          </div>
 		        <% end %>
 		      </div>
@@ -119,3 +107,4 @@
       </div>
 
     </footer>
+
