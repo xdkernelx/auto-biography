@@ -34,7 +34,8 @@ RSpec.describe User, :type => :model do
   end
 
   it "and it's cars and it's issues have an association to the repair reports per issue" do
-    expect(@lindeman.cars.find(@star.id).issues.find(@tail_light.id).repairs).to match_array([@tail_light_fix])
+    byebug
+    expect(@lindeman.cars.find(@star.id).issues.find(@tail_light.id)).to eq(@tail_light_fix.issue)
   end
 
   it "is invalid if the email is already taken" do

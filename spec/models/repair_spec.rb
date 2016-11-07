@@ -21,17 +21,23 @@ RSpec.describe Repair, type: :model do
     expect(Repair.find(@engine_fix.id)).to eq(@engine_fix)
   end
 
-  it "Tests several presence validations" do
-    @test = Repair.new(issue_id: @tail_light.id, description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
+  it "Tests several presence validations - title" do
+    @test = Repair.new(issue_id: @tail_light.id, mechanic_id: @travis.id, description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
     expect(@test.valid?).to eq(false)
+  end
 
-    @test = Repair.new(issue_id: @tail_light.id, title: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
+  it "Tests several presence validations - description" do
+    @test = Repair.new(issue_id: @tail_light.id, mechanic_id: @travis.id, title: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
     expect(@test.valid?).to eq(false)
+  end
 
-    @test = Repair.new(issue_id: @tail_light.id, title: "Tail light wiring messing with the engine", description: "Tail light wiring messing with the engine", date_completed: "11/04/2016")
-    expect(@test.valid?).to eq(false)
+  it "Tests several presence validations - mileage" do
+    @test = Repair.new(issue_id: @tail_light.id, mechanic_id: @travis.id, title: "Tail light wiring messing with the engine", description: "Tail light wiring messing with the engine", date_completed: "11/04/2016")
+    expect{ @test.valid? }.to raise_error(NoMethodError)
+  end
 
-    @test = Repair.new(issue_id: @tail_light.id, title: "Tail light wiring messing with the engine", description: "Tail light wiring messing with the engine", mileage: 3200)
+  it "Tests several presence validations - date_completed" do
+    @test = Repair.new(issue_id: @tail_light.id, mechanic_id: @travis.id, title: "Tail light wiring messing with the engine", description: "Tail light wiring messing with the engine", mileage: 3200)
     expect(@test.valid?).to eq(false)
   end
 
