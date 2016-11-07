@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :lockable, :trackable, :validatable
 
   has_many :cars
+  has_many :repairs, foreign_key: :mechanic_id
+  has_many :maintenances, foreign_key: :mechanic_id
 
   validates :first_name, :last_name, { presence: true }
   validates :zip_code, format: { with: /\A[0-9]{5}\z/ }, allow_blank: true

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     if !current_user.mech_status
      "/cars"
     else
-      "/mechanic"
+      "/mechanics"
     end
   end
 
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     if !current_user.mech_status
      "/cars"
     else
-      "/mechanic"
+      "/mechanics"
     end
   end
 
@@ -28,3 +28,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update){|u| u.permit(:first_name, :last_name, :phone, :email, :password, :password_confirmation, :remember_me)}
   end
 end
+
