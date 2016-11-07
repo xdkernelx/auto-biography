@@ -1,6 +1,5 @@
 <div class="container">
-	<% if current_user %>	
-	<% if current_user.id == @car.user_id %>
+	<% if current_user %>
 		<h1><%= @car.year %></h1>
 		<div>
 			<%= @car.make %>

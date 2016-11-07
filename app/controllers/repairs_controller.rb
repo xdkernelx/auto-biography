@@ -14,8 +14,15 @@ class RepairsController < ApplicationController
     @repair = Repair.new(repair_params)
     @car = Car.find(params[:car_id])
     @issue = Issue.find(params[:issue_id])
+    @repair.issue_id = @issue.id
+    @repair.mechanic_id = current_user.id
+
     if @repair.save
-      redirect_to car_issue_path(@car, @issue)
+      if current_user.mech_status == true
+        render 'thanks'
+      else
+        redirect_to car_issue_path(@car, @issue)
+      end
     else
       @errors = @repair.errors.full_messages
       render 'new'
