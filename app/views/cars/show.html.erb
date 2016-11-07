@@ -1,5 +1,5 @@
 <div class="container">
-	<% if current_user %>
+	<% if current_user %>	
 		<h1><%= @car.year %></h1>
 		<div>
 			<%= @car.make %>
@@ -8,9 +8,6 @@
 			<%= @car.transmission %>
 			<%= @car.engine %>
 		</div>
-	<% else %>
-		<h3>You are not authorized to view this page</h3>
-	<% end %>
 <% else %>
 	<h3>You must be logged in to view this page</h3>
 <% end %>
