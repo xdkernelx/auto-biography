@@ -12,3 +12,11 @@
 		<li><%= repair.issue_id %></li>
 	<% end %>
 </ul>
+
+<h2>Potential Customer Issues</h2>
+
+<ul>
+	<% @available_issues.each do |issue| %>
+		<%= link_to issue.title,  %>
+	<% end %>
+</ul>

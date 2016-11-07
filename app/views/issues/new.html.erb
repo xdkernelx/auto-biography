@@ -29,6 +29,9 @@
       <%= f.label :urgency, '5', :value => '5' %>
       <%= f.hidden_field :car_id, :value => @car.id %>
     </p>
+    <p>
+      <%= f.check_box :open, {}, true %> <%= f.label :open, "Show issue to all mechanics" %>
+    </p>
     <%= f.submit %>
   <% end %>
   <%= link_to 'back', car_path(@car) %>
