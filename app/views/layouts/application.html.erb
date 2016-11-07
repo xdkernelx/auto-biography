@@ -22,7 +22,7 @@
 	        	<div class="navbar-right">
 	        	<% if current_user %>
 							Welcome <%= current_user.first_name%> | 
-	        				<%= link_to 'Home', root_path %> |
+	        				<%= link_to 'Home', cars_path %> |
 							<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 				    <% else %>
 		          <div class="navbar-collapse collapse" id="navbar-main">
