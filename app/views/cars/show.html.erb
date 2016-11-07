@@ -29,7 +29,7 @@
 	<div id="tabs">
 	  <ul>
 	    <li><a href="#fragment-1">Maintenance</a></li>
-	    <li><a href="#fragment-2">Repairs</a></li>
+	    <li><a href="#fragment-2">Issues</a></li>
 	  </ul>
 	  <div id="fragment-1">
 	    <p> <% @car.maintenances.each do |maintenance|%>
@@ -40,7 +40,11 @@
 	   </p>
 	  </div>
 	  <div id="fragment-2">
-	    <p>A second thing </p>
+	    <p><% @car.issues.each do |issue|%>
+	    	<%= issue.title %><br>
+	    	<%= issue.description%><br>
+	    	<%= issue.urgency %><br><br>
+	    	<%end%> </p>
 	  </div>
 	</div>
 </div>
