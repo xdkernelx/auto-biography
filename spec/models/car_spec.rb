@@ -20,7 +20,7 @@ RSpec.describe Car, :type => :model do
   end
 
   it "return false when the user is having an existential crisis" do
-    @test = Car.new(user_id: 2, mileage: 1, vin: "333333FFFFFF66667")
+    @test = Car.new(user_id: 0, mileage: 1, vin: "333333FFFFFF66667")
     expect( @test.valid? ).to eq(false)
   end
 
