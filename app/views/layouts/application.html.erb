@@ -6,6 +6,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   </head>
 	<div class="navbar navbar-default navbar-fixed-top">
@@ -21,23 +24,11 @@
 	        <center>
 	        	<div class="navbar-right">
 	        	<% if current_user %>
-							Welcome <%= current_user.first_name%> | 
+							Welcome, <%= current_user.first_name%>. | 
 	        				<%= link_to 'Home', cars_path %> |
 							<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-				<% else %>
+				    <% else %>
 		          <div class="navbar-collapse collapse" id="navbar-main">
-		      <!--          <ul class="nav navbar-nav">
-		                   <li class="active"><a href="#">Link</a>
-		                   </li>
-		                   <li><a href="#">Link</a>
-		                   </li>d
-		                   <li><a href="#">Link</a>
-		                   </li>
-		                   <li><a href="#">Link</a>
-		                   </li>
-		                   <li><a href="#">Link</a>
-		                   </li>
-			               </ul> -->
 			          	<%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline" }) do|f| %>
 			        		<div class="form-group">
 			          			<%= f.text_field :email, :placeholder => "Email", class: "form-control" %> 
@@ -45,7 +36,7 @@
 
 			        		<div class="form-group">
 			          			<%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
-			        		</div>
+			        		</div
 
 			        			<%= f.submit 'Login', class: "btn btn-default" %><br>
 
@@ -53,7 +44,7 @@
 			          			<%= f.check_box :remember_me %><%= f.label :remember_me %> |
                 				<%= link_to "Register",  new_user_registration_path%>
 			        		</div>
-						<% end %>
+						  <% end %>
 		          </div>
 		        <% end %>
 		      </div>
@@ -119,3 +110,4 @@
       </div>
 
     </footer>
+

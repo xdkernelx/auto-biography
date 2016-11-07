@@ -1,28 +1,43 @@
-<% if current_user %>	
-	<% if current_user.id == @car.user_id %>
-		<h1><%= @car.year %>
-		<div>
-			<%= @car.make %>
-			<%= @car.model %></h1>
-			<ul>
-			<li><%= @car.color %></li>
-			<li><%= @car.transmission %></li>
-			<li><%= @car.engine %></li></ul>
-		</div>
-	<% else %>
-		<h3>You are not authorized to view this page</h3>
-	<% end %>
+<div class="container">
+	<% if current_user %>	
+		<h1><%= @car.year %> <%=@car.make %> <%= @car.model %></h1>
+			<h3>Color: <%= @car.color %><br></h3>
+			<h3>Transmission: <%= @car.transmission %><br></h3>
+			<h3> Engine: <%= @car.engine %><br></h3>
 <% else %>
 	<h3>You must be logged in to view this page</h3>
 <% end %>
-
 <div>
-	<%= link_to 'maintenance history', car_maintenances_path(@car) %> |
-	<%= link_to 'add new maintenance', new_car_maintenance_path(@car) %><br>
-	<%= link_to 'issues history', car_issues_path(@car) %> |
-	<%= link_to 'add new issue', new_car_issue_path(@car) %><br> 
 	<%= link_to 'edit', edit_car_path(@car) %> |
-	<%= link_to 'delete', car_path(@car), method: :delete,
-	 data: { confirm: 'Are you sure?' } %><br>
+	<%= link_to 'delete', car_path(@car)%><br>
 	 <%= link_to 'back', cars_path %>
 </div>
+	<div id="tabs">
+	  <ul>
+	    <li><a href="#fragment-1">Maintenance</a></li>
+	    <li><a href="#fragment-2">Issues</a></li>
+	  </ul>
+	  <div id="fragment-1">
+	  	<%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %><br><br>
+	  	<%= link_to 'Maintenance History', car_maintenances_path(@car), class: "btn btn-green" %> 
+	    <p> <% @car.maintenances.each do |maintenance|%>
+	    	<%= maintenance.title %><br>
+	    	<%= maintenance.date_completed %><br>
+	    	<%= maintenance.description %><br><br>
+	    	<%end%>
+	   </p>
+	  </div>
+	  <div id="fragment-2">
+	  	<%= link_to 'Add New Issue', new_car_issue_path(@car), class: "btn btn-red" %><br><br>
+			<%= link_to 'Issue History', car_issues_path(@car), class: "btn btn-red" %> 
+	    <p><% @car.issues.each do |issue|%>
+	    	<%= issue.title %><br>
+	    	<%= issue.description%><br>
+	    	<%= issue.urgency %><br><br>
+	    	<%end%> </p>
+	  </div>
+	</div>
+</div>
+<script>
+  $( "#tabs" ).tabs({collapsible: true});
+</script>

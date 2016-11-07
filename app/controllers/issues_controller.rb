@@ -46,7 +46,7 @@ class IssuesController < ApplicationController
   private
 
   def issue_params
-    params.require(:issue).permit(:title, :description, :urgency, :car_id)
+    params.require(:issue).permit(:title, :description, :urgency, :open, :car_id)
   end
 
   def find_car_and_issue

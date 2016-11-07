@@ -5,10 +5,16 @@ $font-stack: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", He
 $header-font: 'Lato', sans-serif;
 $merriweather-font: 'Merriweather', serif;
 $primary-color: #000000;
+$blue-accent: #072D3B;
+$gray-accent: #F1F4F8;
+$light-accent: #199CCC;
+$green-accent: #468966;
+$dark-gray-accent: #686B6B;
 $white: #FFFFFF;
 
 html,body {
-    height: 100%
+  height: 100%;
+  background-color: $gray-accent;
 }
 
 body {
@@ -16,16 +22,42 @@ body {
   font: $font-stack;
   color: $primary-color;
   text-align: center;
-  height: 100%
+  height: 100%;
 }
 
 h1 {
   margin-top: 50px;
+  color: $dark-gray-accent;
 }
 
+
+.devise-form-div {
+  display: block;
+  text-align: center;
+}
+
+.devise-form {
+  background-color: $white;
+  width: 25%;
+  display: inline-block;
+  padding: 20px;
+}
+
+form {
+  background-color: $white;
+  width: 25%;
+  display: inline-block;
+  padding: 20px;
+  color: $dark-gray-accent;
+  border: 1px solid #ddd;
+}
+
+ul {
+  text-decoration: none;
+}
 .main-h2 { 
   font-family: $header-font;
-  font-size: 60px;
+  font-size: 40px;
   position: absolute; 
   top: 85px; 
   width: 100%; 
@@ -41,7 +73,8 @@ h1 {
 }
 
 .navbar {
-  color: #072D3B;
+  color: $blue-accent;
+  height: 100px;
 }
 
 .navbar-brand {
@@ -72,7 +105,7 @@ h1 {
 
 .footer {
   position: relative;
-  background-color: #072D3B;
+  background-color: $blue-accent;
   color: $white;
   margin-top: -150px; /* negative value of footer height */
   height: 150px;
@@ -126,7 +159,7 @@ span.glyphicon-wrench {
 }
 
 #wrap {
-  min-height: 100%;
+  min-height: 80%;
 }
 
 #main {
@@ -157,8 +190,6 @@ span.glyphicon-wrench {
   vertical-align: top;
 }
 
-/* Footer left */
-
 .footer-distributed .footer-left{
   width: 40%;
 }
@@ -171,7 +202,7 @@ span.glyphicon-wrench {
 }
 
 .footer-distributed h3 span{
-  color:  #5383d3;
+  color:  #199CCC;
 }
 
 /* Footer links */
@@ -203,7 +234,7 @@ span.glyphicon-wrench {
 }
 
 .footer-distributed .footer-center i{
-  background-color:  #072D3B;
+  background-color:  $blue-accent;
   color: #ffffff;
   font-size: 25px;
   width: 38px;
@@ -215,10 +246,6 @@ span.glyphicon-wrench {
   vertical-align: middle;
 }
 
-.footer-distributed .footer-center i.fa-envelope{
-  font-size: 17px;
-  line-height: 38px;
-}
 
 .footer-distributed .footer-center p{
   display: inline-block;
@@ -235,7 +262,7 @@ span.glyphicon-wrench {
 }
 
 .footer-distributed .footer-center p a{
-  color:  #5383d3;
+  color:  #199CCC;
   text-decoration: none;;
 }
 
@@ -248,7 +275,7 @@ span.glyphicon-wrench {
 
 .footer-distributed .footer-company-about{
   line-height: 20px;
-  color:  #92999f;
+  color: #e3e3e3;
   font-size: 13px;
   font-weight: normal;
   margin: 0;
@@ -271,7 +298,7 @@ span.glyphicon-wrench {
   width: 35px;
   height: 35px;
   cursor: pointer;
-  background-color:  #072D3B;
+  background-color:  #blue-accent;
   border-radius: 2px;
 
   font-size: 20px;
@@ -283,7 +310,7 @@ span.glyphicon-wrench {
   margin-bottom: 5px;
 }
 
-/* If you don't want the footer to be responsive, remove these media queries */
+/* responsive */
 
 @media (max-width: 880px) {
 
@@ -303,5 +330,86 @@ span.glyphicon-wrench {
   .footer-distributed .footer-center i{
     margin-left: 0;
   }
-
 }
+
+////////*tab styling*////////
+/*Do not show grey background (folder style)*/
+#tabs .ui-widget-header { border: none; background: none; }
+
+#tabs .ui-tabs-tab {
+  align: center;
+  text-align: center;
+}
+
+#tabs .ui-tabs-nav {
+  float: none; text-align: center;  
+}
+
+#tabs .ui-tabs-nav li {
+  display: inline-block; float: none;  
+}
+
+#tabs .ui-tabs .ui-tabs-nav li.ui-tabs-active a {
+    color: #000000;
+}
+
+#tabs .ui-tabs-nav li a {
+  float: none;
+  color: #468966;
+  line-height: 200%;
+} 
+
+#tabs .ui-tabs-nav li a {
+  float: none;
+  color: #1581A8;
+  line-height: 200%;
+  font-size: 18px;
+} 
+
+#tabs .ui-tabs-panel {
+  min-height: 500px;
+}
+
+///*button styling*////
+
+.btn-primary {
+  background: $light-accent !important;
+  border-color: $light-accent !important;
+  border-radius: 5px !important;
+  width: 200px;
+  font-size: 16px;
+}
+
+.btn-secondary {
+  background: $dark-gray-accent!important;
+  border-color: $dark-gray-accent !important;
+  border-radius: 5px !important;
+  width: 200px;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+
+.btn-red {
+  background: #8F2C29 !important;
+  border-color: #8F2C29 !important;
+  border-radius: 5px !important;
+  width: 200px;
+  font-size: 16px;
+  color: #FFFFFF !important;
+  }
+
+.btn-red:hover {
+  background-color: #000000, !important;
+  background: #000000, !important;
+}
+
+.btn-green {
+  background: #468966 !important;
+  border-color: #468966 !important;
+  border-radius: 5px !important;
+  width: 200px;
+  font-size: 16px;
+  color: #FFFFFF !important;
+}
+

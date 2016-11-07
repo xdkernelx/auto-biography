@@ -1,10 +1,12 @@
-<% if current_user %>
-  <% if current_user.id == @car.user_id %>  
-    <h1><%=@issue.title%></h1>
-      <%= @issue.description %><br>
-      <%= @issue.urgency %><br>
-      <%= link_to 'back', car_issues_path(@car) %>
-      <hr>
+<% if current_user %> 
+  <h1><%=@issue.title%></h1>
+    <%= @issue.description %><br>
+    <%= @issue.urgency %><br>
+    <%= link_to 'back', car_issues_path(@car) %>
+    <hr>
+    <% if mechanic? %>
+      <%= button_to "New Repair", new_car_issue_repair_path(@car, @issue), method: "get" %>
+    <% else %>
       <%= button_to "New Repair", new_car_issue_repair_path(@car, @issue), method: "get" %>
       <% @repairs.each do |repair| %><br>
        <div class="col-md-4">
@@ -17,9 +19,7 @@
         </div>
         </div>
       <% end %>
-  <% else %>
-    <h3>You are not authorized to view this page</h3>
-  <% end %>
+    <% end %>
 <% else %>
   <h3>You must be logged in to view this page</h3>
 <% end %>
