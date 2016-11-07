@@ -73,16 +73,39 @@ RSpec.describe User, :type => :model do
     end
   end
 
-  context "validations" do
+  context "phone validations" do
     it "checks if the phone integer is 10" do
       @test = User.new(first_name: "Andy", last_name: "Lindeman", phone: 1234567891, password: "123456", email: "different@test.com")
       expect(@test.valid?).to eq(true)
     end
 
-    it "checks if the phone integer is below or greater than size: 10 " do
-      @test = User.new(first_name: "Andy", last_name: "Lindeman", phone: 123456789, password: "123456", email: "different@test.com")
+    it "check if the phone integer is non-10" do
+      @test = User.new(first_name: "Andy", last_name: "Lindeman", phone: "123456789", password: "123456", email: "different@test.com")
       expect(@test.valid?).to eq(false)
-      @test = User.new(first_name: "Andy", last_name: "Lindeman", phone: 12345678912, password: "123456", email: "different@test.com")
+    end
+
+    it "check if the phone can be entered as a string" do
+      @test = User.new(first_name: "Andy", last_name: "Lindeman", phone: "1234567891", password: "123456", email: "different@test.com")
+      expect(@test.valid?).to eq(true)
+    end
+
+    it "check if invalid is thrown with a non-numeric phone" do
+      @test = User.new(first_name: "Andy", last_name: "Lindeman", phone: "123456789s", password: "123456", email: "different@test.com")
+      expect(@test.valid?).to eq(false)
+    end
+
+  end
+
+  context "zip_code validations" do
+    it "check if the zip_code is length: 5 " do
+      @test = User.new(first_name: "Andy", last_name: "Lindeman", zip_code: "09233", password: "123456", email: "different@test.com")
+      expect(@test.valid?).to eq(true)
+    end
+
+    it "check if invalid is thrown with anything higher or lower than size: 5" do
+      @test = User.new(first_name: "Andy", last_name: "Lindeman", zip_code: "123456", password: "123456", email: "different@test.com")
+      expect(@test.valid?).to eq(false)
+      @test = User.new(first_name: "Andy", last_name: "Lindeman", zip_code: "1234", password: "123456", email: "different@test.com")
       expect(@test.valid?).to eq(false)
     end
   end
