@@ -1,13 +1,17 @@
 <% if current_user %>	
 	<h1>Issues</h1>
-		<%= button_to "New Issue", new_car_issue_path(@car), method: "get" %>
-		<% @issues.each do |issue| %>
-		  <span class="issue-title"><%=link_to issue.title, car_issue_path(@car, issue)%></span><br>
-		  <%= issue.description %><br>
-		  <%= issue.urgency %><br>
-		  <%= link_to "Edit", edit_car_issue_path(@car, issue.id) %><br>
-		  <%= link_to "Delete", car_issue_path(@car, issue), method: :delete %><br><br>
-		  <%= link_to 'back', car_path(@car) %>
+		<% if mechanic? %>
+			<% @issues.each do |issue| %>
+				<%= link_to issue.title, car_issue_path(@car, issue) %><br>
+			<% end %>
+		<% else %>
+				<%= button_to "New Issue", new_car_issue_path(@car), method: "get" %>
+				<% @issues.each do |issue| %>
+				  <span class="issue-title"><%=link_to issue.title, car_issue_path(@car, issue)%></span><br>
+				  <%= link_to "Edit", edit_car_issue_path(@car, issue.id) %><br>
+				  <%= link_to "Delete", car_issue_path(@car, issue), method: :delete %><br><br>
+				<% end %>
+				<%= link_to 'back', car_path(@car) %>
 		<% end %>
 <% else %>
 	<h3>You must be logged in to view this page</h3>
