@@ -23,6 +23,10 @@ h1 {
   margin-top: 50px;
 }
 
+h3 {
+  margin-top: 50px;
+}
+
 .main-h2 { 
   font-family: $header-font;
   font-size: 60px;
@@ -158,7 +162,6 @@ span.glyphicon-wrench {
   vertical-align: top;
 }
 
-
 .footer-distributed .footer-left{
   width: 40%;
 }
@@ -215,10 +218,7 @@ span.glyphicon-wrench {
   vertical-align: middle;
 }
 
-.footer-distributed .footer-center i.fa-envelope{
-  font-size: 17px;
-  line-height: 38px;
-}
+
 
 .footer-distributed .footer-center p{
   display: inline-block;
@@ -303,5 +303,43 @@ span.glyphicon-wrench {
   .footer-distributed .footer-center i{
     margin-left: 0;
   }
+}
 
+/*tab edits*/
+
+#tabs .ui-widget-header {
+  background-color: #FFFFFF !important;
+}
+
+.ui-tabs .ui-tabs-hide {
+    display: none;
+}
+
+#tabs .ui-tabs-nav {
+    margin: 0;
+    padding: 0 0 0 0.5em;
+    overflow: hidden;
+}
+
+#tabs .ui-tabs-nav li {
+    float: left;
+    list-style-type: none;
+    background: #d0d0d0;
+    margin: 0 0.5em 0 0;
+    padding: 0.25em 1em;
+}
+
+#tabs .ui-tabs-nav li.ui-tabs-selected {
+    background: #e3e3e3;
+}
+
+#tabs .ui-tabs-nav a {
+    text-decoration: none;
+    font-family: $header-font;
+    font-size: 1.2em;
+}
+
+#tabs .ui-tabs-panel {
+    background: #FFFFFF;
+    padding: 0.75em 1em;
 }

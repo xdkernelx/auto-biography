@@ -1,13 +1,16 @@
-<% if current_user %>	
-	<h1><%= @car.year %>
-	<div>
-		<%= @car.make %>
-		<%= @car.model %></h1>
-		<ul>
-		<li><%= @car.color %></li>
-		<li><%= @car.transmission %></li>
-		<li><%= @car.engine %></li></ul>
-	</div>
+<div class="container">
+	<% if current_user %>
+		<h1><%= @car.year %></h1>
+		<div>
+			<%= @car.make %>
+			<%= @car.model %></h1>
+			<%= @car.color %>
+			<%= @car.transmission %>
+			<%= @car.engine %>
+		</div>
+	<% else %>
+		<h3>You are not authorized to view this page</h3>
+	<% end %>
 <% else %>
 	<h3>You must be logged in to view this page</h3>
 <% end %>
@@ -22,3 +25,28 @@
 	 data: { confirm: 'Are you sure?' } %><br>
 	 <%= link_to 'back', cars_path %>
 </div>
+	<div id="tabs">
+	  <ul>
+	    <li><a href="#fragment-1">Maintenance</a></li>
+	    <li><a href="#fragment-2">Issues</a></li>
+	  </ul>
+	  <div id="fragment-1">
+	    <p> <% @car.maintenances.each do |maintenance|%>
+	    	<%= maintenance.title %><br>
+	    	<%= maintenance.date_completed %><br>
+	    	<%= maintenance.description %><br><br>
+	    	<%end%>
+	   </p>
+	  </div>
+	  <div id="fragment-2">
+	    <p><% @car.issues.each do |issue|%>
+	    	<%= issue.title %><br>
+	    	<%= issue.description%><br>
+	    	<%= issue.urgency %><br><br>
+	    	<%end%> </p>
+	  </div>
+	</div>
+</div>
+<script>
+  $( "#tabs" ).tabs({collapsible: true});
+</script>
