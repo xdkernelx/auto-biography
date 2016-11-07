@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20161104212052) do
     t.integer  "mileage"
     t.integer  "mechanic_id"
     t.date     "date_completed"
+    t.integer  "rating"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 20161104212052) do
     t.integer  "mileage"
     t.integer  "mechanic_id"
     t.date     "date_completed"
+    t.integer  "rating"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
