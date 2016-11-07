@@ -1,13 +1,13 @@
 <div class="container">
-<% if current_user %>
-	<h1><%= @car.year %></h1>
-	<div>
-		<%= @car.make %>
-		<%= @car.model %></h1>
-		<%= @car.color %>
-		<%= @car.transmission %>
-		<%= @car.engine %>
-	</div>
+	<% if current_user %>	
+		<h1><%= @car.year %></h1>
+		<div>
+			<%= @car.make %>
+			<%= @car.model %></h1>
+			<%= @car.color %>
+			<%= @car.transmission %>
+			<%= @car.engine %>
+		</div>
 <% else %>
 	<h3>You must be logged in to view this page</h3>
 <% end %>

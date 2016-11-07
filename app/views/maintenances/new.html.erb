@@ -1,3 +1,4 @@
+<div class="container">
 <% if current_user %>
 	<p>Create a Maintenance Report</p>
 
@@ -8,7 +9,7 @@
 			<% end %>
 		</ul>
 	<% end %>
-
+	
 	<%= form_for([@car, @car.maintenances.build]) do |f| %>
 		<p>
 			<%= f.label :title %>
@@ -38,3 +39,4 @@
 <% else %>
 	<h3>You must be logged in to view this page</h3>
 <% end %>
+</div>
