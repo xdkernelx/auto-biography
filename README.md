@@ -1,6 +1,6 @@
 ![Travis Status](https://travis-ci.org/xdkernelx/auto-biography.svg?branch=development)
 ![Code Climate](https://codeclimate.com/github/xdkernelx/auto-biography/badges/gpa.svg)
-![Dependency Status](https://gemnasium.com/github.com/xdkernelx/auto-biography)
+![Dependency Status](https://gemnasium.com/badges/github.com/xdkernelx/auto-biography.svg)
 
 
 # Auto-biography
