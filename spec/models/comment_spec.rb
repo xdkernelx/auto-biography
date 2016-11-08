@@ -15,7 +15,7 @@ RSpec.describe Comment, type: :model do
     @travis = User.create(first_name: "Bob", last_name: "Builder", password: "password", email: "tester2@test.com", mech_status: true)
     @oreilly = Shop.create(name: "O'Reilly", address: "636 Spruce St.", city: "San Francisco", state: "CA", zip_code: "94118")
     @stranded = Ticket.create(title: "SOS", description: "Please come get me")
-    @comment = Comment.create(title: "Great", body: "Low price, great service")
+    @comment = Comment.create(commentable: @oreilly, title: "Great", body: "Low price, great service")
   end
 
   context "comment creation" do
