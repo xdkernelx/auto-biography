@@ -4,7 +4,6 @@
 $font-stack: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 $header-font: 'Lato', sans-serif;
 $merriweather-font: 'Merriweather', serif;
-$primary-color: #000000;
 $blue-accent: #072D3B;
 $gray-accent: #F1F4F8;
 $light-accent: #199CCC;
@@ -21,7 +20,7 @@ html, body {
 body {
   padding-top: 60px;
   font: $font-stack;
-  color: $primary-color;
+  color: $dark-gray-accent;
   text-align: center;
   height: 100%;
 }
@@ -142,6 +141,10 @@ textarea {
   padding:50px;
 }
 
+.have-none {
+  font-style: italic;
+}
+
 #main {
   overflow:auto;
   padding-bottom:150px; /* this needs to be bigger than footer height*/
@@ -183,7 +186,7 @@ span.glyphicon-wrench {
 }
 
 #wrap {
-  min-height: 45%;
+  min-height: 30%;
 }
 
 #main {
@@ -442,6 +445,33 @@ span.glyphicon-wrench {
   width: 200px;
   font-size: 16px;
   color: #FFFFFF !important;
+}
+
+.btn-back{
+  background: $gray-accent !important;
+  border-color: $green-accent !important;
+  border-radius: 5px !important;
+  width: 200px;
+  font-size: 16px;
+  color: $green-accent !important;
+}
+
+.btn-red-outline {
+  background: $gray-accent !important;
+  border-color: $red-accent !important;
+  border-radius: 5px !important;
+  width: 200px;
+  font-size: 16px;
+  color: $red-accent !important;
+}
+
+.btn-reverse{
+  background: $gray-accent !important;
+  border-color: $light-accent !important;
+  border-radius: 5px !important;
+  width: 100px;
+  font-size: 16px;
+  color: $light-accent !important;
 }
 
 .button_to {
