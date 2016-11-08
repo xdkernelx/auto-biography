@@ -234,8 +234,8 @@ span.glyphicon-wrench {
   font-size: 20px;
 }
 
-#wrap {
-  min-height: 30%;
+#main-wrap {
+  min-height: 80%;
 }
 
 #main {
@@ -277,6 +277,11 @@ span.glyphicon-wrench {
 
 .card-img-top{
   width: 200px;
+}
+
+.card {
+  width: 300px;
+  background-color: $white;
 }
 
 .footer-distributed h3 span{

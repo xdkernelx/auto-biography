@@ -8,7 +8,8 @@
 	<% @cars.each do |car| %>
 	<div class="col-md-4">
 	<div class="card">
-	  <img class="card-img-top" src="http://carsinamerica.net/wp-content/uploads/2016/07/Volkswagen-Golf-2-672x372.jpg" alt="	Card image cap">
+	  <%= image_tag car.image.url(:medium) %>
+
 	  <div class="card-block">
 	    <h4 class="card-title"><%=link_to car.year, car_path(car)%></h4>
 	    <p class="card-text"><%=car.make%> <%=car.model%></p>
