@@ -15,4 +15,11 @@ RSpec.describe Ticket, type: :model do
     @oreilly = Shop.create(name: "O'Reilly", address: "636 Spruce St.", city: "San Francisco", state: "CA", zip_code: "94118")
     @stranded = Ticket.create(title: "SOS", description: "Please come get me")
   end
+
+  context "ticket creations" do
+    it "checks the ticket(s) we need" do
+      expect(Ticket.all).to match_array([@stranded])
+    end
+  end
+
 end
