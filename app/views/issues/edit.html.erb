@@ -23,7 +23,9 @@
     <%= f.label :urgency, '5', :value => '5' %>
     <%= f.hidden_field :car_id, :value => @car.id %>
   </p>
-  <%= f.submit %>
+  <%= f.submit "Update Issue", class: "btn btn-info" %><br><br>
+  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+  <%= link_to "Delete", car_issue_path(@car, @issue), method: :delete, class: "delete-form" %>
   <% end %>
 <% else %>
   <h3>You must be logged in to view this page</h3>

@@ -1,1 +1,10 @@
 <h1>SHOW ME THE GOODS</h1>
+<% if current_user %>
+  <% if owner?(@car) %>
+    <%= @maintenance.title %><br>
+    <%= @maintenance.date_completed %><br>
+    <%= @maintenance.description %><br>
+    <%= link_to 'Edit', edit_car_maintenance_path(@car, @maintenance) %>
+    <%= link_to 'Delete', car_maintenance_path(@car, @maintenance), method: :delete %>
+  <% end %>
+<% end %>

@@ -9,10 +9,11 @@ $blue-accent: #072D3B;
 $gray-accent: #F1F4F8;
 $light-accent: #199CCC;
 $green-accent: #468966;
+$red-accent: #8F2C29;
 $dark-gray-accent: #686B6B;
 $white: #FFFFFF;
 
-html,body {
+html, body {
   height: 100%;
   background-color: $gray-accent;
 }
@@ -26,10 +27,9 @@ body {
 }
 
 h1 {
-  margin-top: 50px;
+  margin-top: 100px;
   color: $dark-gray-accent;
 }
-
 
 .devise-form-div {
   display: block;
@@ -166,6 +166,11 @@ span.glyphicon-paste {
 span.glyphicon-wrench {
   font-size: .8em;
 }
+
+ .glyphicon-trash {
+  font-size: 1em;
+}
+
 /////
 
 .footer-text {
@@ -178,7 +183,7 @@ span.glyphicon-wrench {
 }
 
 #wrap {
-  min-height: 50%;
+  min-height: 45%;
 }
 
 #main {
@@ -187,7 +192,6 @@ span.glyphicon-wrench {
 }
 
 //////////
-
 
 .footer-distributed{
   background-color: #072D3B;
@@ -425,6 +429,12 @@ span.glyphicon-wrench {
   background: #000000, !important;
 }
 
+.issue-half {
+  background-color: $red-accent;
+  color: #FFFFFF;
+  height: 60%;
+}
+
 .btn-green {
   background: #468966 !important;
   border-color: #468966 !important;
@@ -434,6 +444,20 @@ span.glyphicon-wrench {
   color: #FFFFFF !important;
 }
 
-#maps-page {
-  margin-top: 100px;
+.button_to {
+  background-color: $red-accent;
+}
+
+/*Maps page*/
+.maps-page {
+  margin-top: 120px;
+}
+
+#map-right-side {
+  color: $dark-gray-accent;
+  height: 60%;
+}
+
+#map-left-side {
+  color: #FFFFFF;
 }

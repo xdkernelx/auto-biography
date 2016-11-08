@@ -1,31 +1,29 @@
-<% if current_user %> 
-  <h1 id="maps-page"><%=@issue.title%></h1>
-    <%= @issue.description %><br>
-    <%= @issue.urgency %><br>
-    <%= link_to "Edit", edit_car_issue_path(@car, @issue.id) %><br>
-    <%= link_to "Delete", car_issue_path(@car, @issue), method: :delete %><br><br>
-    <%= link_to 'back', car_issues_path(@car) %>
-    <hr>
+<div class="col-sm-3 col-md-6 issue-half">
+  <% if current_user %> 
+  <h1 class="maps-page" id ="map-left-side">Issue</h1>
     <% if mechanic? %>
-      <%= button_to "New Repair", new_car_issue_repair_path(@car, @issue), method: "get", class: "btn btn-green" %>
+      <%= link_to "Add Repair", new_car_issue_repair_path(@car, @issue), method: "get", class: "btn btn-info"  %>
     <% else %>
-      <%= button_to "New Repair", new_car_issue_repair_path(@car, @issue), method: "get", class: "btn btn-green" %>
-    <div class="row">
-      <% @repairs.each do |repair| %><br>
-       <div class="col-md-4">
-          <%= repair.title %>
-          <%= repair.date_completed %>
-          <%= repair.description %><br></p>
-          <%= link_to "Edit", edit_car_issue_repair_path(@car, @issue.id, repair.id) %><br>
-          <%= link_to "Delete", car_issue_repair_path(@car, @issue, :repair => repair), method: :delete %><br><br>
-        </div>
-      <% end %>
+      <%= link_to "Add Repair", new_car_issue_repair_path(@car, @issue), method: "get", class: "btn btn-info" %>
+    <% end %><br>
+    <h3><%=@issue.title%></h3>
+    <%= @issue.description %><br>
+    <span>Urgency: <%= @issue.urgency %></span><br>
+    <%= link_to "Edit", edit_car_issue_path(@car, @issue.id) %>
+    <%= link_to 'Back', car_issues_path(@car) %>
   </div>
-    <% end %>
 <% else %>
   <h3>You must be logged in to view this page</h3>
 <% end %>
-
+</div>
+<div class="col-sm-3 col-md-6" id="map-right-side">
+    <h1 class="maps-page map-right-side"> Repairs for issue: </h1>
+      <% @repairs.each do |repair| %><br>
+      <%= repair.title %><br>
+      <%= repair.date_completed %><br>
+      <%= repair.description %><br></p>
+      <%= link_to "Edit", edit_car_issue_repair_path(@car, @issue.id, repair.id) %><br>  <% end %>
+</div>
   <head>
     <title>Place searches</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
@@ -34,12 +32,8 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        position: absolute;
-        height: 200px;
-        width: 400px;
-        margin: 0 0 0 -100px;
-        top: 40%;
-        left: 40%;
+        height: 100%;
+        width: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -122,8 +116,8 @@
                                   'Error: Your browser doesn\'t support geolocation.');
       }
     </script>
-<!--   </head>
+  </head>
   <body>
     <div id="map"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE'] %>&libraries=places&callback=initMap" async defer></script>
-  </body> -->
+  </body>
