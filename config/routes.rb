@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users
   resources :mechanics
   
+  get '/cars/:car_id/history', to: "users#index"
+
   resources :cars do
   	resources :maintenances
   	resources :issues do

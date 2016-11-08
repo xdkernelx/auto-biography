@@ -1,7 +1,7 @@
 class Issue < ApplicationRecord
 
   belongs_to :car
-  has_many :repairs
+  has_many :repairs, as: :repairable
   has_many :permissions
 
   validates :title, :description, { presence: true }

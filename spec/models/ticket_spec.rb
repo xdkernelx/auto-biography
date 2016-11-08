@@ -1,7 +1,6 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.describe Issue, :type => :model do
-
+RSpec.describe Ticket, type: :model do
   before(:all) do
     User.destroy_all
     Car.destroy_all
@@ -25,52 +24,23 @@ RSpec.describe Issue, :type => :model do
     @oil_change = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "Scheduled Oil Change", description: "See Title", mileage: 200, date_completed: "11/04/2016")
     @alignment = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
     @tire_change = Maintenance.create(car_id: @dust.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
+    @comment = Comment.create(commentable: @oreilly, title: "Great", body: "Low price, great service")
+    @stranded = Ticket.create(title: "SOS", car_id: @star.id, user_id: @lindeman.id,  description: "Please come get me")
   end
 
-  context "issue creation" do
-    it "Check to see if our Issues are saved" do
-      expect(Issue.all).to match_array([@engine, @tail_light, @back_light])
-    end
-  end
-
-  context "parent assocations" do
-    it "It associates to a car" do
-      expect(@tail_light.car).to eq(@star)
-    end
-
-    it "It associates to a car to a user" do
-      expect(@tail_light.car.user).to eq(@lindeman)
+  context "ticket creations" do
+    it "checks the ticket(s) we need" do
+      expect(Ticket.all).to match_array([@stranded])
     end
   end
 
-  context "child association" do
-    it "associates repairs specific to this issue" do
-      expect(@engine.repairs).to match_array([@engine_fix])
-      expect(@tail_light.repairs).to match_array([@tail_light_fix])
+  context "associations" do
+    it "has an association with a car" do
+      expect(@stranded.car).to eq(@star)
+    end
+
+    it "has an association with a user" do
+      expect(@stranded.user).to eq(@lindeman)
     end
   end
-
-  context "urgency validation" do
-    it "does not allow an urgency level at 0 or below" do
-      @dashboard_light = Issue.new(car_id: @star.id, title: "Engine won't turn on", description: "See Title", open: true, urgency: 0)
-      expect(@dashboard_light.valid?).to eq(false)
-      @dashboard_light = Issue.new(car_id: @star.id, title: "Engine won't turn on", description: "See Title", open: true, urgency: -1)
-      expect(@dashboard_light.valid?).to eq(false)
-    end
-
-    it "does not allow an urgency level at 6 or above" do
-      @dashboard_light = Issue.new(car_id: @star.id, title: "Engine won't turn on", description: "See Title", open: true, urgency: 6)
-      expect(@dashboard_light.valid?).to eq(false)
-      @dashboard_light = Issue.new(car_id: @star.id, title: "Engine won't turn on", description: "See Title", open: true, urgency: 20)
-      expect(@dashboard_light.valid?).to eq(false)
-    end
-
-    it "does allow a number between 1 and 5, inclusively" do
-      @dashboard_light = Issue.new(car_id: @star.id, title: "Engine won't turn on", description: "See Title", open: true, urgency: 5)
-      expect(@dashboard_light.valid?).to eq(true)
-      @dashboard_light = Issue.new(car_id: @star.id, title: "Engine won't turn on", description: "See Title", open: true, urgency: 1)
-      expect(@dashboard_light.valid?).to eq(true)
-    end
-  end
-
 end
