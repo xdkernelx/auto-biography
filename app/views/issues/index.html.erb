@@ -1,15 +1,13 @@
 <% if current_user %>	
-	<h1>Issues</h1>
+	<h1>Issues for <%= @car.make %> <%=@car.model%></h1>
 		<% if mechanic? %>
 			<% @issues.each do |issue| %>
 				<%= link_to issue.title, car_issue_path(@car, issue) %><br>
 			<% end %>
 		<% else %>
-				<%= button_to "New Issue", new_car_issue_path(@car), method: "get" %>
+				<%= link_to "New Issue", new_car_issue_path(@car), method: "get" %><br>
 				<% @issues.each do |issue| %>
 				  <span class="issue-title"><%=link_to issue.title, car_issue_path(@car, issue)%></span><br>
-				  <%= link_to "Edit", edit_car_issue_path(@car, issue.id) %><br>
-				  <%= link_to "Delete", car_issue_path(@car, issue), method: :delete %><br><br>
 				<% end %>
 				<%= link_to 'back', car_path(@car) %>
 		<% end %>

@@ -20,7 +20,7 @@
 	</p>
 	<%= f.hidden_field :issue_id, :value => @issue.id %>
 
-	<%= f.submit %>
+	<%= f.submit "Update Repair", class: "btn btn-primary" %>
 	<% end %>
 <% else %>
 	<h3>You must be logged in to view this page</h3>

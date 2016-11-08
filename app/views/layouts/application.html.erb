@@ -19,14 +19,14 @@
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="#">auto-biography <span class="glyphicon glyphicon-wrench"></span></a>
+	            <a class="navbar-brand" href="/cars">auto-biography <span class="glyphicon glyphicon-wrench"></span></a>
 	        </div>
 	        <center>
 	        	<div class="navbar-right">
 	        	<% if current_user %>
 							Welcome, <%= current_user.first_name%>. | 
-	        				<%= link_to 'Home', cars_path %> |
-							<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+	        		 <%= link_to 'Home', cars_path %> |
+							 <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 				    <% else %>
 		          <div class="navbar-collapse collapse" id="navbar-main">
 			          	<%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline" }) do|f| %>

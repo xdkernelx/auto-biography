@@ -15,7 +15,10 @@ class RepairsController < ApplicationController
     @car = Car.find(params[:car_id])
     @issue = Issue.find(params[:issue_id])
     @repair.issue_id = @issue.id
-    @repair.mechanic_id = current_user.id
+
+    if current_user.mech_status
+      @repair.mechanic_id = current_user.id
+    end
 
     if @repair.save
       if current_user.mech_status == true

@@ -1,5 +1,5 @@
 <% if current_user %>   
-  <h1>Create a new issue:</h1>
+  <h1>Create a new issue</h1>
   <% if @errors %>
   	<% @errors.each do |error| %>
   		<%= error %>
@@ -12,11 +12,11 @@
       <%= f.text_field :title %><br />
     </p>
     <p>
-      <%= f.label :description%>:
+      <%= f.label :description%>:<br>
       <%= f.text_area :description %><br />
     </p>
     <p>
-    	Urgency (1 is lowest): 
+    	Urgency (1 is lowest):<br>
       <%= f.radio_button :urgency, '1' %> 
       <%= f.label :urgency, '1', :value => '1' %>
       <%= f.radio_button :urgency, '2' %> 
@@ -32,8 +32,8 @@
     <p>
       <%= f.check_box :open, {}, true %> <%= f.label :open, "Show issue to all mechanics" %>
     </p>
-    <%= f.submit %>
-  <% end %>
+    <%= f.submit "Submit Issue", class: 'btn btn-primary'  %>
+  <% end %><br>
   <%= link_to 'back', car_path(@car) %>
 <% else %>
   <h3>You must be logged in to view this page</h3>

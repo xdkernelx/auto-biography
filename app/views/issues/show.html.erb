@@ -1,24 +1,26 @@
 <% if current_user %> 
-  <h1><%=@issue.title%></h1>
+  <h1 id="maps-page"><%=@issue.title%></h1>
     <%= @issue.description %><br>
     <%= @issue.urgency %><br>
+    <%= link_to "Edit", edit_car_issue_path(@car, @issue.id) %><br>
+    <%= link_to "Delete", car_issue_path(@car, @issue), method: :delete %><br><br>
     <%= link_to 'back', car_issues_path(@car) %>
     <hr>
     <% if mechanic? %>
-      <%= button_to "New Repair", new_car_issue_repair_path(@car, @issue), method: "get" %>
+      <%= button_to "New Repair", new_car_issue_repair_path(@car, @issue), method: "get", class: "btn btn-green" %>
     <% else %>
-      <%= button_to "New Repair", new_car_issue_repair_path(@car, @issue), method: "get" %>
+      <%= button_to "New Repair", new_car_issue_repair_path(@car, @issue), method: "get", class: "btn btn-green" %>
+    <div class="row">
       <% @repairs.each do |repair| %><br>
        <div class="col-md-4">
-        <div class="card card-block">
-          <h3 class="card-title"><%= repair.title %></h3><br>
-          <p class="card-text"><%= repair.date_completed %><br>
-            <%= repair.description %><br></p>
-            <%= link_to "Edit", edit_car_issue_repair_path(@car, @issue.id, repair.id) %><br>
-             <%= link_to "Delete", car_issue_repair_path(@car, @issue, :repair => repair), method: :delete %><br><br>
-        </div>
+          <%= repair.title %>
+          <%= repair.date_completed %>
+          <%= repair.description %><br></p>
+          <%= link_to "Edit", edit_car_issue_repair_path(@car, @issue.id, repair.id) %><br>
+          <%= link_to "Delete", car_issue_repair_path(@car, @issue, :repair => repair), method: :delete %><br><br>
         </div>
       <% end %>
+  </div>
     <% end %>
 <% else %>
   <h3>You must be logged in to view this page</h3>
@@ -32,13 +34,18 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
+        position: absolute;
+        height: 200px;
+        width: 400px;
+        margin: 0 0 0 -100px;
+        top: 40%;
+        left: 40%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 100%;
         margin: 0;
-        padding: 0;
+        padding:0;
       }
     </style>
     <script>
@@ -115,8 +122,8 @@
                                   'Error: Your browser doesn\'t support geolocation.');
       }
     </script>
-  </head>
+<!--   </head>
   <body>
     <div id="map"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE'] %>&libraries=places&callback=initMap" async defer></script>
-  </body>
+  </body> -->

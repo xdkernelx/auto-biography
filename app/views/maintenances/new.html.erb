@@ -1,6 +1,6 @@
 <div class="container">
 <% if current_user %>
-	<h1>Create a Maintenance Report</h1>
+	<h1>Create a new maintenance report</h1>
 
 	<% if @errors %>
 		<ul>
@@ -12,12 +12,12 @@
 
 	<%= form_for([@car, @car.maintenances.build]) do |f| %>
 		<p>
-			<%= f.label :title %>
+			<%= f.label :title %><br>
 			<%= f.text_field :title, value: @maintenance.title %>
 		</p>
 
 		<p>
-			<%= f.label :description %>
+			<%= f.label :description %><br>
 			<%= f.text_area :description, value: @maintenance.description %>
 		</p>
 

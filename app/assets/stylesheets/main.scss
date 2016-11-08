@@ -55,6 +55,19 @@ form {
 ul {
   text-decoration: none;
 }
+
+.card {
+  width: 400px;
+  display: inline-block;
+  text-align: center;
+}
+
+textarea {
+   resize: none;
+   height: 200px;
+   width: 250px;
+}
+
 .main-h2 { 
   font-family: $header-font;
   font-size: 40px;
@@ -62,6 +75,11 @@ ul {
   top: 85px; 
   width: 100%; 
   color: $white;
+}
+
+.card {
+  border: 1px solid #ddd;
+  width: 200px;
 }
 
 .opacity-text {
@@ -75,6 +93,7 @@ ul {
 .navbar {
   color: $blue-accent;
   height: 100px;
+  background-color: #FFFFFF;
 }
 
 .navbar-brand {
@@ -159,14 +178,13 @@ span.glyphicon-wrench {
 }
 
 #wrap {
-  min-height: 80%;
+  min-height: 50%;
 }
 
 #main {
   overflow:auto;
   padding-bottom:150px; /* this needs to be bigger than footer height*/
 }
-
 
 //////////
 
@@ -199,6 +217,10 @@ span.glyphicon-wrench {
 .footer-distributed h3{
   color:  #ffffff;
   margin: 0;
+}
+
+.card-img-top{
+  width: 200px;
 }
 
 .footer-distributed h3 span{
@@ -389,7 +411,6 @@ span.glyphicon-wrench {
   color: #FFFFFF;
 }
 
-
 .btn-red {
   background: #8F2C29 !important;
   border-color: #8F2C29 !important;
@@ -413,3 +434,6 @@ span.glyphicon-wrench {
   color: #FFFFFF !important;
 }
 
+#maps-page {
+  margin-top: 100px;
+}
