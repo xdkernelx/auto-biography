@@ -1,21 +1,31 @@
 <h1>My Cars</h1>
 
-<div>
+</div>
 <% if user_signed_in? %>
-	<div>
-	<ul>
-		<% @cars.each do |car| %>
-		<li><%= car.year %> |
-		 	<%= link_to car.make, car_path(car)%> |
-			<%= car.model %>
-		</li>
-			<% end %>
-	</ul>
+	<% @cars.each do |car| %>
+	<div class="col-md-4">
+	<div class="card">
+	  <img class="card-img-top" src="http://carsinamerica.net/wp-content/uploads/2016/07/Volkswagen-Golf-2-672x372.jpg" alt="	Card image cap">
+	  <div class="card-block">
+	    <h4 class="card-title"><%=car.year%></h4>
+	    <p class="card-text"><%=car.make%> <%=car.model%></p>
+	  </div>
+	  <ul class="list-group list-group-flush">
+	    <li class="list-group-item">Cras justo odio</li>
+	    <li class="list-group-item">Dapibus ac facilisis in</li>
+	    <li class="list-group-item">Vestibulum at eros</li>
+	  </ul>
+	  <div class="card-block">
+	    <a href="#" class="card-link">Card link</a>
+	    <a href="#" class="card-link">Another link</a>
+	  </div>
 	</div>
-	<div>
-		<%= link_to 'add a car', new_car_path %>
 	</div>
+	<% end %>
 <% else %>
 	<%= @errors %>
 <% end %>
-</div>
+
+	<div>
+		<%= link_to 'Add New Car', new_car_path, class: "btn btn-primary" %>
+	</div>

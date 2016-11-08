@@ -10,7 +10,6 @@
 <div>
 	<%= link_to 'edit', edit_car_path(@car) %> |
 	<%= link_to 'delete', car_path(@car)%><br>
-	 <%= link_to 'back', cars_path %>
 </div>
 	<div id="tabs">
 	  <ul>
@@ -18,8 +17,8 @@
 	    <li><a href="#fragment-2">Issues</a></li>
 	  </ul>
 	  <div id="fragment-1">
-	  	<%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %><br><br>
-	  	<%= link_to 'Maintenance History', car_maintenances_path(@car), class: "btn btn-green" %> 
+	  	<%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %>
+	  	<%= link_to 'Maintenance History', car_maintenances_path(@car), class: "btn btn-green" %><br><br>
 	    <p> <% @car.maintenances.each do |maintenance|%>
 	    	<%= maintenance.title %><br>
 	    	<%= maintenance.date_completed %><br>
@@ -28,8 +27,8 @@
 	   </p>
 	  </div>
 	  <div id="fragment-2">
-	  	<%= link_to 'Add New Issue', new_car_issue_path(@car), class: "btn btn-red" %><br><br>
-			<%= link_to 'Issue History', car_issues_path(@car), class: "btn btn-red" %> 
+	  	<%= link_to 'Add New Issue', new_car_issue_path(@car), class: "btn btn-red" %>
+			<%= link_to 'Issue History', car_issues_path(@car), class: "btn btn-red" %><br><br>
 	    <p><% @car.issues.each do |issue|%>
 	    	<%= issue.title %><br>
 	    	<%= issue.description%><br>
@@ -37,6 +36,7 @@
 	    	<%end%> </p>
 	  </div>
 	</div>
+	 <%= link_to 'back', cars_path %>
 </div>
 <script>
   $( "#tabs" ).tabs({collapsible: true});
