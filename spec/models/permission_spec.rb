@@ -35,6 +35,16 @@ RSpec.describe Permission, type: :model do
     end
   end
 
+  context "associations" do
+    it "has an association with it's car" do
+      expect(@token1.car).to eq(@star)
+    end
+
+    it "has an assocation with it's issue if an issue_id is given" do
+      expect(@token1.issue).to eq(@engine)
+    end
+  end
+
   context "validations" do
     it "is invalid if a issue_id is invalid" do
       @test = Permission.create(car_id: @dust.id, issue_id: 0, report_type: "maintenance", token: "password")
