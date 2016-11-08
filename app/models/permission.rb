@@ -22,4 +22,5 @@ class Permission < ApplicationRecord
     end
   end
 
+
 end

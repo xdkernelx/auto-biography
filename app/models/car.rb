@@ -11,4 +11,14 @@ class Car < ApplicationRecord
   validates :mileage, { presence: true }
   validates :mileage, numericality: { greater_than: 0 }
   validates :vin, format: { with: /\A[a-zA-Z0-9]{17}\z/ }, allow_blank: true
+
+  def recent_maintenances(limit)
+   self.maintenances.sort_by{|maintenance| maintenance.date_completed}.take(limit)
+  end 
+
+  def recent_repairs(limit)
+   self.repairs.sort_by{|repair| repair.date_completed}.take(limit)
+  end 
+
+
 end
