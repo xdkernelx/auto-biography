@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :cars
   has_many :shops
+  has_many :tickets
   has_many :issues, through: :cars
   has_many :repairs, through: :issues
   has_many :maintenances, through: :cars

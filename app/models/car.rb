@@ -2,11 +2,12 @@ require 'securerandom'
 
 class Car < ApplicationRecord
 
-  belongs_to :user
   has_many :issues
   has_many :repairs, through: :issues
   has_many :maintenances
   has_many :permissions
+  has_one :ticket
+  belongs_to :user
 
   validates :mileage, { presence: true }
   validates :mileage, numericality: { greater_than: 0 }
