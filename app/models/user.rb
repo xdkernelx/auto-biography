@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :lockable, :trackable, :validatable
 
   has_many :cars
+  has_many :shops
   has_many :issues, through: :cars
   has_many :repairs, through: :issues
   has_many :maintenances, through: :cars
