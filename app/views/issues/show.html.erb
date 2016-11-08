@@ -18,7 +18,7 @@
       <% else %>
         <%= link_to "Add Repair", new_car_issue_repair_path(@car, @issue), method: "get", class: "btn btn-info" %>
       <% end %><br>
-        <% @repairs.each do |repair| %><br>
+        <% @car.recent_repairs(3).each do |repair| %><br>
         <%= repair.title %><br>
         <%= repair.date_completed %><br>
         <%= repair.description %><br></p>

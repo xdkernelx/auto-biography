@@ -4,6 +4,7 @@
 			<h3>Color: <%= @car.color %><br></h3>
 			<h3>Transmission: <%= @car.transmission %><br></h3>
 			<h3> Engine: <%= @car.engine %><br></h3>
+			<%= link_to "Comprehensive History", url: "#", class: "btn btn-reverse"%>
 	</div>
 <% else %>
 	<h3>You must be logged in to view this page</h3>
@@ -22,7 +23,7 @@
 				<%if @car.maintenances.blank? %>
 					<p class="have-none"> You have no maintenance records. Click 'Add New Maintenance' to begin. </p>
 				<%else%>
-	    		<p> <% @car.maintenances({:limit => 1}).each do |maintenance|%>
+	    		<p> <% @car.recent_maintenances(4).each do |maintenance|%>
 				<div class ="col-md-3">
 	    		<%= maintenance.title %>
 	    	</div>
@@ -42,7 +43,7 @@
 			<%if @car.issues.blank? %>
 				<p class="have-none"> You have no issue records. Click 'Add New Issue' to begin. </p>
 			<%else%>
-	    	<p><% @car.issues.each do |issue|%>
+	    	<p><% @car.recent_issues(4).each do |issue|%>
 	    		<%= issue.title %><br>
 	    		<%= issue.description%><br>
 	    		<%= issue.urgency %><br><br>
