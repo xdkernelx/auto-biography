@@ -30,6 +30,10 @@ h1 {
   color: $dark-gray-accent;
 }
 
+h4 {
+  margin-top: 100px;
+}
+
 .devise-form-div {
   display: block;
   text-align: center;
@@ -90,13 +94,14 @@ textarea {
 }
 
 .navbar {
-  height: 100px;
+  height: 70px;
   background-color: #FFFFFF;
 }
 
 .navbar-brand {
-  margin-top: 10px;
-  font-size: 40px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 30px;
   font-weight: bold;
   color: $light-accent;
 }
@@ -431,12 +436,6 @@ span.glyphicon-wrench {
   background: #000000, !important;
 }
 
-.issue-half {
-  background-color: $red-accent;
-  color: #FFFFFF;
-  height: 60%;
-  padding: 50px;
-}
 
 .btn-green {
   background: #468966 !important;
@@ -505,8 +504,18 @@ span.glyphicon-wrench {
 #map-right-side {
   color: $dark-gray-accent;
   height: 60%;
+  overflow: auto;
 }
 
 #map-left-side {
   color: #FFFFFF;
+}
+.issue-half {
+  overflow: auto;
+  background-color: $red-accent;
+  color: #FFFFFF;
+  height: 60%;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
 }
