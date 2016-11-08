@@ -1,6 +1,8 @@
 class Shop < ApplicationRecord
 
   has_many :comments, as: :commentable
+  has_many :maintenances
+  has_many :repairs
   belongs_to :mechanic, class_name: "User"
 
   validates :name, :address, :city, :state, :zip_code, { presence: true }

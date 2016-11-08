@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20161108112546) do
     t.string   "title",          limit: 64
     t.string   "description"
     t.integer  "mileage"
-    t.integer  "mechanic_id"
+    t.integer  "shop_id"
     t.date     "date_completed"
     t.integer  "rating"
     t.datetime "created_at",                null: false
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20161108112546) do
     t.string   "title",          limit: 64
     t.string   "description"
     t.integer  "mileage"
-    t.integer  "mechanic_id"
+    t.integer  "shop_id"
     t.date     "date_completed"
     t.integer  "rating"
     t.datetime "created_at",                null: false
