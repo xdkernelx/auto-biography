@@ -90,7 +90,6 @@ textarea {
 }
 
 .navbar {
-  color: $blue-accent;
   height: 100px;
   background-color: #FFFFFF;
 }
@@ -99,6 +98,7 @@ textarea {
   margin-top: 10px;
   font-size: 40px;
   font-weight: bold;
+  color: $light-accent;
 }
 
 .checkbox {
@@ -327,7 +327,6 @@ span.glyphicon-wrench {
   width: 35px;
   height: 35px;
   cursor: pointer;
-  background-color:  #blue-accent;
   border-radius: 2px;
 
   font-size: 20px;
@@ -436,6 +435,7 @@ span.glyphicon-wrench {
   background-color: $red-accent;
   color: #FFFFFF;
   height: 60%;
+  padding: 50px;
 }
 
 .btn-green {
@@ -455,6 +455,25 @@ span.glyphicon-wrench {
   font-size: 16px;
   color: $green-accent !important;
 }
+
+.btn-back-red {
+  background: $red-accent !important;
+  border-color: $white!important;
+  border-radius: 5px !important;
+  width: 100px;
+  font-size: 16px;
+  color: $white !important;
+}
+
+.btn-back-blue{
+  background: $red-accent !important;
+  border-color: $light-accent !important;
+  border-radius: 5px !important;
+  width: 100px;
+  font-size: 16px;
+  color: $light-accent !important;
+}
+
 
 .btn-red-outline {
   background: $gray-accent !important;
