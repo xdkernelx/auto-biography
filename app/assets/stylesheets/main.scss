@@ -31,7 +31,6 @@ h1 {
   color: $dark-gray-accent;
 }
 
-
 .devise-form-div {
   display: block;
   text-align: center;
@@ -167,6 +166,11 @@ span.glyphicon-paste {
 span.glyphicon-wrench {
   font-size: .8em;
 }
+
+ .glyphicon-trash {
+  font-size: 1em;
+}
+
 /////
 
 .footer-text {
@@ -177,6 +181,7 @@ span.glyphicon-wrench {
 .issue-title {
   font-size: 40px;
 }
+
 
 #wrap {
   min-height: 60%;
@@ -428,6 +433,8 @@ span.glyphicon-wrench {
 
 .issue-half {
   background-color: $red-accent;
+  color: #FFFFFF;
+  height: 60%;
 }
 
 .btn-green {
@@ -439,7 +446,20 @@ span.glyphicon-wrench {
   color: #FFFFFF !important;
 }
 
-#maps-page {
-  margin-top: 150px;
+.button_to {
+  background-color: $red-accent;
+}
+
+/*Maps page*/
+.maps-page {
+  margin-top: 120px;
+}
+
+#map-right-side {
+  color: $dark-gray-accent;
+  height: 60%;
+}
+
+#map-left-side {
   color: #FFFFFF;
 }

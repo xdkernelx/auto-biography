@@ -1,31 +1,28 @@
 <div class="col-sm-3 col-md-6 issue-half">
   <% if current_user %> 
-  <h1 id="maps-page"><%=@issue.title%></h1>
-    <%= @issue.description %><br>
-    <%= @issue.urgency %><br>
-    <%= link_to "Edit", edit_car_issue_path(@car, @issue.id) %><br>
-    <%= link_to "Delete", car_issue_path(@car, @issue), method: :delete %><br><br>
-    <%= link_to 'back', car_issues_path(@car) %>
+  <h1 class="maps-page" id ="map-left-side">Issue</h1>
     <% if mechanic? %>
-      <%= button_to "Add Repair", new_car_issue_repair_path(@car, @issue), method: "get", class: "btn btn-green"  %>
+      <%= link_to "Add Repair", new_car_issue_repair_path(@car, @issue), method: "get", class: "btn btn-info"  %>
     <% else %>
-      <%= button_to "Add Repair", new_car_issue_repair_path(@car, @issue), method: "get", class: "btn btn-green" %>
-    <% end %>
+      <%= link_to "Add Repair", new_car_issue_repair_path(@car, @issue), method: "get", class: "btn btn-info" %>
+    <% end %><br>
+    <h3><%=@issue.title%></h3>
+    <%= @issue.description %><br>
+    <span>Urgency: <%= @issue.urgency %></span><br>
+    <%= link_to "Edit", edit_car_issue_path(@car, @issue.id) %>
+    <%= link_to 'Back', car_issues_path(@car) %>
   </div>
 <% else %>
   <h3>You must be logged in to view this page</h3>
 <% end %>
 </div>
-<div class="col-sm-3 col-md-6">
-  <% @repairs.each do |repair| %><br>
-    <h1> Repairs associated with issue: </h1>
-    <%= repair.title %>
-    <%= repair.date_completed %>
-    <%= repair.description %><br></p>
-    <%= link_to "Edit", edit_car_issue_repair_path(@car, @issue.id, repair.id) %><br>
-    <%= link_to "Delete", car_issue_repair_path(@car, @issue, :repair => repair), method: :delete %><br><br>
-  </div>
-  <% end %>
+<div class="col-sm-3 col-md-6" id="map-right-side">
+    <h1 class="maps-page map-right-side"> Repairs for issue: </h1>
+      <% @repairs.each do |repair| %><br>
+      <%= repair.title %><br>
+      <%= repair.date_completed %><br>
+      <%= repair.description %><br></p>
+      <%= link_to "Edit", edit_car_issue_repair_path(@car, @issue.id, repair.id) %><br>  <% end %>
 </div>
   <head>
     <title>Place searches</title>
