@@ -24,6 +24,7 @@ RSpec.describe Car, :type => :model do
     @engine7 = Issue.create(car_id: @dust.id, title: "6", description: "The light will not turn on")
     Issue.update(@back_light.id, title: "7")
     @tail_light_fix = Repair.create(issue_id: @tail_light.id, mechanic_id: @travis.id, title: "Tail Light Wiring", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
+    @engine_fix2 = Repair.create(issue_id: @engine.id, mechanic_id: @travis.id, title: "Engine dead", description: "Engine is dead. Please buy a new one", mileage: 3200, date_completed: "11/05/2016")
     @engine_fix = Repair.create(issue_id: @engine.id, mechanic_id: @travis.id, title: "Engine dead", description: "Engine is dead. Please buy a new one", mileage: 3200, date_completed: "11/04/2016")
     @oil_change = Maintenance.create(car_id: @star.id, mechanic_id: @travis.id, title: "Scheduled Oil Change", description: "See Title", mileage: 200, date_completed: "11/04/2016")
     @alignment = Maintenance.create(car_id: @star.id, mechanic_id: @travis.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
@@ -55,7 +56,7 @@ RSpec.describe Car, :type => :model do
     end
 
     it "differentiates between repairs non-specific to an issue" do
-      expect(@star.repairs).to match_array([@tail_light_fix, @engine_fix])
+      expect(@star.repairs).to match_array([@tail_light_fix, @engine_fix, @engine_fix2])
     end
   end
 
@@ -85,18 +86,32 @@ RSpec.describe Car, :type => :model do
     end
   end
 
-  context "Helper method" do
-    it "- issues - correctly orders by updated_at" do
+  context "Car.recent_issues" do
+    it "- correctly orders by updated_at" do
       expect(@dust.recent_issues(5)).to eq([@back_light, @engine7, @engine6, @engine5, @engine4])
     end
 
-    it "- issues - gives the maximum orders even if under the given limit" do
+    it "- gives the maximum orders even if under the given limit" do
       expect(@star.recent_issues(5)).to eq([@tail_light, @engine])
     end
 
-    it "- issues - returns an empty array if the car has no issues" do
+    it "- returns an empty array if the car has no issues" do
       expect(@matter.recent_issues(5)).to eq([])
     end
+  end
+
+  context "Car.recent_repairs" do
+    it "- correctly orders by date_completed" do
+      expect(@star.recent_repairs(2)).to eq([@engine_fix2, @tail_light_fix])
+    end
+
+    it "- returns an empty array if the car has no repairs" do
+      expect(@matter.recent_issues(5)).to eq([])
+    end
+  end
+
+  context "Car.recent_maintenances" do
+
   end
 
 end
