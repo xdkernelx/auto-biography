@@ -1,24 +1,19 @@
 class Maintenance < ApplicationRecord
-	# scope :recent, -> { order("date_completed ASC") }
 
+  has_many :comments, as: :commentable
   belongs_to :car
-  belongs_to :mechanic, class_name: "User", optional: true
+  belongs_to :shop, optional: true
 
   validates :title, :description, :mileage, :date_completed, { presence: true }
   validates :mileage, numericality: { greater_than: 0 }
-  validate :mechanic_status
+  validate :shop_status
 
-  def mechanic_status
-    if self.mechanic_id
+  def shop_status
+    if self.shop_id
       begin
-        user = User.find(self.mechanic_id)
+        shop = Shop.find(self.shop_id)
       rescue
-        errors.add(:mechanic_id, "mechanic does not exist.")
-      else
-        user = User.find(self.mechanic_id)
-        if (!user.mech_status)
-          errors.add(:mechanic_id, "id must belong to a mechanic user.")
-        end
+        errors.add(:shop_id, "shop does not exist.")
       end
     end
 
