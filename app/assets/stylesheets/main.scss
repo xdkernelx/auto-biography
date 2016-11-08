@@ -30,6 +30,10 @@ h1 {
   color: $dark-gray-accent;
 }
 
+h4 {
+  margin-top: 100px;
+}
+
 .devise-form-div {
   display: block;
   text-align: center;
@@ -90,15 +94,16 @@ textarea {
 }
 
 .navbar {
-  color: $blue-accent;
-  height: 100px;
+  height: 70px;
   background-color: #FFFFFF;
 }
 
 .navbar-brand {
-  margin-top: 10px;
-  font-size: 40px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 30px;
   font-weight: bold;
+  color: $light-accent;
 }
 
 .checkbox {
@@ -327,7 +332,6 @@ span.glyphicon-wrench {
   width: 35px;
   height: 35px;
   cursor: pointer;
-  background-color:  #blue-accent;
   border-radius: 2px;
 
   font-size: 20px;
@@ -432,11 +436,6 @@ span.glyphicon-wrench {
   background: #000000, !important;
 }
 
-.issue-half {
-  background-color: $red-accent;
-  color: #FFFFFF;
-  height: 60%;
-}
 
 .btn-green {
   background: #468966 !important;
@@ -455,6 +454,25 @@ span.glyphicon-wrench {
   font-size: 16px;
   color: $green-accent !important;
 }
+
+.btn-back-red {
+  background: $red-accent !important;
+  border-color: $white!important;
+  border-radius: 5px !important;
+  width: 100px;
+  font-size: 16px;
+  color: $white !important;
+}
+
+.btn-back-blue{
+  background: $red-accent !important;
+  border-color: $light-accent !important;
+  border-radius: 5px !important;
+  width: 100px;
+  font-size: 16px;
+  color: $light-accent !important;
+}
+
 
 .btn-red-outline {
   background: $gray-accent !important;
@@ -486,8 +504,18 @@ span.glyphicon-wrench {
 #map-right-side {
   color: $dark-gray-accent;
   height: 60%;
+  overflow: auto;
 }
 
 #map-left-side {
   color: #FFFFFF;
+}
+.issue-half {
+  overflow: auto;
+  background-color: $red-accent;
+  color: #FFFFFF;
+  height: 60%;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
 }
