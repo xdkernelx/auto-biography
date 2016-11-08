@@ -7,6 +7,7 @@ RSpec.describe Permission, type: :model do
     Issue.destroy_all
     Repair.destroy_all
     Maintenance.destroy_all
+    Permission.destroy_all
     @lindeman = User.create(first_name: "Andy", last_name: "Lindeman", password: "password", email: "tester@test.com")
     @travis = User.create(first_name: "Bob", last_name: "Builder", password: "password", email: "tester2@test.com", mech_status: true)
     @star = Car.create(user_id: @lindeman.id, mileage: 100, vin: "11111111111111111")
@@ -26,6 +27,25 @@ RSpec.describe Permission, type: :model do
   context "permission creation" do
     it "creates our needed permissions" do
       expect(Permission.all).to match_array([@token1, @token2])
+    end
+
+    it "creates without an issue_id" do
+      @test = Permission.create(car_id: @dust.id, report_type: "maintenance", token: "password")
+      expect(@test.valid?).to eq(true)
+    end
+  end
+
+  context "validations" do
+    it "is invalid if a issue_id is invalid" do
+      @test = Permission.create(car_id: @dust.id, issue_id: 0, report_type: "maintenance", token: "password")
+      @test.valid?
+      expect(@test.errors[:issue_id]).to match_array(["does not exist."])
+    end
+
+    it "is invalid if a issue_id is invalid" do
+      @test = Permission.create(car_id: @star.id, issue_id: @back_light.id, report_type: "maintenance", token: "password")
+      @test.valid?
+      expect(@test.errors[:issue_id]).to match_array(["does not match the car."])
     end
   end
 end
