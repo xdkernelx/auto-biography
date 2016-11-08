@@ -1,7 +1,7 @@
 class Repair < ApplicationRecord
 
   has_many :comments, as: :commentable
-  belongs_to :issue
+  belongs_to :repairable, polymorphic: true
   belongs_to :shop, optional: true
 
   validates :title, :description, :mileage, :date_completed, { presence: true }

@@ -19,8 +19,8 @@ RSpec.describe Repair, type: :model do
     @tail_light = Issue.create(car_id: @star.id, title: "Engine won't turn on", description: "See Title", open: true)
     @back_light = Issue.create(car_id: @dust.id, title: "Engine won't turn on", description: "See Title")
     @oreilly = Shop.create(name: "O'Reilly", mechanic_id: @travis.id, address: "636 Spruce St.", city: "San Francisco", state: "CA", zip_code: "94118")
-    @tail_light_fix = Repair.create(issue_id: @tail_light.id, shop_id: @oreilly.id, title: "Tail Light Wiring", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
-    @engine_fix = Repair.create(issue_id: @engine.id, shop_id: @oreilly.id, title: "Engine dead", description: "Engine is dead. Please buy a new one", mileage: 3200, date_completed: "11/04/2016")
+    @tail_light_fix = Repair.create(repairable: @tail_light, shop_id: @oreilly.id, title: "Tail Light Wiring", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
+    @engine_fix = Repair.create(repairable: @engine, shop_id: @oreilly.id, title: "Engine dead", description: "Engine is dead. Please buy a new one", mileage: 3200, date_completed: "11/04/2016")
     @oil_change = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "Scheduled Oil Change", description: "See Title", mileage: 200, date_completed: "11/04/2016")
     @alignment = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
     @tire_change = Maintenance.create(car_id: @dust.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
@@ -40,32 +40,32 @@ RSpec.describe Repair, type: :model do
 
   context "Presence validations" do
     it "- title" do
-      @test = Repair.new(issue_id: @tail_light.id, shop_id: @oreilly.id, description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
+      @test = Repair.new(repairable: @tail_light, shop_id: @oreilly.id, description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
       expect(@test.valid?).to eq(false)
     end
 
     it "- description" do
-      @test = Repair.new(issue_id: @tail_light.id, shop_id: @oreilly.id, title: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
+      @test = Repair.new(repairable: @tail_light, shop_id: @oreilly.id, title: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
       expect(@test.valid?).to eq(false)
     end
 
     it "- mileage" do
-      @test = Repair.new(issue_id: @tail_light.id, shop_id: @oreilly.id, title: "Tail light wiring messing with the engine", description: "Tail light wiring messing with the engine", date_completed: "11/04/2016")
+      @test = Repair.new(repairable: @tail_light, shop_id: @oreilly.id, title: "Tail light wiring messing with the engine", description: "Tail light wiring messing with the engine", date_completed: "11/04/2016")
       expect(@test.valid?).to eq(false)
     end
 
     it "- date_completed" do
-      @test = Repair.new(issue_id: @tail_light.id, shop_id: @oreilly.id, title: "Tail light wiring messing with the engine", description: "Tail light wiring messing with the engine", mileage: 3200)
+      @test = Repair.new(repairable: @tail_light, shop_id: @oreilly.id, title: "Tail light wiring messing with the engine", description: "Tail light wiring messing with the engine", mileage: 3200)
       expect(@test.valid?).to eq(false)
     end
   end
 
   context "Title validations" do
     it "Doesn't allow a title to be more than 64 characters" do
-      @test = Repair.new(issue_id: @tail_light.id, shop_id: @oreilly.id, title: "1234567890123456789012345678901234567890123456789012345678901234", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
+      @test = Repair.new(repairable: @tail_light, shop_id: @oreilly.id, title: "1234567890123456789012345678901234567890123456789012345678901234", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
       expect(@test.valid?).to eq(true)
 
-      @test = Repair.new(issue_id: @tail_light.id, shop_id: @oreilly.id, title: "12345678901234567890123456789012345678901234567890123456789012345", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
+      @test = Repair.new(repairable: @tail_light, shop_id: @oreilly.id, title: "12345678901234567890123456789012345678901234567890123456789012345", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
       begin
         @test.save
       rescue
@@ -78,9 +78,9 @@ RSpec.describe Repair, type: :model do
 
   context "Shop validation" do
     it "checks validity of shop if shop_id is supplied" do
-      @test = Repair.new(issue_id: @tail_light.id, shop_id: 0, title: "1234567890123456789012345678901234567890123456789012345678901234", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
+      @test = Repair.new(repairable: @tail_light, shop_id: 0, title: "1234567890123456789012345678901234567890123456789012345678901234", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
       expect(@test.valid?).to eq(false)
-      @test = Repair.new(issue_id: @tail_light.id, shop_id: @oreilly.id, title: "1234567890123456789012345678901234567890123456789012345678901234", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
+      @test = Repair.new(repairable: @tail_light, shop_id: @oreilly.id, title: "1234567890123456789012345678901234567890123456789012345678901234", description: "Tail light wiring messing with the engine", mileage: 3200, date_completed: "11/04/2016")
       expect(@test.valid?).to eq(true)
     end
   end
