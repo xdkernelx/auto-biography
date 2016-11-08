@@ -2,15 +2,15 @@
 	<h1>Issues for <%= @car.make %> <%=@car.model%></h1>
 		<% if mechanic? %>
 			<% @issues.each do |issue| %>
-				<%= link_to issue.title, car_issue_path(@car, issue) %><br>
-			<% end %>
-		<% else %>
-				<%= link_to "New Issue", new_car_issue_path(@car), method: "get" %><br>
-				<% @issues.each do |issue| %>
-				  <span class="issue-title"><%=link_to issue.title, car_issue_path(@car, issue)%></span><br>
-				<% end %>
-				<%= link_to 'back', car_path(@car) %>
+			<%= link_to issue.title, car_issue_path(@car, issue) %><br>
 		<% end %>
+<% else %>
+	<%= link_to "New Issue", new_car_issue_path(@car), method: "get", class: "btn btn-info"%><br>
+		<% @issues.each do |issue| %>
+				<span class="issue-title"><%=link_to issue.title, car_issue_path(@car, issue)%></span><br>
+				<% end %>
+				<%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %>
+	<% end %>
 <% else %>
 	<h3>You must be logged in to view this page</h3>
 <% end %>

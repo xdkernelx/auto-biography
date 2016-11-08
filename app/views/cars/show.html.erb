@@ -4,6 +4,7 @@
 			<h3>Color: <%= @car.color %><br></h3>
 			<h3>Transmission: <%= @car.transmission %><br></h3>
 			<h3> Engine: <%= @car.engine %><br></h3>
+	</div>
 <% else %>
 	<h3>You must be logged in to view this page</h3>
 <% end %>
@@ -21,10 +22,16 @@
 				<%if @car.maintenances.blank? %>
 					<p class="have-none"> You have no maintenance records. Click 'Add New Maintenance' to begin. </p>
 				<%else%>
-	    		<p> <% @car.maintenances.each do |maintenance|%>
-	    		<%= maintenance.title %><br>
-	    		<%= maintenance.date_completed %><br>
-	    		<%= maintenance.description %><br><br>
+	    		<p> <% @car.maintenances({:limit => 1}).each do |maintenance|%>
+				<div class ="col-md-3">
+	    		<%= maintenance.title %>
+	    	</div>
+	    	<div class="col-md-3">
+	    		<%= maintenance.date_completed %>
+	    	</div>
+	    	<div class="col-md-6">
+	    		<%= maintenance.description %>
+	    	</div>
 	    		<%end%>
 	   		</p>
 	   		<%end%>
