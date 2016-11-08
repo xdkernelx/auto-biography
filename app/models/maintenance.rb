@@ -1,6 +1,6 @@
 class Maintenance < ApplicationRecord
-	# scope :recent, -> { order("date_completed ASC") }
 
+  has_many :comments, as: :commentable
   belongs_to :car
   belongs_to :mechanic, class_name: "User", optional: true
 

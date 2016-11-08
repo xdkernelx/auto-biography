@@ -1,5 +1,6 @@
 class Repair < ApplicationRecord
 
+  has_many :comments, as: :commentable
   belongs_to :issue
   belongs_to :mechanic, class_name: "User", optional: true
 
