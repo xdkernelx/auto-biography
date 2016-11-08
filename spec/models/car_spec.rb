@@ -109,7 +109,8 @@ RSpec.describe Car, :type => :model do
 
   context "Car.recent_repairs" do
     it "- correctly orders by date_completed" do
-      expect(@star.recent_repairs(2)).to eq([@engine_fix2, @tail_light_fix])
+      # Seemingly, if the dates matche, it will sort by updated_at
+      expect(@star.recent_repairs(2)).to eq([@engine_fix2, @engine_fix])
     end
 
     it "- returns an empty array if the car has no repairs" do
