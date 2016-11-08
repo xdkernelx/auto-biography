@@ -35,6 +35,20 @@ RSpec.describe Comment, type: :model do
     it "commentable_type is accessible" do
       expect(@comment.commentable_type).to eq("Shop")
     end
+
+    it "- maintenance comment" do
+      @test = Comment.new(commentable: @oil_change, title: "Great", body: "Low price, great service")
+      expect(@test.valid?).to eq(true)
+      expect(@test.commentable_type).to eq("Maintenance")
+    end
+
+    it "- repair comment" do
+      @test = Comment.new(commentable: @tail_light_fix, title: "Great", body: "Low price, great service")
+      expect(@test.valid?).to eq(true)
+      expect(@test.commentable_type).to eq("Repair")
+    end
+
+    # TODO Ticket comment
   end
 
 end
