@@ -101,6 +101,12 @@ RSpec.describe Car, :type => :model do
     end
   end
 
+  context "Car.recent_maintenances" do
+    it "- correctly order by date_completed" do
+      expect(@star.recent_maintenances(2)).to eq([@alignment2, @alignment])
+    end
+  end
+
   context "Car.recent_repairs" do
     it "- correctly orders by date_completed" do
       expect(@star.recent_repairs(2)).to eq([@engine_fix2, @tail_light_fix])
@@ -108,12 +114,6 @@ RSpec.describe Car, :type => :model do
 
     it "- returns an empty array if the car has no repairs" do
       expect(@matter.recent_issues(5)).to eq([])
-    end
-  end
-
-  context "Car.recent_maintenances" do
-    it "- correctly order by date_completed" do
-      expect(@star.recent_maintenances(2)).to eq([@alignment2, @alignment])
     end
   end
 
