@@ -1,11 +1,16 @@
 class CarsController < ApplicationController
+	before_action :find_car, only: [:show, :edit, :update, :destroy]
+
 	def index 
-		@user = current_user
-		@cars = @user.cars
+		if user_signed_in?
+			@user = current_user
+			@cars = @user.cars
+		else
+			@errors = 'sign in first'
+		end
 	end
 
 	def show
-		@car = Car.find(params[:id])
 	end
 
 	def new
@@ -17,17 +22,35 @@ class CarsController < ApplicationController
 
 	def create
 		@car = Car.new(car_params)
-		p '*************************************'
 		@user = current_user
-		p '*************************************'
 		@car.user_id = @user.id
-		p '*************************************'
-		@car.save
+		if @car.save
+			redirect_to cars_path
+		else
+			render 'new'
+		end
+	end
+
+	def update
+		if @car.update(car_params)
+			redirect_to @car 
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@car.destroy
+
 		redirect_to cars_path
 	end
 
 	private
 	def car_params
 		params.require(:car).permit(:user_id, :mileage, :vin, :year, :make, :model, :color, :transmission, :engine)
+	end
+
+	def find_car
+		@car = Car.find(params[:id])
 	end
 end

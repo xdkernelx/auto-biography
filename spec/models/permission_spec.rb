@@ -1,13 +1,13 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.describe Car, :type => :model do
-
+RSpec.describe Permission, type: :model do
   before(:all) do
     User.destroy_all
     Car.destroy_all
     Issue.destroy_all
     Repair.destroy_all
     Maintenance.destroy_all
+    Permission.destroy_all
     @lindeman = User.create(first_name: "Andy", last_name: "Lindeman", password: "password", email: "tester@test.com")
     @travis = User.create(first_name: "Bob", last_name: "Builder", password: "password", email: "tester2@test.com", mech_status: true)
     @star = Car.create(user_id: @lindeman.id, mileage: 100, vin: "11111111111111111")
@@ -20,61 +20,42 @@ RSpec.describe Car, :type => :model do
     @oil_change = Maintenance.create(car_id: @star.id, mechanic_id: @travis.id, title: "Scheduled Oil Change", description: "See Title", mileage: 200, date_completed: "11/04/2016")
     @alignment = Maintenance.create(car_id: @star.id, mechanic_id: @travis.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
     @tire_change = Maintenance.create(car_id: @dust.id, mechanic_id: @travis.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
+    @token1 = Permission.create(car_id: @star.id, issue_id: @engine.id, report_type: "maintenance", token: "password")
+    @token2 = Permission.create(car_id: @dust.id, issue_id: @back_light.id, report_type: "maintenance", token: "password")
   end
 
-  context "parent assocation" do
-    it "correctly associates the user" do
-      expect(@star.user).to eq(@lindeman)
+  context "permission creation" do
+    it "creates our needed permissions" do
+      expect(Permission.all).to match_array([@token1, @token2])
     end
 
-    it "return false when the user is having an existential crisis" do
-      @test = Car.new(user_id: 0, mileage: 1, vin: "333333FFFFFF66667")
-      expect( @test.valid? ).to eq(false)
-    end
-  end
-
-  context "child assocations" do
-    it "has an assocation with maintenances" do
-      expect(@star.maintenances).to match_array([@oil_change, @alignment])
-    end
-
-    it "has an assocation with issues" do
-      expect(@star.issues).to match_array([@engine, @tail_light])
-    end
-
-    it "has an associaton with repairs specific to an issue" do
-      expect(@star.issues.find(@tail_light.id).repairs).to match_array([@tail_light_fix])
-    end
-
-    it "differentiates between repairs non-specific to an issue" do
-      expect(@star.repairs).to match_array([@tail_light_fix, @engine_fix])
+    it "creates without an issue_id" do
+      @test = Permission.create(car_id: @dust.id, report_type: "maintenance", token: "password")
+      expect(@test.valid?).to eq(true)
     end
   end
 
-  context "mileage validations" do
-    it "checks to see that anything lower than 0 is invalid for mileage" do
-        @test = Car.new(user_id: @lindeman.id, mileage: -1, vin: "333333FFFFFF66667")
-        expect( @test.valid? ).to eq(false)
-        @test = Car.new(user_id: @lindeman.id, mileage: 0, vin: "333333FFFFFF66667")
-        expect( @test.valid? ).to eq(false)
-      end
+  context "associations" do
+    it "has an association with it's car" do
+      expect(@token1.car).to eq(@star)
+    end
 
-    it "checks to see if a positive integer is valid" do
-      @test = Car.new(user_id: @lindeman.id, mileage: 1, vin: "333333FFFFFF66667")
-      expect( @test.valid? ).to eq(true)
+    it "has an assocation with it's issue if an issue_id is given" do
+      expect(@token1.issue).to eq(@engine)
     end
   end
 
-  context "VIN validation" do
-    it "is invalid if the VIN is not alphanumeric" do
-      @test = Car.new(user_id: @lindeman.id, mileage: 100, vin: "333333FFFFFF6666$")
-      expect( @test.valid? ).to eq(false)
+  context "validations" do
+    it "is invalid if a issue_id is invalid" do
+      @test = Permission.create(car_id: @dust.id, issue_id: 0, report_type: "maintenance", token: "password")
+      @test.valid?
+      expect(@test.errors[:issue_id]).to match_array(["does not exist."])
     end
 
-    it "is valid if the VIN is alphanumeric" do
-      @test = Car.new(user_id: @lindeman.id, mileage: 100, vin: "333333FFFFFF66667")
-      expect( @test.valid? ).to eq(true)
+    it "is invalid if a issue_id is invalid" do
+      @test = Permission.create(car_id: @star.id, issue_id: @back_light.id, report_type: "maintenance", token: "password")
+      @test.valid?
+      expect(@test.errors[:issue_id]).to match_array(["does not match the car."])
     end
   end
-
 end

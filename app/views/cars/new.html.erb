@@ -1,60 +1,15 @@
-<%= form_for @car do |f| %>
- 
-  <% if @car.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@car.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @car.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
-   <p>
-    <%= f.label :vin %><br>
-    <%= f.text_field :vin %>
-  </p>
+<h1>Add New Car</h1>
+<div class='vin-lookup'>
+  <form action="new", method="get">
+    <p>Submit your <strong>VIN</strong> to populate car info: </p>
+    <input type="string" name="vin">
+    <br><br>
+    <input type="submit" value="Submit" class="btn btn-secondary">
+  </form><br>
+</div>
 
-  <p>
-    <%= f.label :mileage %><br>
-    <%= f.number_field :mileage %>
-  </p>
+<div class='manual-entry'>
+  <%= render 'form' %>
+</div><br>
 
-  <p>
-    <%= f.label :year %><br>
-    <%= f.number_field :year %>
-  </p>
- 
-  <p>
-    <%= f.label :make %><br>
-    <%= f.text_field :make %>
-  </p>
- 
-   <p>
-    <%= f.label :model %><br>
-    <%= f.text_field :model %>
-  </p>
-
-    <p>
-    <%= f.label :color %><br>
-    <%= f.text_field :color %>
-  </p>
-
-    <p>
-    <%= f.label :transmission %><br>
-    <%= f.text_field :transmission %>
-  </p>
-
-    <p>
-    <%= f.label :engine %><br>
-    <%= f.text_field :engine %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
- 
-<% end %>
+<%= link_to 'Back', cars_path, class: "btn btn-reverse" %>

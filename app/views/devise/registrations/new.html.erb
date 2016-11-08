@@ -1,26 +1,22 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<h1>Create Account</h1>
+<div class="devise-form-div">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "devise-form"}) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
+    <%= f.label :your_name %><br />
+    <%= f.text_field :first_name, autofocus: true, placeholder: "First name" %>
+    <%= f.text_field :last_name, placeholder: "Last name" %>
   </div>
 
   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
+    <%= f.label :your_phone %><br />
+    <%= f.text_field :phone, placeholder: "Your phone" %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email %>
+    <%= f.email_field :email, placeholder: "you@you.com" %>
   </div>
 
   <div class="field">
@@ -36,9 +32,14 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="field">
+    <%= f.check_box :mech_status, {}, true %> <%= f.label :mech_status, "Check if you are registering as a MECHANIC." %> 
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="actions">
+    <%= f.submit "Sign up", class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
+</div>
+
