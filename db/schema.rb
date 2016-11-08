@@ -71,15 +71,17 @@ ActiveRecord::Schema.define(version: 20161108112546) do
   end
 
   create_table "repairs", force: :cascade do |t|
-    t.integer  "issue_id"
-    t.string   "title",          limit: 64
+    t.integer  "repairable_id"
+    t.string   "repairable_type"
+    t.string   "title",           limit: 64
     t.string   "description"
     t.integer  "mileage"
     t.integer  "shop_id"
     t.date     "date_completed"
     t.integer  "rating"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["repairable_type", "repairable_id"], name: "index_repairs_on_repairable_type_and_repairable_id", using: :btree
   end
 
   create_table "shops", force: :cascade do |t|

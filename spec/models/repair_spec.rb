@@ -33,8 +33,8 @@ RSpec.describe Repair, type: :model do
   end
 
   context "parent assocation" do
-    it "belongs to an issue" do
-      expect(@tail_light_fix.issue).to eq(@tail_light)
+    it "belongs to a parent issue" do
+      expect(@tail_light_fix.repairable).to eq(@tail_light)
     end
   end
 
