@@ -4,6 +4,7 @@ class Car < ApplicationRecord
 
   belongs_to :user
   has_many :issues
+  has_many :repairs, through: :issues
   has_many :maintenances
 
   validates :mileage, { presence: true }
