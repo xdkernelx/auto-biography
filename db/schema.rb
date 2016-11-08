@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108012540) do
+ActiveRecord::Schema.define(version: 20161108112546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20161108012540) do
     t.string   "engine"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "title",          limit: 64
+    t.string   "body"
+    t.integer  "commentable_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "issues", force: :cascade do |t|
@@ -70,6 +78,28 @@ ActiveRecord::Schema.define(version: 20161108012540) do
     t.integer  "rating"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.string   "name",        limit: 64
+    t.integer  "mechanic_id"
+    t.string   "address",     limit: 128
+    t.string   "city",        limit: 64
+    t.string   "state"
+    t.string   "zip_code",    limit: 5
+    t.string   "phone",                   default: ""
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string   "title",         limit: 64
+    t.string   "description"
+    t.boolean  "public_access",            default: false
+    t.integer  "user_id"
+    t.integer  "car_id"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   create_table "users", force: :cascade do |t|
