@@ -22,18 +22,13 @@ RSpec.describe Issue, :type => :model do
     @tire_change = Maintenance.create(car_id: @dust.id, mechanic_id: @travis.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
   end
 
-<<<<<<< HEAD
-  it "Allows several Issue creations to be valid" do
-    expect(@tail_light.valid?).to eq(false)
-    expect(@tail_light.open).to eq(true)
-=======
   context "issue creation" do
     it "Check to see if our Issues are saved" do
       expect(Issue.all).to match_array([@engine, @tail_light, @back_light])
->>>>>>> f5d14bc50c81fd1fb1a1a1b9ef35bfb330388941
+    end
   end
 
-  context "parent assocations"
+  context "parent assocations" do
     it "It associates to a car" do
       expect(@tail_light.car).to eq(@star)
     end
