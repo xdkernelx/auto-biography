@@ -10,6 +10,7 @@ RSpec.describe Shop, type: :model do
     Permission.destroy_all
     Shop.destroy_all
     Ticket.destroy_all
+    Comment.destroy_all
     @lindeman = User.create(first_name: "Andy", last_name: "Lindeman", password: "password", email: "tester@test.com")
     @travis = User.create(first_name: "Bob", last_name: "Builder", password: "password", email: "tester2@test.com", mech_status: true)
     @oreilly = Shop.create(name: "O'Reilly", address: "636 Spruce St.", city: "San Francisco", state: "CA", zip_code: "94118")
