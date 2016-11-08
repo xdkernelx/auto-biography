@@ -1,4 +1,5 @@
 ![alt tag](https://travis-ci.org/xdkernelx/auto-biography.svg?branch=development)
+![alt tag](https://codeclimate.com/github/xdkernelx/auto-biography/badges/gpa.svg)
 
 # Auto-biography
 
