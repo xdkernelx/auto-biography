@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(version: 20161108012540) do
   create_table "permissions", force: :cascade do |t|
     t.integer  "car_id"
     t.integer  "issue_id"
-    t.string   "type",       limit: 11
+    t.string   "report_type", limit: 11
     t.string   "token"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "repairs", force: :cascade do |t|

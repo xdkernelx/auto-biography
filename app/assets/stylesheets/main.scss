@@ -13,7 +13,7 @@ $red-accent: #8F2C29;
 $dark-gray-accent: #686B6B;
 $white: #FFFFFF;
 
-html,body {
+html, body {
   height: 100%;
   background-color: $gray-accent;
 }
@@ -182,9 +182,8 @@ span.glyphicon-wrench {
   font-size: 40px;
 }
 
-
 #wrap {
-  min-height: 60%;
+  min-height: 45%;
 }
 
 #main {
@@ -193,7 +192,6 @@ span.glyphicon-wrench {
 }
 
 //////////
-
 
 .footer-distributed{
   background-color: #072D3B;
