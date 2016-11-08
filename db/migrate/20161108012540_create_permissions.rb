@@ -1,6 +1,10 @@
 class CreatePermissions < ActiveRecord::Migration[5.0]
   def change
     create_table :permissions do |t|
+      t.integer :car_id
+      t.integer :issue_id
+      t.string :type, { limit: 11 }
+      t.string :token
 
       t.timestamps
     end
