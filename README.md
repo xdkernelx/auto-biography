@@ -1,5 +1,7 @@
-![alt tag](https://travis-ci.org/xdkernelx/auto-biography.svg?branch=development)
-![alt tag](https://codeclimate.com/github/xdkernelx/auto-biography/badges/gpa.svg)
+![Travis Status](https://travis-ci.org/xdkernelx/auto-biography.svg?branch=development)
+![Code Climate](https://codeclimate.com/github/xdkernelx/auto-biography/badges/gpa.svg)
+![Dependency Status](https://gemnasium.com/badges/github.com/xdkernelx/auto-biography.svg)
+
 
 # Auto-biography
 
@@ -28,3 +30,5 @@ Incoming Features:
   * for on-the-go payments of mechanic services
   * for the optional sell of a car to another user
 
+
+![schema](public/images/schema.png)
