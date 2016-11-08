@@ -15,27 +15,35 @@
 	    <li><a href="#fragment-1">Maintenance</a></li>
 	    <li><a href="#fragment-2">Issues</a></li>
 	  </ul>
-	  <div id="fragment-1">
+	  <div id="fragment-1"><br>
 	  	<%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %>
-	  	<%= link_to 'Maintenance History', car_maintenances_path(@car), class: "btn btn-green" %><br><br>
-	    <p> <% @car.maintenances.each do |maintenance|%>
-	    	<%= maintenance.title %><br>
-	    	<%= maintenance.date_completed %><br>
-	    	<%= maintenance.description %><br><br>
-	    	<%end%>
-	   </p>
+	  	<%= link_to 'Maintenance History', car_maintenances_path(@car), class: "btn btn-back" %><br><br>
+				<%if @car.maintenances.blank? %>
+					<p> You have no maintenance records. Click 'Add New Maintenance' to begin. </p>
+				<%else%>
+	    		<p> <% @car.maintenances.each do |maintenance|%>
+	    		<%= maintenance.title %><br>
+	    		<%= maintenance.date_completed %><br>
+	    		<%= maintenance.description %><br><br>
+	    		<%end%>
+	   		</p>
+	   		<%end%>
 	  </div>
-	  <div id="fragment-2">
+	  <div id="fragment-2"><br>
 	  	<%= link_to 'Add New Issue', new_car_issue_path(@car), class: "btn btn-red" %>
-			<%= link_to 'Issue History', car_issues_path(@car), class: "btn btn-red" %><br><br>
-	    <p><% @car.issues.each do |issue|%>
-	    	<%= issue.title %><br>
-	    	<%= issue.description%><br>
-	    	<%= issue.urgency %><br><br>
-	    	<%end%> </p>
+			<%= link_to 'Issue History', car_issues_path(@car), class: "btn btn-red-outline" %><br><br>
+			<%if @car.issues.blank? %>
+				<p> You have no issue records. Click 'Add New Issue' to begin. </p>
+			<%else%>
+	    	<p><% @car.issues.each do |issue|%>
+	    		<%= issue.title %><br>
+	    		<%= issue.description%><br>
+	    		<%= issue.urgency %><br><br>
+	    		<%end%> </p>
+	    	<%end%>
 	  </div>
-	</div>
-	 <%= link_to 'back', cars_path %>
+	</div><br>
+	 <%= link_to 'Back', cars_path, class: "btn btn-reverse" %>
 </div>
 <script>
   $( "#tabs" ).tabs({collapsible: true});
