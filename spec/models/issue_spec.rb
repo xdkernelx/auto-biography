@@ -28,7 +28,7 @@ RSpec.describe Issue, :type => :model do
     end
   end
 
-  context "parent assocations"
+  context "parent assocations" do
     it "It associates to a car" do
       expect(@tail_light.car).to eq(@star)
     end
