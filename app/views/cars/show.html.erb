@@ -19,7 +19,7 @@
 	  	<%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %>
 	  	<%= link_to 'Maintenance History', car_maintenances_path(@car), class: "btn btn-back" %><br><br>
 				<%if @car.maintenances.blank? %>
-					<p> You have no maintenance records. Click 'Add New Maintenance' to begin. </p>
+					<p class="have-none"> You have no maintenance records. Click 'Add New Maintenance' to begin. </p>
 				<%else%>
 	    		<p> <% @car.maintenances.each do |maintenance|%>
 	    		<%= maintenance.title %><br>
@@ -33,7 +33,7 @@
 	  	<%= link_to 'Add New Issue', new_car_issue_path(@car), class: "btn btn-red" %>
 			<%= link_to 'Issue History', car_issues_path(@car), class: "btn btn-red-outline" %><br><br>
 			<%if @car.issues.blank? %>
-				<p> You have no issue records. Click 'Add New Issue' to begin. </p>
+				<p class="have-none"> You have no issue records. Click 'Add New Issue' to begin. </p>
 			<%else%>
 	    	<p><% @car.issues.each do |issue|%>
 	    		<%= issue.title %><br>
