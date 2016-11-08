@@ -24,17 +24,23 @@ RSpec.describe Repair, type: :model do
     @oil_change = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "Scheduled Oil Change", description: "See Title", mileage: 200, date_completed: "11/04/2016")
     @alignment = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
     @tire_change = Maintenance.create(car_id: @dust.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
+    @stranded = Ticket.create(title: "SOS", car_id: @star.id, user_id: @lindeman.id,  description: "Please come get me")
+    @stranded_repair = Repair.create(repairable: @stranded, shop_id: @oreilly.id, title: "Engine dead", description: "Engine is dead. Please buy a new one", mileage: 3200, date_completed: "11/04/2016")
   end
 
   context "repair creation" do
-    it "Allows several Issue creations to be valid" do
-      expect(Repair.all).to match_array([@tail_light_fix, @engine_fix])
+    it "Allows several repair creations to be valid" do
+      expect(Repair.all).to match_array([@tail_light_fix, @engine_fix, @stranded_repair])
     end
   end
 
   context "parent assocation" do
     it "belongs to a parent issue" do
       expect(@tail_light_fix.repairable).to eq(@tail_light)
+    end
+
+    it "belongs to a parent ticket" do
+      expect(@stranded_repair.repairable).to eq(@stranded)
     end
   end
 
