@@ -28,6 +28,7 @@ RSpec.describe Car, :type => :model do
     @engine_fix = Repair.create(issue_id: @engine.id, mechanic_id: @travis.id, title: "Engine dead", description: "Engine is dead. Please buy a new one", mileage: 3200, date_completed: "11/04/2016")
     @oil_change = Maintenance.create(car_id: @star.id, mechanic_id: @travis.id, title: "Scheduled Oil Change", description: "See Title", mileage: 200, date_completed: "11/04/2016")
     @alignment = Maintenance.create(car_id: @star.id, mechanic_id: @travis.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
+    @alignment2 = Maintenance.create(car_id: @star.id, mechanic_id: @travis.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "12/04/2016")
     @tire_change = Maintenance.create(car_id: @dust.id, mechanic_id: @travis.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
   end
 
@@ -44,7 +45,7 @@ RSpec.describe Car, :type => :model do
 
   context "child assocations" do
     it "has an assocation with maintenances" do
-      expect(@star.maintenances).to match_array([@oil_change, @alignment])
+      expect(@star.maintenances).to match_array([@oil_change, @alignment, @alignment2])
     end
 
     it "has an assocation with issues" do
@@ -111,7 +112,9 @@ RSpec.describe Car, :type => :model do
   end
 
   context "Car.recent_maintenances" do
-
+    it "- correctly order by date_completed" do
+      expect(@star.recent_maintenances(2)).to eq([@alignment2, @alignment])
+    end
   end
 
 end
