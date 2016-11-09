@@ -121,7 +121,7 @@
             </div>
         </div>
 <div class="col-md-4">
-    <svg id="fillgauge3" width="80%" height="200" onclick="gauge3.update(NewValue());"></svg>
+    <svg id="fillgauge3" width="80%" height="200"></svg>
         <script language="JavaScript">
         var config2 = liquidFillGaugeDefaultSettings();
         config2.circleColor = "#D4AB6A";
@@ -136,14 +136,6 @@
         config2.waveCount = 1;
       var gauge3 = loadLiquidFillGauge("fillgauge3", (1 - (<%= @oil_change %>/5000))*100, config2);
         var config3 = liquidFillGaugeDefaultSettings();
-
-        function NewValue(){
-            if(Math.random() > .5){
-                return Math.round(Math.random()*100);
-            } else {
-                return (Math.random()*100).toFixed(1);
-            }
-        }
         </script>
 </div>
 </div>
