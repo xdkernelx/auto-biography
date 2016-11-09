@@ -36,6 +36,7 @@ RSpec.describe Car, :type => :model do
     @oil_change3 = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "oil change", description: "See Title", mileage: 2000, date_completed: "11/04/2016")
     @oil_change4 = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "oil change", description: "See Title", mileage: 2000, date_completed: "11/05/2016")
     @oil_change5 = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "oil change", description: "See Title", mileage: 9000, date_completed: "11/06/2016")
+    @service = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "service", description: "See Title", mileage: 1000, date_completed: "11/04/2016")
     @alignment = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
     @alignment2 = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "12/04/2016")
     @tire_change = Maintenance.create(car_id: @dust.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
@@ -56,7 +57,7 @@ RSpec.describe Car, :type => :model do
 
   context "child assocations" do
     it "has an assocation with maintenances" do
-      expect(@star.maintenances).to match_array([@oil_change, @alignment, @alignment2, @oil_change2, @oil_change3, @oil_change4, @oil_change5])
+      expect(@star.maintenances).to match_array([@oil_change, @alignment, @alignment2, @oil_change2, @oil_change3, @oil_change4, @oil_change5, @service])
     end
 
     it "has an assocation with issues" do
@@ -130,8 +131,8 @@ RSpec.describe Car, :type => :model do
   end
 
   context "Car.oil_change?" do
-    it "- returns true when the most recent 'oil change' maintenances are above the threshold" do
-      expect(@star.oil_change?).to eq(5000)
+    it "- returns 0 when the car's mileage is somehow lower than the most recent oil change report" do
+      expect(@star.oil_change?).to eq(0)
     end
 
     it "- returns nil when the there are not enough maintenances" do
@@ -140,6 +141,16 @@ RSpec.describe Car, :type => :model do
 
     it "- returns nil when the there are not enough 'oil change' maintenances" do
       expect(@matter.oil_change?).to eq(nil)
+    end
+  end
+
+  context "Car.service?" do
+    it "- returns 0 when the car's mileage is somehow lower than the most recent service report" do
+      expect(@star.service?).to eq(0)
+    end
+
+    it "- returns nil when the there are not enough maintenances" do
+      expect(@dust.service?).to eq(nil)
     end
   end
 
