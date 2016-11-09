@@ -24,32 +24,33 @@ Maintenance.destroy_all
 @hunter = User.create(first_name: "Hunter", last_name: "C", email: "hunter@car.com", password: "excursion")
 @excursion = Car.create(vin: "1FMSU41F8YEE33969", mileage: 178370, year: 2000, make: "Ford", model: "Excursion", engine: "8 Cylinder", user_id: @hunter.id)
 
-Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balance Wheels", mileage: 64210, date_completed: "06/08/2004", car_id: @excursion.id)
-Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balance Wheels", mileage: 68030, date_completed: "10/30/2004", car_id: @excursion.id)
+Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balance Wheels", mileage: 64210, date_completed: "08/06/2004", car_id: @excursion.id)
+Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balance Wheels", mileage: 68030, date_completed: "30/10/2004", car_id: @excursion.id)
+
 
 @i6 = Issue.create(title: "Wheel making noise", description: "Noise coming from front wheels", urgency: 3, car_id: @excursion.id)
-@r6 = Repair.Create(title: "Wheel Bearing", description: "Replace wheel bearing - R/F; R&R Hub bearing assembly; replace Ft. Calipers; Turn brake rotors; SSL - Alignment Thrust Angle", mileage: 64214, date_completed: "06/10/2004", repairable: @i6)
+@r6 = Repair.create(title: "Wheel Bearing", description: "Replace wheel bearing - R/F; R&R Hub bearing assembly; replace Ft. Calipers; Turn brake rotors; SSL - Alignment Thrust Angle", mileage: 64214, date_completed: "10/06/2004", repairable: @i6)
 
-Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balance Wheels", mileage: 70571, date_completed: "01/13/2005", car_id: @excursion.id)
-Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balance Wheels", mileage: 86402, date_completed: "10/05/2005", car_id: @excursion.id)
-Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balance Wheels; Inflate tire with nitrogen; install FR & Rear brake hose; brake systme flush", mileage: 92652, date_completed: "06/22/2006", car_id: @excursion.id)
-Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balance Wheels", mileage: 101868, date_completed: "06/21/2007", car_id: @excursion.id)
-Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balance Wheels", mileage: 113059, date_completed: "05/19/2008", car_id: @excursion.id)
+Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balance Wheels", mileage: 70571, date_completed: "13/01/2005", car_id: @excursion.id)
+Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balance Wheels", mileage: 86402, date_completed: "05/10/2005", car_id: @excursion.id)
+Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balance Wheels; Inflate tire with nitrogen; install FR & Rear brake hose; brake systme flush", mileage: 92652, date_completed: "22/06/2006", car_id: @excursion.id)
+Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balance Wheels", mileage: 101868, date_completed: "21/06/2007", car_id: @excursion.id)
+Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balance Wheels", mileage: 113059, date_completed: "19/05/2008", car_id: @excursion.id)
 
 @i5 = Issue.create(title: "Recal", description: "Ford recall", urgency: 2, car_id: @excursion.id)
-@r5 = Repair.create(title: "Recall #07S57", description: "Recall #07S57 camshaft position sensor inspection; Installed F7TZ 12K073 B :Sensor - Camshaft Position; Inspect and install camshaft sensor", mileage: 114355, date_completed: "07/10/2008", repairable: @i5)
+@r5 = Repair.create(title: "Recall #07S57", description: "Recall #07S57 camshaft position sensor inspection; Installed F7TZ 12K073 B :Sensor - Camshaft Position; Inspect and install camshaft sensor", mileage: 114355, date_completed: "10/07/2008", repairable: @i5)
 
 @i4 = Issue.create(title: "Something is wrong", description: "Car not running smooth", urgency: 3, car_id: @excursion.id)
-@r4 = Repair.create(title: "Fuel Injector & LCP Sensor", description: "Replaced fuel injector and LCP sensor", mileage: 121048, date_completed: "08/24/2009", repairable: @i4)
+@r4 = Repair.create(title: "Fuel Injector & LCP Sensor", description: "Replaced fuel injector and LCP sensor", mileage: 121048, date_completed: "24/08/2009", repairable: @i4)
 
 @i3 = Issue.create(title: "Recal", description: "Ford recall", urgency: 2, car_id: @excursion.id)
-@r3 = Repair.create(title: "Recall #09S09", description: "Speed control deactivation switch installed 8W7Z 14A411 C :wire ASY; Put jumper harness", mileage: 122120, date_completed: "10/21/2009", repairable: @i3)
+@r3 = Repair.create(title: "Recall #09S09", description: "Speed control deactivation switch installed 8W7Z 14A411 C :wire ASY; Put jumper harness", mileage: 122120, date_completed: "21/10/2009", repairable: @i3)
 
 @i2 = Issue.create(title: "No strat", description: "Car does not start. Driven 5 hours from georgia, died at stop light", urgency: 5, car_id: @excursion.id)
-@r2 = Repair.create(title: "Diag found no start no PCM communication", description: "Replaced Module - engine control - EEC; Replaced regulator - fuel pressure", mileage: 164179, date_completed: "06/10/2015", repairable: @i2)
+@r2 = Repair.create(title: "Diag found no start no PCM communication", description: "Replaced Module - engine control - EEC; Replaced regulator - fuel pressure", mileage: 164179, date_completed: "10/06/2015", repairable: @i2)
 
 @i1 = Issue.create(title: "Wheels make noise", description: "Noise coming from wheels when I step on brakes", urgency: 5, car_id: @excursion.id)
-@r1 = Repair.create(title: "Wheel bearing and Ball joint", description: "Replace wheel bearing hub.  Assembly with speed sensor.  Torque all bolts. Rec alignment can not with free play in steering and ball joint", mileage: 178027, date_completed: "06/30/2016", repairable: @i1)
+@r1 = Repair.create(title: "Wheel bearing and Ball joint", description: "Replace wheel bearing hub.  Assembly with speed sensor.  Torque all bolts. Rec alignment can not with free play in steering and ball joint", mileage: 178027, date_completed: "30/06/2016", repairable: @i1)
 
-Maintenance.create(title: "Full inspection", description: "Performed full inspection; tighten ATF cooler line coupler joints to stop leakage; custome weld 2 broken bolt tabls back onto braket; custom cable terminal fabrication", mileage: 178383, date_completed: "08/02/2016", car_id: @excursion.id)
-Maintenance.create(title: "Tire change", description: "Changed all four tires with new BF Goodrich 285/75/16", mileage: 178433, date_completed: "09/06/2016", car_id: @excursion.id)
+Maintenance.create(title: "Full inspection", description: "Performed full inspection; tighten ATF cooler line coupler joints to stop leakage; custome weld 2 broken bolt tabls back onto braket; custom cable terminal fabrication", mileage: 178383, date_completed: "02/08/2016", car_id: @excursion.id)
+Maintenance.create(title: "Tire change", description: "Changed all four tires with new BF Goodrich 285/75/16", mileage: 178433, date_completed: "06/09/2016", car_id: @excursion.id)
