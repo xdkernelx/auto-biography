@@ -8,10 +8,11 @@ class RepairsController < ApplicationController
   end
 
   def new
-  end 
+  end
 
   def create
     @repair = Repair.new(repair_params)
+    @repair.repairable = Issue.find(params[:issue_id])
     @car = Car.find(params[:car_id])
     @issue = Issue.find(params[:issue_id])
 
@@ -40,12 +41,12 @@ class RepairsController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     @repair.destroy
     redirect_to car_issue_path(@car, @issue)
-  end 
+  end
 
-private 
+private
 
   def repair_params
     params.require(:repair).permit(:title, :description, :mileage, :date_completed, :repairable)
@@ -55,7 +56,7 @@ private
     @repair = Repair.find(params[:id])
     @car = Car.find(params[:car_id])
     @issue = Issue.find(params[:issue_id])
-  end 
+  end
 
   def find_car_and_issue_and_new_repair
     @repair = Repair.new

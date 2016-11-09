@@ -28,7 +28,7 @@ RSpec.describe Comment, type: :model do
   end
 
   context "comment creation" do
-    it "creates the issue(s) we need" do
+    it "creates the comment(s) we need" do
       expect(Comment.all).to eq([@comment])
     end
 

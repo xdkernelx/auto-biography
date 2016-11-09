@@ -19,6 +19,7 @@ Maintenance.destroy_all
 # @m1 = Maintenance.create(title: "oil change", description: "got oil change", mileage: 32755, date_completed: "12/6/2015", car_id: @c1.id, mechanic_id: 1)
 
 @marvan = User.create(first_name: "Marvan", last_name: "T", email: "m@m.com", password: "123456")
+@nestor = User.create(first_name: "Nestor", last_name: 'A', email: "test@test.com", password: "jklolp")
 
 
 @hunter = User.create(first_name: "Hunter", last_name: "C", email: "hunter@car.com", password: "excursion")
