@@ -46,6 +46,8 @@ class Car < ApplicationRecord
       # TODO Make it dynamic to the car.range if supplied
       elsif difference >= max_value
         return max_value
+      else
+        return difference
       end
       return nil
     end
