@@ -1,12 +1,8 @@
 <div class="container">
 	<% if current_user %>
 	<% if current_user.id == @car.user_id %>
-		
 		<h1>Maintenance for <%= @car.make %> <%=@car.model%></h1>
-
 		<%= link_to "New Maintenance Report", new_car_maintenance_path(@car) %><br><br>
-
-
 		<% @maintenances.each do |maintenance| %>
 			<p>Title: <%= link_to maintenance.title, car_maintenance_path(@car, maintenance) %></p>
 			<p>Date completed: <%= maintenance.date_completed %></p>
