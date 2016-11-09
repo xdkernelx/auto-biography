@@ -5,6 +5,9 @@
 		  <p>COLOR: <%= @car.color %><br></p>
 		  <p>TRANSMISSION: <%= @car.transmission %><br></p>
 		  <p> ENGINE: <%= @car.engine %><br></p>
+            <% generate_url(Maintenance.new(), @car).each do |url| %>
+                <li><%= url %></li>
+            <% end %>
 	    <div>
 			<span class="glyphicon glyphicon-edit"></span> <%= link_to 'Edit Car Info', edit_car_path(@car) %><br><br>
 		</div>
