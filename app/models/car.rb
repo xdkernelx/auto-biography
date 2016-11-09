@@ -1,7 +1,7 @@
 require 'securerandom'
 
 class Car < ApplicationRecord
-  
+
   has_many :issues
   has_many :issue_repairs, through: :issues, source: :repairs
   has_many :ticket_repairs, through: :tickets, source: :repairs
@@ -32,6 +32,22 @@ class Car < ApplicationRecord
 
   def recent_issues(limit)
     self.issues.sort_by{|issue| issue.updated_at}.reverse!.take(limit)
+  end
+
+  def oil_change?
+    maintenances_array = recent_maintenances(self.maintenances.length).select { |maintenance| maintenance.title == "oil change" }
+    if maintenances_array.length < 2
+      return nil
+    else
+      difference = maintenances_array[0].mileage - maintenances_array[1].mileage
+      if difference < 0
+        return nil
+      # TODO Make it dynamic to the car.range if supplied
+      elsif difference >= 5000
+        return {change: true, mile_range: difference }
+      end
+      return nil
+    end
   end
 
 end
