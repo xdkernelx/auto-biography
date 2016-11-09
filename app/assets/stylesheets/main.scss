@@ -433,7 +433,7 @@ span.glyphicon-wrench {
 .map-right-side {
   overflow: auto;
   color: $dark-gray-accent;
-  height: 60%;
+  height: 80%;
   padding-left: 50px;
   padding-right: 50px;
   padding-bottom: 50px;  
@@ -443,8 +443,12 @@ span.glyphicon-wrench {
   overflow: auto;
   background-color: $red-accent;
   color: #FFFFFF;
-  height: 60%;
+  height: 80%;
   padding-left: 50px;
   padding-right: 50px;
   padding-bottom: 50px;
+}
+
+.margin-fix {
+  margin-top: 40px;
 }
