@@ -98,7 +98,7 @@
                         .tickSize(10, 8, 10)
                         .tickPadding(5)
                         .scale(d3.scale.linear()
-                                .domain([0, 160])
+                                .domain([0, 100])
                                 .range([-3*Math.PI/4, 3*Math.PI/4]));
 
                 var segDisplay = iopctrl.segdisplay()
@@ -116,8 +116,8 @@
                         .attr("class", "gauge")
                         .call(gauge);
 
-                segDisplay.value(<%= @car.mileage %>);
-                gauge.value((<%= @car.mileage %>/60000)*60);
+                segDisplay.value((<%= @car.mileage %>/1000));
+                gauge.value(<%= @car.mileage %>/1000);
 
                     console.log(gauge.value);
             </script>
