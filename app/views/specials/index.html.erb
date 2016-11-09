@@ -31,5 +31,41 @@
   <%= f.hidden_field :issue_id, :value => @issue_id %>
   <%= f.submit %>
   <% end %>
+<% elsif @report_type = "Maintenance" %>
+  <h1>Create new maintenance</h1>
+
+  <% if @errors %>
+    <ul>
+      <% @errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_for([@car, @car.maintenances.build]) do |f| %>
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </p>
+
+    <p>
+      <%= f.label :mileage %>
+      <%= f.number_field :mileage %>
+    </p>
+
+    <p>
+      <%= f.label :date_completed %>
+      <%= f.date_field :date_completed %>
+    </p>
+
+    <p>
+      <%= f.submit "Create report" %>
+    </p>
+  <% end %>
 <% end %>
 
