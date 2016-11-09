@@ -55,11 +55,13 @@ class Car < ApplicationRecord
     if maintenances_array.length < 1
       return nil
     else
-      target = maintenances_array[0].mileage + max_value
-      if self.mileage > target
-        (self.mileage - target > max_value) ? max_value : (self.mileage - target)
+      possible_return = self.mileage - maintenances_array[0].mileage
+      if self.mileage >= maintenances_array[0].mileage
+        (possible_return < max_value) ? possible_return : max_value
       else
-        (target - self.mileage > max_value) ? max_value : (target - self.mileage)
+        # On the off-chance that the maintenance creation doesn't update the car mileage
+        # return a 0, which denotes that the user needs to update his car mileage manually
+        0
       end
     end
   end
