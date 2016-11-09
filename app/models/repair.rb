@@ -19,4 +19,8 @@ class Repair < ApplicationRecord
 
   end
 
+  def self.format_date
+    self.date_completed.slice(0..9)
+  end
+
 end
