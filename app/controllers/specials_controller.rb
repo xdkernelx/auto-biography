@@ -7,12 +7,11 @@ class SpecialsController < ApplicationController
 		@token = params[:token] if params[:token]
 		if @report_type == "Issue"
 			@issue_id = params[:issue_id] if params[:issue_id]
-			@repair = Repair.new
-			@repair.repairable = Issue.find(params[:issue_id])
-			p '*' * 100
-			p @repair.repairable
+			@service = Repair.new
+			@service.repairable = Issue.find(params[:issue_id])
+			p @service.repairable
 		elsif @report_type == "Maintenance"
-			@maintenance = Maintenance.new
+			@service = Maintenance.new
 		end
 	end
 
@@ -23,19 +22,30 @@ class SpecialsController < ApplicationController
 		# NEED TO SORT THIS TO INCLUDE MAINTENANCE
 		# already added form to index
 		# need to include maintenance strong_params 
+		p '*' * 80
+		p params
+		p '*' * 80
 
-		@car = Car.find(params[:repair][:car_id])
-		@issue = Issue.find(params[:repair][:issue_id])
-		@repair = Repair.new(repair_params)
-		@repair.repairable = @issue
-		
-		if @repair.save
+		if params[:repair]
+			@car = Car.find(params[:repair][:car_id])
+			@issue = Issue.find(params[:repair][:issue_id])
+			@service = Repair.new(repair_params)
+			@service.repairable = @issue
+		elsif params[:maintenance]
+			@car = Car.find(params[:maintenance][:car_id])
+			@service = Maintenance.new(maintenance_params)
+			@service.car_id = @car.id
+		end
+		p '*' * 80
+		 p @service
+		 p '*' * 80
+		if @service.save
 			render 'thanks'
 		else
-			@errors = @repair.errors.full_messages
+			@errors = @service.errors.full_messages
 			redirect_to request.original_url
 			# need to fix the redirect_to
-		end
+		end	
 	end
 
 	private
@@ -43,4 +53,7 @@ class SpecialsController < ApplicationController
     params.require(:repair).permit(:title, :description, :mileage, :date_completed)
   end
 
+  def maintenance_params
+  	params.require(:maintenance).permit(:title, :description, :mileage, :date_completed, :car_id)
+  end
 end

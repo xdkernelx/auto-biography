@@ -8,7 +8,7 @@
     </ul>
   <% end %>
 
-  <%= form_for @repair, url: specials_path do |f| %>
+  <%= form_for @service, url: specials_path do |f| %>
   <p>
     <%= f.label :title%>:
     <%= f.text_field :title %><br />
@@ -29,6 +29,7 @@
 
   <%= f.hidden_field :car_id, :value => @car_id %>
   <%= f.hidden_field :issue_id, :value => @issue_id %>
+  <%= f.hidden_field :report_type, :value => @report_type %>
   <%= f.submit %>
   <% end %>
 <% elsif @report_type = "Maintenance" %>
@@ -42,7 +43,7 @@
     </ul>
   <% end %>
 
-  <%= form_for([@car, @car.maintenances.build]) do |f| %>
+  <%= form_for @service, url: specials_path do |f| %>
     <p>
       <%= f.label :title %><br>
       <%= f.text_field :title %>
@@ -63,6 +64,8 @@
       <%= f.date_field :date_completed %>
     </p>
 
+    <%= f.hidden_field :car_id, :value => @car_id %>
+    <%= f.hidden_field :report_type, :value => @report_type %>
     <p>
       <%= f.submit "Create report" %>
     </p>
