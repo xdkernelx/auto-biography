@@ -29,8 +29,13 @@ RSpec.describe Repair, type: :model do
   end
 
   context "repair creation" do
-    it "Allows several repair creations to be valid" do
+    it "ensures that we have the base variables needed for testing" do
       expect(Repair.all).to match_array([@tail_light_fix, @engine_fix, @stranded_repair])
+    end
+
+    it "ensures that a shop_id can be optional" do
+      @test = Repair.new(repairable: @stranded, title: "Engine dead", description: "Engine is dead. Please buy a new one", mileage: 3200, date_completed: "11/04/2016")
+      expect(@test.valid?).to eq(true)
     end
   end
 
