@@ -1,17 +1,19 @@
 language: ruby
 rvm:
-  - 2.2.2
+- 2.2.2
 services:
-  - postgresql
+- postgresql
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+- psql -c 'create database travis_ci_test;' -U postgres
 deploy:
   provider: heroku
   api_key:
-    secure: "K4YmTmK7WtUP/ygUxRrJzoWLzJowEumYMFl5yYUZX6TltoJjwPv/M0xoq+Ooz5jywPBzD+UpJr481E6gs5wSBv6PQfxeAo6h7xPxwpXKkFsrNoQ/1UwhfkE8zLAJp6Jr7eKYweVBJ5fyvWhAVpLArWVTQ+FOcODB/ToAkTxaEJZtwADgXAKM5bXSgSZfSj5KH/PBXxmmTn+0H95wdgwLtdmLKUUEBAyM250Q9NfQZc6kbxRyYYwzTxfuArw+cADI7ZbCw8COEsAIE4AlH0cLqwwEGb8Z3KOkWLk4RYkcIWOMpCDOn6yTAiBkOM9j5IcQAK1yHNNa9o7GXlRtQy6IWi+DhVDv5JhvO+9xbI46Se7xFqNNIhNckEoIzeiQeD18uafvBZPioJdk8NjzpHittY9cV0ApvwQDazDQru59GWoQFbsGqMEwEyw7xXfsb/BgiuSy8l5qmYw5OzsWlPeib0iYpZeZH6Hvrh3mXv2s+F64ZaLleeOcTc0PDxk4XgYm+GPOGQPbzPp77mks48iwC/s4vx+DJscPpjeY0ZeUf884fSDHNrD+mAi3n0qKRzBCHsVNUo+PCTQxQ81kcx5hrcv2Aib1axnsT5Pxbib/ria0XKEj7YFwzE9LyylaiZAkRCfGjMrLMpmIHUmM5wfnDXNpHApfSkggK+WY/9QxTXA="
+    secure: AOYy44fkc4Hdc+HZLwnp5eFIckngpHeL0jHIG94bEmjJHnkUKjF8OjfJgf8k0mNwio5P6itV7c/9RHkYH1/7uVFMlAs417nDE+Y23t4qOGQcXaU2OCJlZyQi0EPN/euHYwaX/5DtWLb1l/6WzxxnrmS/xcpeS09I8OnzXiXgN/TeE0s3APHtzkZH4uZH4YfXNbOW1fRqYB90/0VXuUQQZ7VPkPOyYzacgMF7XS2efThvxROoB2DAIPwET0CPZ1QgvkhHUNeIk3KMo9I7AnYwTy05lQR7A2tNV9QQT39X1iXWsTIO12hXF2nRGKHA913r0jnhP3DPKdRwTTOLds3EhX59Qr2YGntSR5bY0JSxGGn3q7GoR4jaE6em6jvQldCO4Gbd6MzfqOKjWyHoM83bpwCenxHjz7mjZovaexXHKHC3y2cy4lPHRUXkqedPUXhW9daZ389GXsFA3JEbdYLOAPUuqMBnzpcbQyf/21jBY9nZw3n1iESTJRXRVLSUZC8T2zwiRaSBlvddRm0HFHFqPjGUJoHMxZsuDbnEZUb0PIfCPJy2Jwe8VaRFGpheuHzHebEcd9NWxMwvv7T1ts+cpUKBdbsPTN7Rdobo1n7xI4dvOzHPJ/ubGu/K5ORvT/ipfz4pWIw8Cl20N4mNeiIObm4YuFjYAh5HhucBxDmcuTU=
+  app: auto-biography
+  on:
+    repo: xdkernelx/auto-biography
 script:
-  - bundle exec rake db:drop
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
-  - bundle exec rake
-
+- bundle exec rake db:drop
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- bundle exec rake
