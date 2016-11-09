@@ -14,7 +14,6 @@ class RepairsController < ApplicationController
     @repair = Repair.new(repair_params)
     @car = Car.find(params[:car_id])
     @issue = Issue.find(params[:issue_id])
-    @repair.issue_id = @issue.id
 
     if current_user.mech_status
       @repair.mechanic_id = current_user.id
@@ -49,7 +48,7 @@ class RepairsController < ApplicationController
 private 
 
   def repair_params
-    params.require(:repair).permit(:title, :description, :mileage, :date_completed, :issue_id)
+    params.require(:repair).permit(:title, :description, :mileage, :date_completed, :repairable)
   end
 
   def find_car_and_issue_and_repair

@@ -1,17 +1,20 @@
 <div class="container">
 	<% if current_user %>	
-		<h1><%= @car.year %> <%=@car.make %> <%= @car.model %></h1>
-			<h3>Color: <%= @car.color %><br></h3>
-			<h3>Transmission: <%= @car.transmission %><br></h3>
-			<h3> Engine: <%= @car.engine %><br></h3>
-			<%= link_to "Comprehensive History", url: "#", class: "btn btn-reverse"%>
+	<div class="col-md-4">
+		<h3><%= @car.year %> <%=@car.make %> <%= @car.model %></h3>
+			<p>COLOR: <%= @car.color %><br></p>
+			<p>TRANSMISSION: <%= @car.transmission %><br></p>
+			<p> ENGINE: <%= @car.engine %><br></p>
+			<div>
+				<span class="glyphicon glyphicon-edit"></span> <%= link_to 'Edit Car Info', edit_car_path(@car) %><br><br>
+			</div>
+			<%= image_tag @car.image.url(:medium) %><br>
+			<%= link_to "Comprehensive History",new_car_maintenance_path(@car) %>
+		</div>
 	</div>
 <% else %>
 	<h3>You must be logged in to view this page</h3>
 <% end %>
-<div>
-	<%= link_to 'Edit Car Information', edit_car_path(@car) %><br><br>
-</div>
 	<div id="tabs">
 	  <ul>
 	    <li><a href="#fragment-1">Maintenance</a></li>
