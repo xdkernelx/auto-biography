@@ -26,10 +26,6 @@ class Car < ApplicationRecord
     self.maintenances.sort_by{|maintenance| maintenance.date_completed}.reverse!.take(limit)
   end
 
-  def recent_repairs(limit)
-    repairs.sort_by{|repair| repair.date_completed}.reverse!.take(limit)
-  end
-
   def recent_issues(limit)
     self.issues.sort_by{|issue| issue.updated_at}.reverse!.take(limit)
   end

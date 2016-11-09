@@ -26,7 +26,7 @@
     <%= f.label :description%>:
     <%= f.text_area :description %><br />
   </p>
-  <%= f.hidden_field :issue_id, :value => @issue.id %>
+  <%= f.hidden_field :repairable, :value => @issue %>
 
   <%= f.submit %>
   <% end %>

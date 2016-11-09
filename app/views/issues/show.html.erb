@@ -11,14 +11,14 @@
   <h3>You must be logged in to view this page</h3>
 <% end %>
 </div>
-<div class="col-sm-3 col-md-6" id="map-right-side">
+<div class="col-sm-3 col-md-6">
     <h4 class="maps-page map-right-side"> Repairs for issue: </h4>
       <% if mechanic? %>
         <%= link_to "Add Repair", new_car_issue_repair_path(@car, @issue), method: "get", class: "btn btn-info"  %>
       <% else %>
         <%= link_to "Add Repair", new_car_issue_repair_path(@car, @issue), method: "get", class: "btn btn-info" %>
       <% end %><br>
-        <% @car.recent_repairs(3).each do |repair| %><br>
+        <% @issue.recent_repairs(3).each do |repair| %><br>
         <%= repair.title %><br>
         <%= repair.date_completed %><br>
         <%= repair.description %><br></p>

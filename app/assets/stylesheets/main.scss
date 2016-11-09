@@ -124,13 +124,6 @@ textarea {
   padding-right: 0;
 }
 
-a:link {
-  color: $light-accent;
-}
-
-a:visited {
-  color: $light-accent;
-}
 
 #user_remember_me {
   margin-right: 10px;
@@ -469,6 +462,10 @@ span.glyphicon-wrench {
   color: $white;
 }
 
+.btn-primary:link {
+  color: $white;
+}
+
 .btn-secondary {
   background: $dark-gray-accent!important;
   border-color: $dark-gray-accent !important;
@@ -515,7 +512,7 @@ span.glyphicon-wrench {
   background: $red-accent !important;
   border-color: $white!important;
   border-radius: 5px !important;
-  width: 100px;
+  width: 200px;
   font-size: 16px;
   color: $white !important;
 }
@@ -533,7 +530,7 @@ span.glyphicon-wrench {
   background: $red-accent !important;
   border-color: $red-accent !important;
   border-radius: 5px !important;
-  width: 100px;
+  width: 200px;
   font-size: 16px;
   color: $white !important;
 }
