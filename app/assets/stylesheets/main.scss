@@ -17,8 +17,11 @@ html, body {
   background-color: $gray-accent;
 }
 
-
-
+#wrap
+{
+min-height: 100%;
+margin-right: 0px;
+}
 
 body {
   padding-top: 60px;
@@ -26,19 +29,6 @@ body {
   color: $dark-gray-accent;
   text-align: center;
   height: 100%;
-
-  margin-bottom: 50px;
-  margin-top: 0;
-  position: relative;
-}
-
-
-footer {
-    background-color: $blue-accent;
-    bottom: -100px;
-    height: 60px;
-    position: absolute;
-    width: 100%;
 }
 
 h1 {
@@ -117,7 +107,7 @@ textarea {
 }
 
 .navbar {
-  height: 70px;
+  height: 80px;
   background-color: #FFFFFF;
 }
 
@@ -150,7 +140,6 @@ textarea {
    width: 100%; /* for IE 6 */
 }
 
-
 .homepage-col {
   padding: 20px;
   background-color: #468966;
@@ -162,7 +151,6 @@ hr {
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), $green-accent, rgba(0, 0, 0, 0));
 }
-
 
 /*comprehensive page */
 .maintenance-report {
@@ -237,7 +225,6 @@ span.glyphicon-wrench {
 .issue-title {
   font-size: 20px;
 }
-
 
 #main {
   overflow:auto;
@@ -405,6 +392,8 @@ span.glyphicon-wrench {
 
 #map-left-side {
   color: #FFFFFF;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 .issue-half {
   overflow: auto;

@@ -4,7 +4,7 @@
 		<h1>Maintenance for <%= @car.make %> <%=@car.model%></h1>
 		<%= link_to "New Maintenance Report", new_car_maintenance_path(@car) %><br><br>
 		<% @maintenances.each do |maintenance| %>
-			<p>Title: <%= link_to maintenance.title, car_maintenance_path(@car, maintenance) %></p>
+			<p>Title: <%= maintenance.title%></p>
 			<p>Date completed: <%= maintenance.date_completed %></p>
 			<p> <%= maintenance.mileage %> </p>
 			<p> <%= maintenance.description %> </p>
