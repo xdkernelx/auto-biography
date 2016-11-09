@@ -117,7 +117,7 @@
                         .call(gauge);
 
                 segDisplay.value((<%= @car.mileage %>/1000));
-                gauge.value(10);
+                gauge.value(<%= @car.mileage %>/1000);
 
                     console.log(gauge.value);
             </script>
