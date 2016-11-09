@@ -16,11 +16,5 @@ class Repair < ApplicationRecord
         errors.add(:shop_id, "shop does not exist.")
       end
     end
-
   end
-
-  def self.format_date
-    self.date_completed.slice(0..9)
-  end
-
 end

@@ -2,7 +2,7 @@
 	<h1>Issues for <%= @car.make %> <%=@car.model%></h1>
 	<% @issues.each do |issue| %>
 		<span class="issue-title"><%=link_to issue.title, car_issue_path(@car, issue)%></span><br>
-		<%= issue.created_at %><br><br>
+		<%= format_date(issue)%><br><br>
 		<ul>
 			<% generate_url(issue, @car).each do |url| %>
 				<li><%= url %></li>

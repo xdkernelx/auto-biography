@@ -5,9 +5,9 @@
 		  <p>COLOR: <%= @car.color %><br></p>
 		  <p>TRANSMISSION: <%= @car.transmission %><br></p>
 		  <p> ENGINE: <%= @car.engine %><br></p>
-            <% generate_url(Maintenance.new(), @car).each do |url| %>
-                <li><%= url %></li>
-            <% end %>
+            <%# generate_url(Maintenance.new(), @car).each do |url| %>
+                <%# url %></li>
+            <%# end %>
 	    <div>
 			<span class="glyphicon glyphicon-edit"></span> <%= link_to 'Edit Car Info', edit_car_path(@car) %><br><br>
 		</div>
@@ -140,7 +140,7 @@
       var gauge3 = loadLiquidFillGauge("fillgauge3", (1 - (<%= @oil_change %>/5000))*100, config2);
         var config3 = liquidFillGaugeDefaultSettings();
         </script>
-</div>
+    </div>
 </div>
 <% else %>
 	<h3>You must be logged in to view this page</h3>
@@ -157,15 +157,25 @@
 			<%if @car.maintenances.blank? %>
 				<p class="have-none"> You have no maintenance records. Click 'Add New Maintenance' to begin. </p>
 			<%else%>
+            <div class ="col-md-3">
+                <strong><p> Title </p></strong>
+            </div>
+            <div class ="col-md-3">
+                <strong><p>Urgency</p></strong>
+            </div>
+            <div class ="col-md-6">
+                <strong><p> Description </p></strong>
+            </div><br><br>
+            <hr>
 	    	<p> <% @car.recent_maintenances(4).each do |maintenance|%>
 			 <div class ="col-md-3">
-	    	      <%= maintenance.title %>
+	    	  <%= maintenance.title %>
 	    	</div>
 	    	<div class="col-md-3">
-	    		<%= maintenance.date_completed %>
+	    	  <%= maintenance.date_completed %>
 	    	</div>
 	    	<div class="col-md-6">
-	    		<%= maintenance.description %>
+	    	  <%= maintenance.description %>
 	    	</div><br><br>
             <hr>
 	    		<%end%>
@@ -175,6 +185,7 @@
 	  <div id="fragment-2"><br>
 	  	<%= link_to 'Add New Issue', new_car_issue_path(@car), class: "btn btn-red" %>
 			<%= link_to 'Issue History', car_issues_path(@car), class: "btn btn-red-outline" %><br><br>
+            <hr>
 			<%if @car.issues.blank? %>
 				<p class="have-none"> You have no issue records. Click 'Add New Issue' to begin. </p>
 			<%else%>
