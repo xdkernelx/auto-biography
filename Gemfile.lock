@@ -87,7 +87,7 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
-    listen (3.1.5)
+    listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
     loofah (2.0.3)
@@ -214,8 +214,7 @@ DEPENDENCIES
   hirb-unicode
   jbuilder (~> 2.5)
   jquery-rails
-  ruby_dep
-  listen (~> 3.1.5)
+  listen (~> 3.0.5)
   paperclip (~> 5.1.0)
   pg (~> 0.18)
   puma (~> 3.0)
