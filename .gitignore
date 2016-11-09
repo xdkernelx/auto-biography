@@ -24,6 +24,7 @@ public/system/cars/*
 .idea/
 ignored/
 .irb-save-history
+.byebug_history
 chromedriver.log
 .tddium*
 bin/
