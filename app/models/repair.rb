@@ -6,7 +6,7 @@ class Repair < ApplicationRecord
 
   validates :title, :description, :mileage, :date_completed, { presence: true }
   validates :mileage, numericality: { greater_than: 0 }
-  validate :shop_status
+  validates :shop_status, optional: true
 
   def shop_status
     if self.shop_id
