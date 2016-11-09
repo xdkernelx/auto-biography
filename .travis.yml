@@ -5,6 +5,10 @@ services:
   - postgresql
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: "K4YmTmK7WtUP/ygUxRrJzoWLzJowEumYMFl5yYUZX6TltoJjwPv/M0xoq+Ooz5jywPBzD+UpJr481E6gs5wSBv6PQfxeAo6h7xPxwpXKkFsrNoQ/1UwhfkE8zLAJp6Jr7eKYweVBJ5fyvWhAVpLArWVTQ+FOcODB/ToAkTxaEJZtwADgXAKM5bXSgSZfSj5KH/PBXxmmTn+0H95wdgwLtdmLKUUEBAyM250Q9NfQZc6kbxRyYYwzTxfuArw+cADI7ZbCw8COEsAIE4AlH0cLqwwEGb8Z3KOkWLk4RYkcIWOMpCDOn6yTAiBkOM9j5IcQAK1yHNNa9o7GXlRtQy6IWi+DhVDv5JhvO+9xbI46Se7xFqNNIhNckEoIzeiQeD18uafvBZPioJdk8NjzpHittY9cV0ApvwQDazDQru59GWoQFbsGqMEwEyw7xXfsb/BgiuSy8l5qmYw5OzsWlPeib0iYpZeZH6Hvrh3mXv2s+F64ZaLleeOcTc0PDxk4XgYm+GPOGQPbzPp77mks48iwC/s4vx+DJscPpjeY0ZeUf884fSDHNrD+mAi3n0qKRzBCHsVNUo+PCTQxQ81kcx5hrcv2Aib1axnsT5Pxbib/ria0XKEj7YFwzE9LyylaiZAkRCfGjMrLMpmIHUmM5wfnDXNpHApfSkggK+WY/9QxTXA="
 script:
   - bundle exec rake db:drop
   - bundle exec rake db:create
