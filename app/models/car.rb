@@ -37,19 +37,24 @@ class Car < ApplicationRecord
   def oil_change?
     max_value = 5000
     maintenances_array = recent_maintenances(self.maintenances.length).select { |maintenance| maintenance.title == "oil change" }
-    if maintenances_array.length < 2
+    if maintenances_array.length < 1
       return nil
+    elsif maintenances_array.length == 1
+      if maintenances_array[0].date_completed < self.created_at
+        (self.mileage - maintenances_array[0].mileage > 0) ? self.mileage - maintenances_array[0].mileage : nil
+      else
+        (maintenances_array[0].mileage - self.mileage > 0) ? maintenances_array[0].mileage - self.mileage : nil
+      end
     else
       difference = maintenances_array[0].mileage - maintenances_array[1].mileage
-      if difference < 0
-        return nil
+      if (difference >= 0) && (difference <= max_value)
+        return difference
       # TODO Make it dynamic to the car.range if supplied
-      elsif difference >= max_value
+      elsif difference > max_value
         return max_value
       else
-        return difference
+        return nil
       end
-      return nil
     end
   end
 
