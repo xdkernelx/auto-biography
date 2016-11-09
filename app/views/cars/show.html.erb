@@ -1,5 +1,5 @@
 <div class="container">
-	<% if current_user %>	
+	<% if current_user %>
 	<div class="col-md-4">
 		<h3><%= @car.year %> <%=@car.make %> <%= @car.model %></h3>
 			<p>COLOR: <%= @car.color %><br></p>
@@ -66,7 +66,7 @@
     <style>
         .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
     </style>
-    
+
     <style>
         body {
             font: 16px arial;
@@ -90,7 +90,7 @@
             stroke: #5f9ea0;
             stroke-width: 2px;
         }
-        
+
         .gauge line {
             stroke: #5f9ea0;
         }
@@ -105,7 +105,7 @@
             font-family: 'Play', verdana, sans-serif;
             font-weight: normal;
         }
-        
+
         .gauge .indicator {
             stroke: #ffd500;
             fill: #000;
@@ -128,7 +128,7 @@
     <div>
         <span id="speedometer"></span>
     </div>
-    
+
     <script>
         var svg = d3.select("#speedometer")
                 .append("svg:svg")
@@ -183,7 +183,7 @@
 	    config2.waveAnimateTime = 2000;
 	    config2.waveHeight = 0.3;
 	    config2.waveCount = 1;
-      var gauge3 = loadLiquidFillGauge("fillgauge3", (<%= @car.mileage %>/5000)*100, config2);        
+      var gauge3 = loadLiquidFillGauge("fillgauge3", (1 - (<%= @car.mileage %>/5000))*100, config2);
 	    var config3 = liquidFillGaugeDefaultSettings();
 
 	    function NewValue(){
