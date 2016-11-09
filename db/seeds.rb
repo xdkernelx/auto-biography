@@ -15,5 +15,5 @@ Maintenance.destroy_all
 @u1 = User.create(first_name: "Sponge", last_name: "Bob", email: "sponge@bob.com", password: "password")
 @c1 = Car.create(vin: "3VWSE69M35M029058", mileage: 32555, user_id: @u1.id)
 @i1 = Issue.create(title: "engine light on", description: "engine light turned on today", urgency: 4, car_id: @c1.id)
-@r1 = Repair.create(title: "fixed engine light", description: "did not turn gas cap all the way", mileage: 32570, date_completed: "11/4/2016", issue_id: @i1.id)
-@m1 = Maintenance.create(title: "oil change", description: "got oil change", mileage: 32755, date_completed: "12/6/2015", car_id: @c1.id, mechanic_id: 1)
+@r1 = Repair.create(title: "fixed engine light", description: "did not turn gas cap all the way", mileage: 32570, date_completed: "11/4/2016", repairable: @i1)
+@m1 = Maintenance.create(title: "oil change", description: "got oil change", mileage: 32755, date_completed: "12/6/2015", car_id: @c1.id, shop_id: 1)
