@@ -214,6 +214,7 @@ DEPENDENCIES
   hirb-unicode
   jbuilder (~> 2.5)
   jquery-rails
+  ruby_dep
   listen (~> 3.1.5)
   paperclip (~> 5.1.0)
   pg (~> 0.18)
