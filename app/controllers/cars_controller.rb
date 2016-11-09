@@ -1,9 +1,9 @@
 class CarsController < ApplicationController
 	include SpecialsHelper
-	
+
 	before_action :find_car, only: [:show, :edit, :update, :destroy]
 
-	def index 
+	def index
 		if user_signed_in?
 			@user = current_user
 			@cars = @user.cars
@@ -17,7 +17,7 @@ class CarsController < ApplicationController
 
 	def new
 		@car = Car.new
-	end 
+	end
 
 	def edit
 	end
@@ -35,7 +35,7 @@ class CarsController < ApplicationController
 
 	def update
 		if @car.update(car_params)
-			redirect_to @car 
+			redirect_to @car
 		else
 			render 'edit'
 		end
@@ -54,5 +54,6 @@ class CarsController < ApplicationController
 
 	def find_car
 		@car = Car.find(params[:id])
+		@car.oil_change? ? @oil_change = @car.oil_change? : @oil_change = @car.mileage
 	end
 end
