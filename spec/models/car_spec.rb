@@ -131,7 +131,7 @@ RSpec.describe Car, :type => :model do
 
   context "Car.oil_change?" do
     it "- returns true when the most recent 'oil change' maintenances are above the threshold" do
-      expect(@star.oil_change?).to eq(7000)
+      expect(@star.oil_change?).to eq(5000)
     end
 
     it "- returns nil when the there are not enough maintenances" do
