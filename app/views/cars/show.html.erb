@@ -124,7 +124,7 @@
             </div>
         </div>
 <div class="col-md-4">
-    <svg id="fillgauge3" width="80%" height="200" onclick="gauge3.update(NewValue());"></svg>
+    <svg id="fillgauge3" width="80%" height="200"></svg>
         <script language="JavaScript">
         var config2 = liquidFillGaugeDefaultSettings();
         config2.circleColor = "#D4AB6A";
@@ -137,16 +137,8 @@
         config2.waveAnimateTime = 2000;
         config2.waveHeight = 0.3;
         config2.waveCount = 1;
-      var gauge3 = loadLiquidFillGauge("fillgauge3", (<%= @car.mileage %>/5000)*100, config2);
+      var gauge3 = loadLiquidFillGauge("fillgauge3", (1 - (<%= @oil_change %>/5000))*100, config2);
         var config3 = liquidFillGaugeDefaultSettings();
-
-        function NewValue(){
-            if(Math.random() > .5){
-                return Math.round(Math.random()*100);
-            } else {
-                return (Math.random()*100).toFixed(1);
-            }
-        }
         </script>
 </div>
 </div>
@@ -199,140 +191,3 @@
 <script>
   $( "#tabs" ).tabs({collapsible: true});
 </script>
-
-
-<div class="dashboard-container">
-	<head lang="en">
-    <style>
-        .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
-    </style>
-
-    <style>
-        body {
-            font: 16px arial;
-        }
-
-        .unselectable {
-            -moz-user-select: -moz-none;
-            -khtml-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        /* css formats for the gauge */
-        .gauge .domain {
-            stroke-width: 2px;
-            stroke: #5f9ea0;
-        }
-
-        .gauge .tick line {
-            stroke: #5f9ea0;
-            stroke-width: 2px;
-        }
-
-        .gauge line {
-            stroke: #5f9ea0;
-        }
-
-        .gauge .arc, .gauge .cursor {
-            opacity: 0;
-        }
-
-        .gauge .major {
-            fill: #770000;
-            font-size: 20px;
-            font-family: 'Play', verdana, sans-serif;
-            font-weight: normal;
-        }
-
-        .gauge .indicator {
-            stroke: #ffd500;
-            fill: #000;
-            stroke-width: 4px;
-        }
-
-        /* css formats for the segment display */
-        .segdisplay .on {
-            fill: #ff8c00;
-
-        }
-
-        .segdisplay .off {
-            fill: #ff8c00;
-            opacity: 0.15;
-        }
-    </style>
-    </head>
-<body>
-    <div>
-        <span id="speedometer"></span>
-    </div>
-
-    <script>
-        var svg = d3.select("#speedometer")
-                .append("svg:svg")
-                .attr("width", 400)
-                .attr("height", 400);
-
-
-        var gauge = iopctrl.arcslider()
-                .radius(120)
-                .events(false)
-                .indicator(iopctrl.defaultGaugeIndicator);
-        gauge.axis().orient("in")
-                .normalize(true)
-                .ticks(12)
-                .tickSubdivide(3)
-                .tickSize(10, 8, 10)
-                .tickPadding(5)
-                .scale(d3.scale.linear()
-                        .domain([0, 160])
-                        .range([-3*Math.PI/4, 3*Math.PI/4]));
-
-        var segDisplay = iopctrl.segdisplay()
-                .width(80)
-                .digitCount(6)
-                .negative(false)
-                .decimals(0);
-
-        svg.append("g")
-                .attr("class", "segdisplay")
-                .attr("transform", "translate(130, 200)")
-                .call(segDisplay);
-
-        svg.append("g")
-                .attr("class", "gauge")
-                .call(gauge);
-
-        segDisplay.value(<%= @car.mileage %>);
-        gauge.value((<%= @car.mileage %>/60000)*60);
-
-    		console.log(gauge.value);
-    </script>
-    <svg id="fillgauge3" width="19%" height="200" onclick="gauge3.update(NewValue());"></svg>
-		<script language="JavaScript">
-	    var config2 = liquidFillGaugeDefaultSettings();
-	    config2.circleColor = "#D4AB6A";
-	    config2.textColor = "#7D604D";
-	    config2.waveTextColor = "#7D604D";
-	    config2.waveColor = "#3B2D24";
-	    config2.circleThickness = 0.1;
-	    config2.circleFillGap = 0.2;
-	    config2.textVertPosition = 0.8;
-	    config2.waveAnimateTime = 2000;
-	    config2.waveHeight = 0.3;
-	    config2.waveCount = 1;
-      var gauge3 = loadLiquidFillGauge("fillgauge3", (1 - (<%= @oil_change %>/5000))*100, config2);
-	    var config3 = liquidFillGaugeDefaultSettings();
-
-	    function NewValue(){
-	        if(Math.random() > .5){
-	            return Math.round(Math.random()*100);
-	        } else {
-	            return (Math.random()*100).toFixed(1);
-	        }
-	    }
-	</script>
-</body>
-</div>
