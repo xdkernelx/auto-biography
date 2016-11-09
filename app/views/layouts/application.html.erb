@@ -20,8 +20,6 @@
     <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
     <script src="liquidFillGauge.js" language="JavaScript"></script>
   </head>
-
-
 	<div class="navbar navbar-default navbar-fixed-top">
 	    <div class="container">
 	        <div class="navbar-header">
@@ -56,6 +54,13 @@
 	    </div>
 	</div>
   <body>
-<%= yield %>
+    <div class="wrapper">
+      <%= yield %>
+    </div>
+    <div class="extra-space">
+    </div>
+    <div class="footer">
+      <p>auto-biography</p>
+    </div>
   </body>
 </html>

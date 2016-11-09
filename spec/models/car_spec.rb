@@ -32,9 +32,15 @@ RSpec.describe Car, :type => :model do
     @engine_fix2 = Repair.create(repairable: @engine, shop_id: @oreilly.id, title: "Engine dead", description: "Engine is dead. Please buy a new one", mileage: 3200, date_completed: "11/05/2016")
     @engine_fix = Repair.create(repairable: @engine, shop_id: @oreilly.id, title: "Engine dead", description: "Engine is dead. Please buy a new one", mileage: 3200, date_completed: "11/04/2016")
     @oil_change = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "Scheduled Oil Change", description: "See Title", mileage: 200, date_completed: "11/04/2016")
+    @oil_change2 = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "oil change", description: "See Title", mileage: 2000, date_completed: "11/04/2016")
+    @oil_change3 = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "oil change", description: "See Title", mileage: 2000, date_completed: "11/04/2016")
+    @oil_change4 = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "oil change", description: "See Title", mileage: 2000, date_completed: "11/05/2016")
+    @oil_change5 = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "oil change", description: "See Title", mileage: 9000, date_completed: "11/06/2016")
     @alignment = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
     @alignment2 = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "12/04/2016")
     @tire_change = Maintenance.create(car_id: @dust.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
+    @oil_pressure = Maintenance.create(car_id: @matter.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
+    @oil_pressure2 = Maintenance.create(car_id: @matter.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
   end
 
   context "parent assocation" do
@@ -50,7 +56,7 @@ RSpec.describe Car, :type => :model do
 
   context "child assocations" do
     it "has an assocation with maintenances" do
-      expect(@star.maintenances).to match_array([@oil_change, @alignment, @alignment2])
+      expect(@star.maintenances).to match_array([@oil_change, @alignment, @alignment2, @oil_change2, @oil_change3, @oil_change4, @oil_change5])
     end
 
     it "has an assocation with issues" do
@@ -108,7 +114,7 @@ RSpec.describe Car, :type => :model do
 
   context "Car.recent_maintenances" do
     it "- correctly order by date_completed" do
-      expect(@star.recent_maintenances(2)).to eq([@alignment2, @alignment])
+      expect(@star.recent_maintenances(2)).to eq([@oil_change5, @oil_change4])
     end
   end
 
@@ -120,6 +126,20 @@ RSpec.describe Car, :type => :model do
 
     it "- returns an empty array if the car has no repairs" do
       expect(@matter.recent_issues(5)).to eq([])
+    end
+  end
+
+  context "Car.oil_change?" do
+    it "- returns true when the most recent 'oil change' maintenances are above the threshold" do
+      expect(@star.oil_change?).to eq(5000)
+    end
+
+    it "- returns nil when the there are not enough maintenances" do
+      expect(@dust.oil_change?).to eq(nil)
+    end
+
+    it "- returns nil when the there are not enough 'oil change' maintenances" do
+      expect(@matter.oil_change?).to eq(nil)
     end
   end
 

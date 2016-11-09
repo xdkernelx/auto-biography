@@ -1,18 +1,18 @@
-<div class="col-sm-3 col-md-6 issue-half">
+<div class="row">
+  <div class="col-md-6 map-left-side">
   <% if current_user %> 
-  <h4 class="maps-page" id ="map-left-side">Issue</h4>
+  <h4>Issue</h4>
     <h3><%=@issue.title%></h3>
-    <%= @issue.description %><br>
+      <%= @issue.description %><br>
     <span>Urgency: <%= @issue.urgency %></span><br><br>
-    <%= link_to "Edit", edit_car_issue_path(@car, @issue.id), class: "btn btn-back-red" %><br><br>
-    <%= link_to 'Back', car_issues_path(@car), class: "btn btn-back-blue" %>
+     <%= link_to "Edit", edit_car_issue_path(@car, @issue.id), class: "btn btn-back-red" %><br><br>
+     <%= link_to 'Back', car_issues_path(@car), class: "btn btn-back-blue" %>
   </div>
 <% else %>
   <h3>You must be logged in to view this page</h3>
 <% end %>
-</div>
-<div class="col-sm-3 col-md-6">
-    <h4 class="maps-page map-right-side"> Repairs for issue: </h4>
+<div class="col-md-6 map-right-side">
+    <h4> Repairs for issue: </h4>
       <% if mechanic? %>
         <%= link_to "Add Repair", new_car_issue_repair_path(@car, @issue), method: "get", class: "btn btn-info"  %>
       <% else %>
@@ -22,7 +22,9 @@
         <%= repair.title %><br>
         <%= repair.date_completed %><br>
         <%= repair.description %><br></p>
-        <%= link_to "Edit", edit_car_issue_repair_path(@car, @issue.id, repair.id) %><br>  <% end %>
+        <%= link_to "Edit", edit_car_issue_repair_path(@car, @issue.id, repair.id) %><br>  
+        <% end %>
+  </div>
 </div>
 
 <div id="map"></div>
