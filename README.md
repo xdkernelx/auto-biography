@@ -3,9 +3,9 @@
 ![Dependency Status](https://gemnasium.com/badges/github.com/xdkernelx/auto-biography.svg)
 
 
-# Auto-biography
+#[auto-biography](https://auto-biography.herokuapp.com/) (Heroku)
 
-## Team Members:
+### Team Members:
 * Marvan Taghvaie
 * Mal Wood
 * Paula Lee
