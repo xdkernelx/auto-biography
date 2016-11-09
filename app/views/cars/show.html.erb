@@ -12,7 +12,7 @@
 			<span class="glyphicon glyphicon-edit"></span> <%= link_to 'Edit Car Info', edit_car_path(@car) %><br><br>
 		</div>
 		<%= image_tag @car.image.url(:medium) %><br>
-		<%= link_to "Comprehensive History", car_history_path(@car) %>
+		<%= link_to "Comprehensive History", car_history_path(@car), class: "btn btn-reverse-wide" %>
 	</div>
     <div class="col-md-4">
         <div class="dashboard-container">

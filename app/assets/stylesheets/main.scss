@@ -101,7 +101,7 @@ textarea {
 }
 
 .blue-report-header {
-  background-color: $light-accent;
+  background-color: $blue-accent;
   padding: 10px;
   margin-bottom: 0px;
   color: $white;
@@ -176,8 +176,19 @@ hr {
 }
 
 /*comprehensive page */
+
 .maintenance-report {
-  margin: 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.issues-report {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .maintenance-report-header {
@@ -193,13 +204,12 @@ hr {
   width: 20%;
 }
 
-.head-td {
-  padding: 20px;
+.align-left-header {
+  text-align: left;
 }
 
-.issues-report {
-  background-color: $red-accent;
-  color: $white;
+.head-td {
+  padding: 20px;
 }
 
 .md-td {
@@ -400,6 +410,16 @@ span.glyphicon-wrench {
   border-color: $light-accent !important;
   border-radius: 5px !important;
   width: 100px;
+  font-size: 16px;
+  color: $light-accent !important;
+}
+
+.btn-reverse-wide {
+  margin-top: 10px;
+  background: $gray-accent !important;
+  border-color: $light-accent !important;
+  border-radius: 5px !important;
+  width: 200px;
   font-size: 16px;
   color: $light-accent !important;
 }
