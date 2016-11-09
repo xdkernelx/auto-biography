@@ -12,15 +12,13 @@ $red-accent: #8F2C29;
 $dark-gray-accent: #686B6B;
 $white: #FFFFFF;
 
+* {
+  margin: 0;
+}
+
 html, body {
   height: 100%;
   background-color: $gray-accent;
-}
-
-#wrap
-{
-min-height: 100%;
-margin-right: 0px;
 }
 
 body {
@@ -29,6 +27,18 @@ body {
   color: $dark-gray-accent;
   text-align: center;
   height: 100%;
+}
+
+.wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -4em;
+}
+
+.footer, .push {
+height: 4em;
+background-color: $blue-accent;
 }
 
 h1 {
@@ -43,6 +53,10 @@ h4 {
 .devise-form-div {
   display: block;
   text-align: center;
+}
+
+.extra-space {
+  height: 10em;
 }
 
 .devise-form {
@@ -79,7 +93,7 @@ textarea {
 
 .main-h2 { 
   font-family: $header-font;
-  font-size: 40px;
+  font-size: 5em;
   position: absolute; 
   top: 85px; 
   width: 100%; 
@@ -217,10 +231,6 @@ span.glyphicon-wrench {
 
 /////
 
-.footer-text {
-  margin-right: 20px;
-  font-weight: bold;
-}
 
 .issue-title {
   font-size: 20px;
@@ -228,8 +238,7 @@ span.glyphicon-wrench {
 
 #main {
   overflow:auto;
-  padding-bottom:150px; /* this needs to be bigger than footer height*/
-}
+  }
 
 ////////*tab styling*////////
 /*Do not show grey background (folder style)*/
@@ -377,17 +386,14 @@ span.glyphicon-wrench {
 }
 
 /*Maps page*/
-.maps-page {
-  margin-top: 50px;
-}
 
 #map-right-side {
+  overflow: auto;
   color: $dark-gray-accent;
   height: 60%;
-  overflow: auto;
   padding-left: 50px;
   padding-right: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 50px;  
 }
 
 #map-left-side {

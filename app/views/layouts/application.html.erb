@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   </head>
-
-
 	<div class="navbar navbar-default navbar-fixed-top">
 	    <div class="container">
 	        <div class="navbar-header">
@@ -47,6 +45,13 @@
 	    </div>
 	</div>
   <body>
-<%= yield %>
+    <div class="wrapper">
+      <%= yield %>
+    </div>
+    <div class="extra-space">
+    </div>
+    <div class="footer">
+      <p>Copyright (c) 2008</p>
+    </div>
   </body>
 </html>
