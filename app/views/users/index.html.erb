@@ -1,38 +1,43 @@
 <h1><%= current_user.first_name %>'s <%= @car.year %> <%= @car.make %> <%= @car.model %></h1>
-<h2 class="blue-report-header"> MAINTENANCE </h2>
-<table class="maintenance-report">
-<tr>
-  <td class="head-td">
-    <h4>Title</h4>
-  </td>
-  <td class="head-td">
-    <h4>Date Completed</h4>
-  </td>
-  <td class="head-td">
-    <h4> Mileage </h4>
-  </td>
-  <td class="head-td">
-    <h4> Description </h4>
-  </td>
-</tr>
-<% @maintenances.each do |maintenance| %>
-<tr>
-  <td class="x-sm-td">
-  <%= maintenance.title %><br>
-</td>
-<td class="x-sm-td">
-  <%= maintenance.date_completed %><br>
-</td>
-<td class="sm-td">
-  <%= maintenance.mileage %><br>
-</td>
-<td class="md-td">
-  <%= maintenance.description %><br>
-</td>
-</tr>
+<% if @maintenances.blank? %>
+<% else %>
+  <h2 class="blue-report-header"> MAINTENANCE </h2>
+    <table class="maintenance-report">
+      <tr>
+        <td class="head-td">
+          <h4>Title</h4>
+        </td>
+        <td class="head-td">
+          <h4>Date Completed</h4>
+        </td>
+        <td class="head-td">
+          <h4> Mileage </h4>
+        </td>
+        <td class="head-td">
+         <h4> Description </h4>
+        </td>
+      </tr>
+      <% @maintenances.each do |maintenance| %>
+      <tr>
+        <td class="x-sm-td">
+         <%= maintenance.title %><br>
+        </td>
+        <td class="x-sm-td">
+          <%= maintenance.date_completed %><br>
+        </td>
+        <td class="sm-td">
+          <%= maintenance.mileage %><br>
+        </td>
+        <td class="md-td">
+         <%= maintenance.description %><br>
+      </td>
+      </tr>
+      <%end%>
+  </table>
 <%end%>
-</table>
+
 <hr>
+
 <h2 class="blue-report-header"> ISSUES</h2>
 <table class="issues-report">
   <tr>
