@@ -1,4 +1,5 @@
 class MaintenancesController < ApplicationController
+	include MaintenancesHelper
 	before_action :find_car_and_maintenance, only: [:show, :edit, :update, :destroy]
 	before_action :find_car_and_new_maintenance, only: [:new, :create]
 
@@ -20,6 +21,7 @@ class MaintenancesController < ApplicationController
 		@maintenance.assign_attributes(maintenance_params)
 		@maintenance.car_id = @car.id
 		if @maintenance.save
+			update_mileage(@car, @maintenance.mileage)
 			redirect_to car_maintenances_path(@car)
 		else
 			@errors = @maintenance.errors.full_messages
@@ -29,6 +31,7 @@ class MaintenancesController < ApplicationController
 
 	def update
 		if @maintenance.update(maintenance_params)
+			update_mileage(@car, @maintenance.mileage)
 			redirect_to car_maintenances_path(@car)
 		else
 			@errors = @maintenance.errors.full_messages
@@ -56,4 +59,5 @@ class MaintenancesController < ApplicationController
 		@car = Car.find(params[:car_id])
 		@maintenance = Maintenance.new
 	end
+
 end

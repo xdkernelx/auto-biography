@@ -1,8 +1,7 @@
 <h1>My Cars</h1>
-
-<div>
-	<%= link_to 'Add Car', new_car_path, class: "btn btn-primary" %>
-</div>
+	<div>
+		<%= link_to 'Add Car', new_car_path, class: "btn btn-primary" %>
+	</div>
 
 <% if user_signed_in? %>
 	<% @cars.each do |car| %>
