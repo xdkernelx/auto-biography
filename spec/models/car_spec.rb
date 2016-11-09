@@ -39,6 +39,8 @@ RSpec.describe Car, :type => :model do
     @alignment = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
     @alignment2 = Maintenance.create(car_id: @star.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "12/04/2016")
     @tire_change = Maintenance.create(car_id: @dust.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
+    @oil_pressure = Maintenance.create(car_id: @matter.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
+    @oil_pressure2 = Maintenance.create(car_id: @matter.id, shop_id: @oreilly.id, title: "Scheduled Alignment", description: "Off by 1 degree", mileage: 200, date_completed: "11/04/2016")
   end
 
   context "parent assocation" do
@@ -129,7 +131,15 @@ RSpec.describe Car, :type => :model do
 
   context "Car.oil_change?" do
     it "- returns true when the most recent 'oil change' maintenances are above the threshold" do
-      expect(@star.oil_change?).to eq({change: true, mile_range: 7000 })
+      expect(@star.oil_change?).to eq(7000)
+    end
+
+    it "- returns nil when the there are not enough maintenances" do
+      expect(@dust.oil_change?).to eq(nil)
+    end
+
+    it "- returns nil when the there are not enough 'oil change' maintenances" do
+      expect(@matter.oil_change?).to eq(nil)
     end
   end
 

@@ -44,7 +44,7 @@ class Car < ApplicationRecord
         return nil
       # TODO Make it dynamic to the car.range if supplied
       elsif difference >= 5000
-        return {change: true, mile_range: difference }
+        return difference
       end
       return nil
     end
