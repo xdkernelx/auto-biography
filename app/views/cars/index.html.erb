@@ -10,8 +10,8 @@
 	  <%= image_tag car.image.url(:medium) %>
 
 	  <div class="card-block">
-	    <h4 class="card-title"><%=link_to car.year, car_path(car)%></h4>
-	    <p class="card-text"><%=car.make%> <%=car.model%></p>
+	    <h4 class="card-title"><%= car.year%></h4>
+	    <p class="card-text"><%=link_to car.make, car_path(car)%> <%=link_to car.model, car_path(car)%></p>
 	  </div>
 	</div>
 	</div>
