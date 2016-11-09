@@ -1,4 +1,4 @@
-<% if current_user %>   
+<% if current_user %>
   <h1>New Repair</h1>
   <% if @errors %>
     <ul>
@@ -26,7 +26,6 @@
     <%= f.label :description%>:
     <%= f.text_area :description %><br />
   </p>
-  <%= f.hidden_field :repairable, :value => @issue %>
 
   <%= f.submit %>
   <% end %>
