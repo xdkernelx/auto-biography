@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108112546) do
+ActiveRecord::Schema.define(version: 20161108202602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cars", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "vin",          limit: 17
+    t.string   "vin",                limit: 17
     t.integer  "mileage"
     t.integer  "year"
     t.string   "make"
@@ -25,8 +25,12 @@ ActiveRecord::Schema.define(version: 20161108112546) do
     t.string   "color"
     t.string   "transmission"
     t.string   "engine"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "comments", force: :cascade do |t|

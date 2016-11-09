@@ -1,4 +1,4 @@
-<%= form_for @car do |f| %>
+<%= form_for @car, html: { multipart: true } do |f| %>
  
   <% if @car.errors.any? %>
     <div id="error_explanation">
@@ -14,10 +14,16 @@
     </div>
   <% end %>
  
+  <p><center>
+    <%= f.label :car_image %><br>
+    <%= f.file_field :image %>
+  </center></p>
+
    <p>
     <%= f.label :vin %><br>
     <%= f.text_field :vin %>
   </p>
+
 
   <p>
     <%= f.label :mileage %><br>
@@ -54,7 +60,7 @@
     <%= f.text_field :engine %>
   </p>
   <p>
-    <%= f.submit "Add Car", class: 'btn btn-primary' %>
+    <%= f.submit "Submit", class: 'btn btn-primary' %>
   </p>
  
 <% end %>

@@ -17,6 +17,7 @@ app/models/key.rb
 curriculum/.pygments-cache
 curriculum/public/*
 public/assets
+public/system/images/cars
 *.tmproj
 *~
 \#*#

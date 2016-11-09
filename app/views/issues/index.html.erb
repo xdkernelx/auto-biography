@@ -5,12 +5,12 @@
 			<%= link_to issue.title, car_issue_path(@car, issue) %><br>
 		<% end %>
 <% else %>
-	<%= link_to "New Issue", new_car_issue_path(@car), method: "get", class: "btn btn-info"%><br>
 		<% @issues.each do |issue| %>
 				<span class="issue-title"><%=link_to issue.title, car_issue_path(@car, issue)%></span><br>
-				<%= issue.created_at %>
+				<%= issue.created_at %><br><br>
 				<% end %>
-				<%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %>
+	<%= link_to "New Issue", new_car_issue_path(@car), method: "get", class: "btn btn-info"%><br><br>
+				<%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %><br>
 	<% end %>
 <% else %>
 	<h3>You must be logged in to view this page</h3>

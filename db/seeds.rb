@@ -12,6 +12,7 @@ Issue.destroy_all
 Repair.destroy_all
 Maintenance.destroy_all
 
+<<<<<<< HEAD
 # @u1 = User.create(first_name: "Sponge", last_name: "Bob", email: "sponge@bob.com", password: "password")
 # @c1 = Car.create(vin: "3VWSE69M35M029058", mileage: 32555, user_id: @u1.id)
 # @i1 = Issue.create(title: "engine light on", description: "engine light turned on today", urgency: 4, car_id: @c1.id)
@@ -54,3 +55,10 @@ Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balanc
 
 Maintenance.create(title: "Full inspection", description: "Performed full inspection; tighten ATF cooler line coupler joints to stop leakage; custome weld 2 broken bolt tabls back onto braket; custom cable terminal fabrication", mileage: 178383, date_completed: "02/08/2016", car_id: @excursion.id)
 Maintenance.create(title: "Tire change", description: "Changed all four tires with new BF Goodrich 285/75/16", mileage: 178433, date_completed: "06/09/2016", car_id: @excursion.id)
+=======
+@u1 = User.create(first_name: "Sponge", last_name: "Bob", email: "sponge@bob.com", password: "password")
+@c1 = Car.create(vin: "3VWSE69M35M029058", mileage: 32555, user_id: @u1.id)
+@i1 = Issue.create(title: "engine light on", description: "engine light turned on today", urgency: 4, car_id: @c1.id)
+@r1 = Repair.create(title: "fixed engine light", description: "did not turn gas cap all the way", mileage: 32570, date_completed: "11/4/2016", repairable: @i1)
+@m1 = Maintenance.create(title: "oil change", description: "got oil change", mileage: 32755, date_completed: "12/6/2015", car_id: @c1.id, shop_id: 1)
+>>>>>>> 0526842a7a3134e21c5a94a3d99035fc1fe303f5
