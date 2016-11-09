@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :specials
   
-  get '/cars/:car_id/history', to: "users#index"
+  match '/cars/:car_id/history' => "users#index", :as => 'car_history', :via => "get"
 
   resources :cars do
     resources :maintenances

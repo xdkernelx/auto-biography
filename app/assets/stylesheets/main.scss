@@ -107,9 +107,18 @@ textarea {
   color: $white;
 }
 
+
 .card {
   border: 1px solid #ddd;
   width: 300px;
+  background-color: $green-accent;
+  color: $white;
+
+}
+
+.card-title {
+  padding-top: 10px;
+  font-size: 20px;
 }
 
 .opacity-text {
@@ -168,9 +177,12 @@ hr {
 
 /*comprehensive page */
 .maintenance-report {
-  background-color: $green-accent;
   margin: 0px;
-  color: #FFFFFF;
+}
+
+.maintenance-report-header {
+  background-color: $green-accent;
+  color: $white;
 }
 
 .x-sm-td {

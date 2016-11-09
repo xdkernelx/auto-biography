@@ -9,7 +9,7 @@
 			<span class="glyphicon glyphicon-edit"></span> <%= link_to 'Edit Car Info', edit_car_path(@car) %><br><br>
 		</div>
 		<%= image_tag @car.image.url(:medium) %><br>
-		<%= link_to "Comprehensive History",new_car_maintenance_path(@car) %>
+		<%= link_to "Comprehensive History", car_history_path(@car) %>
 	</div>
     <div class="col-md-4">
         <div class="dashboard-container">
@@ -151,12 +151,12 @@
 	  	<%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %>
 	  	<%= link_to 'Maintenance History', car_maintenances_path(@car), class: "btn btn-back" %><br><br>
         <hr>
-				<%if @car.maintenances.blank? %>
-					<p class="have-none"> You have no maintenance records. Click 'Add New Maintenance' to begin. </p>
-				<%else%>
-	    		<p> <% @car.recent_maintenances(4).each do |maintenance|%>
-				<div class ="col-md-3">
-	    		<%= maintenance.title %>
+			<%if @car.maintenances.blank? %>
+				<p class="have-none"> You have no maintenance records. Click 'Add New Maintenance' to begin. </p>
+			<%else%>
+	    	<p> <% @car.recent_maintenances(4).each do |maintenance|%>
+			 <div class ="col-md-3">
+	    	      <%= maintenance.title %>
 	    	</div>
 	    	<div class="col-md-3">
 	    		<%= maintenance.date_completed %>
@@ -175,11 +175,28 @@
 			<%if @car.issues.blank? %>
 				<p class="have-none"> You have no issue records. Click 'Add New Issue' to begin. </p>
 			<%else%>
+            <div class ="col-md-3">
+                 <strong><p> Title </p></strong>
+                </div>
+                <div class ="col-md-3">
+                <strong><p>Urgency</p></strong>
+                </div>
+                <div class ="col-md-6">
+                <strong><p> Description </p></strong>
+                </div><br><br>
+            <hr>
 	    	<p><% @car.recent_issues(4).each do |issue|%>
-	    		<%= issue.title %><br>
-	    		<%= issue.description%><br>
-	    		<%= issue.urgency %><br><br>
-	    		<%end%> </p>
+                <div class ="col-md-3">
+	    		 <%= issue.title %>
+                </div>
+                <div class ="col-md-3">
+	    		<%= issue.urgency %>
+                </div>
+                <div class ="col-md-6">
+                <%= issue.description%>
+                </div><br>
+              <hr>
+	    		<%end%>
 	    	<%end%>
 	  </div>
 	</div><br>
