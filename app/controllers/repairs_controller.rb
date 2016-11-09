@@ -1,6 +1,8 @@
 class RepairsController < ApplicationController
 
-  before_action :find_car_and_issue_and_repair, only: [:edit, :update, :destroy]
+  include RepairsHelper
+
+  before_action :find_car_and_issue_and_repair, only: [:edit, :destroy]
   before_action :find_car_and_issue_and_new_repair, only: [:new]
 
 
@@ -21,6 +23,7 @@ class RepairsController < ApplicationController
     end
 
     if @repair.save
+      update_mileage(@car, @repair.mileage)
       if current_user.mech_status == true
         render 'thanks'
       else
@@ -33,7 +36,12 @@ class RepairsController < ApplicationController
   end
 
   def update
+    @repair = Repair.find(params[:id])
+    @repair.repairable = Issue.find(params[:issue_id])
+    @car = Car.find(params[:car_id])
+    @issue = Issue.find(params[:issue_id])
     if @repair.update(repair_params)
+     update_mileage(@car, @repair.mileage)
 	   redirect_to car_issues_path(@car)
     else
 	   @errors = @issue.errors.full_messages
