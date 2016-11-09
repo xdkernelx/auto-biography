@@ -163,7 +163,7 @@ textarea {
 hr {
     border: 0;
     height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), $green-accent, rgba(0, 0, 0, 0));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), $blue-accent, rgba(0, 0, 0, 0));
 }
 
 /*comprehensive page */
@@ -242,6 +242,17 @@ span.glyphicon-wrench {
 
 ////////*tab styling*////////
 /*Do not show grey background (folder style)*/
+
+#fragment-1 {
+  font-family: $header-font;
+  color: $dark-gray-accent;
+}
+
+#fragment-2 {
+  font-family: $header-font;
+  color: $dark-gray-accent;
+}
+
 #tabs .ui-widget-header { border: none; background: none; }
 
 #tabs .ui-tabs-tab {
@@ -275,7 +286,7 @@ span.glyphicon-wrench {
 } 
 
 #tabs .ui-tabs-panel {
-  min-height: 800px;
+  min-height: 600px;
 }
 
 ///*button styling*////
@@ -387,7 +398,7 @@ span.glyphicon-wrench {
 
 /*Maps page*/
 
-#map-right-side {
+.map-right-side {
   overflow: auto;
   color: $dark-gray-accent;
   height: 60%;
@@ -396,12 +407,7 @@ span.glyphicon-wrench {
   padding-bottom: 50px;  
 }
 
-#map-left-side {
-  color: #FFFFFF;
-  padding-left: 40px;
-  padding-right: 40px;
-}
-.issue-half {
+.map-left-side {
   overflow: auto;
   background-color: $red-accent;
   color: #FFFFFF;

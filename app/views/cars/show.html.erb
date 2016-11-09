@@ -158,6 +158,7 @@
 	  <div id="fragment-1"><br>
 	  	<%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %>
 	  	<%= link_to 'Maintenance History', car_maintenances_path(@car), class: "btn btn-back" %><br><br>
+        <hr>
 				<%if @car.maintenances.blank? %>
 					<p class="have-none"> You have no maintenance records. Click 'Add New Maintenance' to begin. </p>
 				<%else%>
@@ -170,7 +171,8 @@
 	    	</div>
 	    	<div class="col-md-6">
 	    		<%= maintenance.description %>
-	    	</div>
+	    	</div><br><br>
+            <hr>
 	    		<%end%>
 	   		</p>
 	   		<%end%>
