@@ -3,19 +3,20 @@
 	<% if current_user.id == @car.user_id %>
 		<h1>Maintenance for <%= @car.make %> <%=@car.model%></h1><br>
 		<%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %><br><br><br>
-		<div class="row">
-			<div class="col-md-2"><h4>Date Completed</h4></div>
-			<div class="col-md-2"><h4>Title</h4></div>
-			<div class="col-md-2"><h4>Mileage</h4></div>
-			<div class="col-md-6"><h4 class="align-left-header">Description</h4></div>
-	</div>
+		<div class="row title">
+			<div class="col-md-2 title-change"><h4>Date Completed</h4></div>
+			<div class="col-md-2 title-change"><h4>Title</h4></div>
+			<div class="col-md-2 title-change"><h4>Mileage</h4></div>
+			<div class="col-md-3 title-change"><h4>Description</h4></div>
+			<div class="col-md-2 title-change"><%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %></div>
+		</div>
 	<hr>
 		<% @maintenances.each do |maintenance| %>
 		<div class="row">
 			<div class="col-md-2"><p><%= maintenance.date_completed %></p></div>
 			<div class="col-md-2"><p><%= maintenance.title%></p></div>
 			<div class="col-md-2"><p> <%= maintenance.mileage %> </p></div>
-			<div class="col-md-4"><p><%= maintenance.description %> </p></div>
+			<div class="col-md-3"><p><%= maintenance.description %> </p></div>
 			<div class="col-md-1"><%= link_to car_maintenance_path(@car, maintenance), method: :delete, class: "btn btn-default" do %>
   				<span class="glyphicon glyphicon-trash"></span>
 					<% end %></div>
@@ -25,7 +26,6 @@
 		</div>
 			<hr>
 		<% end %>
-		<%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %>
 	<% else %>
 		<h3>You are not authorized to view this page</h3>
 	<% end %>
