@@ -53,8 +53,8 @@ class CarsController < ApplicationController
 	end
 
 	def find_car
-		service_range = 60000
-		oil_range = 5000
+		@service_range = 60000
+		@oil_range = 5000
 		@car = Car.find(params[:id])
 		service_check = @car.maintenance_check(service_range, "service")
 		oil_check = @car.maintenance_check(oil_range, "oil change")
