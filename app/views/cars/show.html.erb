@@ -18,7 +18,9 @@
     	    <div>
     		  	<span class="glyphicon glyphicon-edit"></span> <%= link_to 'Edit Car Info', edit_car_path(@car) %><br><br>
     		</div>
-		      <%= image_tag @car.image.url(:medium) %><br>
+     
+		          <% image_tag @car.image.url(:medium), id: "blqh" %><br>
+
 		      <%= link_to "Comprehensive History", car_history_path(@car), class: "btn btn-blue-dark " %>
         </div>
 
@@ -82,12 +84,12 @@
             }
         </style>
         <div class="col-md-4" id="post">
-            <div>
+                    <div>
                 <span id="speedometer"></span>
-                <% if (@service_change/1000) >= (@service_range/1000) %>
-                    <h5><font color="red">* time for service</font></h5>
+                <% if (@service_change/1000) >= 60 %>
+                    <h5><div class="oil-reminder red-text">*Time for service</div></h5>
                 <% else%>
-                    <%= @service_range - @service_change %> miles before your next service
+                    <h5><div class="oil-reminder"><%= 60000 - @service_change %> miles before your next service</div></h5>
                 <% end %>
             </div>
 
@@ -152,10 +154,10 @@
             var gauge3 = loadLiquidFillGauge("fillgauge3", Math.round((1 - (<%= @oil_change %>/<%= @oil_range %>))*100), config2);
             var config3 = liquidFillGaugeDefaultSettings();
         </script><br>
-        <% if @oil_change >= @oil_range %>
-        <h5><font color="red">* time for oil change</font></h5>
+        <% if @oil_change >= 5000 %>
+        <h5><div class="oil-reminder red-text">* Time for oil change</div></h5>
         <% else %>
-        next oil change is due in <%= @oil_range - @oil_change %> miles
+        <div class="oil-reminder">*Next oil change in <%= 5000 - @oil_change %> miles</div>
         <% end %>
     </div>
     </div>
@@ -228,7 +230,7 @@
                     <p>Email Mechanic</p>
                  </div>
                  <div><br><br>
-        <hr>
+            <hr>
 	    	      <p><% @car.recent_issues(4).each do |issue|%>
 	    	      <div class="col-md-3">
                     <%=link_to issue.title, car_issue_path(@car, issue) %>
@@ -242,7 +244,7 @@
                   <div class="col-md-3">
                   <%= mail_to "shopname@domain.com", "Email Repair Report", class: "btn btn-email-main", subject: "#{current_user.first_name} #{@car.make} Repair Report", body: "Please fill out the repair report\r\n#{generate_url(issue, @car).first}" %>
                     </div><br><br>
-        <hr>
+            <hr>
 	    	      <%end%>
             </p>
                 <%end%>
