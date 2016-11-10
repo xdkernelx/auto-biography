@@ -1,15 +1,17 @@
 <div class="container">
 	<% if current_user %>
 	<% if current_user.id == @car.user_id %>
-		<h1>Maintenance for <%= @car.make %> <%=@car.model%></h1>
-		<%= link_to "New Maintenance Report", new_car_maintenance_path(@car) %><br><br>
+		<h1>Maintenance for <%= @car.make %> <%=@car.model%></h1><br>
+		<%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %><br><br><br>
 		<% @maintenances.each do |maintenance| %>
-			<p>Title: <%= maintenance.title%></p>
-			<p>Date completed: <%= maintenance.date_completed %></p>
-			<p> <%= maintenance.mileage %> </p>
-			<p> <%= maintenance.description %> </p>
+		<div class="row">
+			<div class="col-md-2"><p><%= maintenance.title%></p></div>
+			<div class="col-md-2"><p><%= maintenance.date_completed %></p></div>
+			<div class="col-md-2"><p> <%= maintenance.mileage %> </p></div>
+			<div class="col-md-6"><p><%= maintenance.description %> </p></div>
+	</div>
 		<% end %>
-		<%= link_to 'back', car_path(@car) %>
+		<%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %>
 	<% else %>
 		<h3>You are not authorized to view this page</h3>
 	<% end %>
