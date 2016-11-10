@@ -1,40 +1,35 @@
 <div class="container">
 	<% if current_user %>	
 	<h1>Issues for <%= @car.make %> <%=@car.model%></h1><br>
-	<%= link_to "New Issue", new_car_issue_path(@car), method: "get", class: "btn btn-info"%><br><br>
-	<div class="row">
-		<hr>
-		<div class="col-md-2"><h4>Date Created</h4>
+	<%= link_to "New Issue", new_car_issue_path(@car), method: "get", class: "btn btn-info"%><br><br><br>
+	<div class="row title">
+		<div class="col-md-2 title-change"><h4>Date Created</h4>
 		</div>
-		<div class="col-md-2"> <h4>Title</h4>
+		<div class="col-md-2 title-change"><h4>Title</h4>
 		</div>
-		<div class="col-md-2"> <h4>Urgency</h4>
+		<div class="col-md-2 title-change"><h4>Urgency</h4>
 		</div>
-		<div class="col-md-6"> <h4>Description</h4>
+		<div class="col-md-3 title-change"><h4>Description</h4>
 		</div>
+		<div class="col-md-2 title-change">	<%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %></div>
 	</div>
-	<% @issues.each do |issue| %>
 	<hr>
-	<div class="row">
+	<% @issues.each do |issue| %>
+	<div class="row issue-height">
 		<div class="col-md-2"><%= format_date(issue)%></div>
 		<div class="col-md-2"><span class="issue-title"><%=link_to issue.title, car_issue_path(@car, issue)%></span>
 		</div>
 		<div class="col-md-2"><%= issue.urgency %></div>
-		<div class="col-md-4"><%= issue.description %></div>
+		<div class="col-md-3"><%= issue.description %></div>
 		<div class="col-md-1"><%= link_to car_issue_path(@car, issue), method: :delete, class: "btn btn-default" do %>
   		<span class="glyphicon glyphicon-trash"></span>
 			<% end %></div>
 		<div class="col-md-1"><%= link_to edit_car_issue_path(@car, issue), class: "btn btn-default" do %>
   			<span class="glyphicon glyphicon-edit"></span>
 			<% end%></div>
-			<ul>
-				<%# generate_url(issue, @car).each do |url| %>
-					<%# url %>
-				<%# end %>
-		</ul>
-	</div><br><br>
+	</div>
+	<hr>
 	<% end %>
-	<%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %><br>
 <% else %>
 	<h3>You must be logged in to view this page</h3>
 <% end %>

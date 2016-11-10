@@ -130,27 +130,27 @@ RSpec.describe Car, :type => :model do
     end
   end
 
-  context "Car.oil_change?" do
+  context "Car.maintenance_check(range, 'oil change')" do
     it "- returns 0 when the car's mileage is somehow lower than the most recent oil change report" do
-      expect(@star.oil_change?).to eq(0)
+      expect(@star.maintenance_check(5000, 'oil change')).to eq(0)
     end
 
     it "- returns nil when the there are not enough maintenances" do
-      expect(@dust.oil_change?).to eq(nil)
+      expect(@dust.maintenance_check(5000, 'oil change')).to eq(nil)
     end
 
     it "- returns nil when the there are not enough 'oil change' maintenances" do
-      expect(@matter.oil_change?).to eq(nil)
+      expect(@matter.maintenance_check(5000, 'oil change')).to eq(nil)
     end
   end
 
-  context "Car.service?" do
+  context "Car.maintenance_check(range, 'service')" do
     it "- returns 0 when the car's mileage is somehow lower than the most recent service report" do
-      expect(@star.service?).to eq(0)
+      expect(@star.maintenance_check(60000, 'service')).to eq(0)
     end
 
     it "- returns nil when the there are not enough maintenances" do
-      expect(@dust.service?).to eq(nil)
+      expect(@dust.maintenance_check(60000, 'service')).to eq(nil)
     end
   end
 
