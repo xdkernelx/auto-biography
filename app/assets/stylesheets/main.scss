@@ -80,6 +80,15 @@ ul {
   text-decoration: none;
 }
 
+#vin-lookup {
+  padding: 36.5px;
+  margin-bottom: 20px;
+  background-color: $white;
+  display: inline-block;
+  color: $dark-gray-accent;
+  border: 1px solid #ddd;
+}
+
 .card {
   width: 400px;
   display: inline-block;
@@ -393,6 +402,16 @@ span.glyphicon-wrench {
   color: $light-accent !important;
 }
 
+.btn-blue-dark {
+  margin-top: 20px;
+  background: $blue-accent !important;
+  border-color: $light-accent !important;
+  border-radius: 5px !important;
+  width: 200px;
+  font-size: 16px;
+  color: $light-accent !important;
+}
+
 .btn-red{
   background: $red-accent !important;
   border-color: $red-accent !important;
@@ -496,10 +515,6 @@ span.glyphicon-wrench {
   margin-left: 50px;
 }
 
-.speedometer {
-  padding: 0px;
-}
-
 .homepage-blurb {
   font-size: 20px;
 }
@@ -507,5 +522,9 @@ span.glyphicon-wrench {
 /*dashboard*/
 
 #fillgauge3 {
-  padding-top: 40px;
+  margin-top: 40px;
+}
+
+.white-text {
+  color: $white;
 }
