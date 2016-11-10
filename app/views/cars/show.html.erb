@@ -6,7 +6,7 @@
                 <%= f.label "Update mileage:" %>
                 <%= f.text_field :mileage, :value => @car.mileage %>
                 <%= f.submit "Submit" %>
-                <% end %>    
+                <% end %>
              </div>
     <div class="row white-text">
         <div class="col-md-4">
@@ -14,7 +14,7 @@
     		    <p>COLOR: <%= @car.color %><br></p>
     		    <p>TRANSMISSION: <%= @car.transmission %><br></p>
     		    <p> ENGINE: <%= @car.engine %><br></p>
-     
+
     	    <div>
     		  	<span class="glyphicon glyphicon-edit"></span> <%= link_to 'Edit Car Info', edit_car_path(@car) %><br><br>
     		</div>
@@ -132,7 +132,7 @@
 
                 segDisplay.value((<%= @car.mileage %>));
                 gauge.value(<%= @service_change %>/1000);
-                    if ((<%= @service_change %>/1000) >= 60){
+                    if ((<%= @service_change %>/1000) >= (<%= @service_range %>/1000)){
                         // alert("time for service")
                     }
             </script>
@@ -151,7 +151,7 @@
             config2.waveAnimateTime = 2000;
             config2.waveHeight = 0.3;
             config2.waveCount = 1;
-            var gauge3 = loadLiquidFillGauge("fillgauge3", Math.round((1 - (<%= @oil_change %>/5000))*100), config2);
+            var gauge3 = loadLiquidFillGauge("fillgauge3", Math.round((1 - (<%= @oil_change %>/<%= @oil_range %>))*100), config2);
             var config3 = liquidFillGaugeDefaultSettings();
         </script><br>
         <% if @oil_change >= 5000 %>
@@ -163,7 +163,7 @@
     </div>
  </div>
 
-         
+
 <% else %>
     <h3>You must be logged in to view this page</h3>
 <% end %>
@@ -198,7 +198,7 @@
 				    <div class ="col-md-3">
 	    		     <%= maintenance.title %>
 	    	        </div>
-        
+
 	    	      <div class="col-md-3">
 	    		<%= maintenance.date_completed %>
 	    	</div>
@@ -218,7 +218,7 @@
 				<p class="have-none"> You have no issue records. Click 'Add New Issue' to begin. </p>
 			<%else%>
                 <div class="col-md-3 bold-font">
-                    <p>Title</p>  
+                    <p>Title</p>
                 </div>
                 <div class="col-md-2 bold-font">
                     <p>Urgency</p>
@@ -245,9 +245,9 @@
                   <%= mail_to "shopname@domain.com", "Email Repair Report", class: "btn btn-email-main", subject: "#{current_user.first_name} #{@car.make} Repair Report", body: "Please fill out the repair report\r\n#{generate_url(issue, @car).first}" %>
                     </div><br><br>
             <hr>
-	    	      <%end%> 
+	    	      <%end%>
             </p>
-                <%end%>      
+                <%end%>
 	</div><br><br>
 </div>
 	 <%= link_to 'Back', cars_path, class: "btn btn-reverse" %><br><br>
