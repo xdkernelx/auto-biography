@@ -10,12 +10,14 @@
 	       <div>
 		  	<span class="glyphicon glyphicon-edit"></span> <%= link_to 'Edit Car Info', edit_car_path(@car) %><br><br>
 		   </div>
-                <%= link_to edit_car_path(@car) do %>
+
+             <%= link_to edit_car_path(@car) do %>
 		          <%= image_tag @car.image.url(:medium) %>
-                <%end%>
-                
-		        <%= link_to "Comprehensive History", car_history_path(@car), class: "btn btn-blue-dark " %>
+             <%end%>
+            
+		     <%= link_to "Comprehensive History", car_history_path(@car), class: "btn btn-blue-dark " %>
         </div>
+
             <style>
                 .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
             </style>
