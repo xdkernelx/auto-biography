@@ -35,24 +35,16 @@ class Car < ApplicationRecord
   end
 
   def service?
-    max_value = 60000
-    maintenances_array = recent_maintenances(self.maintenances.length).select { |maintenance| maintenance.title == "service" }
-    if maintenances_array.length < 1
-      return nil
-    else
-      possible_return = self.mileage - maintenances_array[0].mileage
-      if self.mileage >= maintenances_array[0].mileage
-        (possible_return < max_value) ? possible_return : max_value
-      else
-        # On the off-chance that the maintenance creation doesn't update the car mileage
-        # return a 0, which denotes that the user needs to update his car mileage manually
-        0
-      end
-    end
+    serviceable(60000, "service")
   end
 
   def oil_change?
-    max_value = 5000
+    serviceable(5000, "oil change")
+  end
+
+  private
+
+  def serviceable(max_value, type)
     maintenances_array = recent_maintenances(self.maintenances.length).select { |maintenance| maintenance.title == "oil change" }
     if maintenances_array.length < 1
       return nil
