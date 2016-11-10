@@ -138,7 +138,7 @@
             config2.waveAnimateTime = 2000;
             config2.waveHeight = 0.3;
             config2.waveCount = 1;
-            var gauge3 = loadLiquidFillGauge("fillgauge3", (1 - (<%= @oil_change %>/5000))*100, config2);
+            var gauge3 = loadLiquidFillGauge("fillgauge3", Math.round((1 - (<%= @oil_change %>/5000))*100), config2);
             var config3 = liquidFillGaugeDefaultSettings();
         </script>
     </div>
