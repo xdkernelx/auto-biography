@@ -38,7 +38,9 @@ margin: 0 auto -4em;
 
 .footer, .push {
 height: 4em;
+padding-top: 10px;
 background-color: $blue-accent;
+color: $white;
 }
 
 h1 {
@@ -68,7 +70,6 @@ h4 {
 
 form {
   background-color: $white;
-  width: 25%;
   display: inline-block;
   padding: 20px;
   color: $dark-gray-accent;
@@ -132,6 +133,12 @@ textarea {
 .navbar {
   height: 80px;
   background-color: #FFFFFF;
+}
+
+#dashboard {
+  background-color: $blue-accent;
+  width: 100%;
+
 }
 
 .navbar-brand {
@@ -230,17 +237,17 @@ hr {
 /////glyphicons 
 span.glyphicon-list-alt {
   padding-bottom: 20px;
-  font-size: 3.5em;
+  font-size: 2.5em;
 }
 
 span.glyphicon-check {
   padding-bottom: 20px;
-  font-size: 3.5em;
+  font-size: 2.5em;
 }
 
 span.glyphicon-paste {
  padding-bottom: 20px;
-  font-size: 3.5em;
+  font-size: 2.5em;
 }
 
 span.glyphicon-wrench {
@@ -395,6 +402,9 @@ span.glyphicon-wrench {
   color: $white !important;
 }
 
+.btn-gray-email {
+  background: $dark-gray-accent !important;
+}
 
 .btn-red-outline {
   background: $gray-accent !important;
@@ -424,10 +434,15 @@ span.glyphicon-wrench {
   color: $light-accent !important;
 }
 
+.btn-email-main { 
+  background-color: $dark-gray-accent;  
+  color: $white !important;
+  font-size: 16px !important;
+}
+
 .button_to {
   background-color: $red-accent;
 }
-
 
 /*Maps page*/
 
@@ -467,4 +482,24 @@ span.glyphicon-wrench {
 .bold-font {
   font-weight: bolder;
   font-size: 1.5em;
+}
+
+#mileage_form {
+  background-color: $blue-accent;
+}
+
+.email-repair-report {
+  color: $light-accent;
+}
+
+.car-picture {
+  margin-left: 50px;
+}
+
+.speedometer {
+  padding: 0px;
+}
+
+.homepage-blurb {
+  font-size: 20px;
 }
