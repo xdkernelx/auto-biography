@@ -69,23 +69,30 @@
                 .segdisplay .off {
                     fill: #ff8c00;
                     opacity: 0.15;
+
                 }
             </style>
-        <div class="col-md-4">
+        <div class="col-md-4" id="post">
             <%= form_for @car, :method => :PUT, id: "mileage_form" do |f| %>
              <%= f.label "Update mileage:" %>
              <%= f.text_field :mileage, :value => @car.mileage %>
              <%= f.submit "Confirm edit" %>
              <% end %>
+
             <div>
                 <span id="speedometer"></span>
+                <% if (@service_change/1000) >= 60 %>
+                    <h5><font color="red">* time for service</font></h5>
+                <% else%>
+                    <%= 60000 - @service_change %> miles before your next service
+                <% end %>
             </div>
+
             <script>
                 var svg = d3.select("#speedometer")
                         .append("svg:svg")
-                        .attr("width", 400)
-                        .attr("height", 400);
-
+                        .attr("width", 350)
+                        .attr("height", 255);
 
                 var gauge = iopctrl.arcslider()
                         .radius(120)
@@ -98,7 +105,7 @@
                         .tickSize(10, 8, 10)
                         .tickPadding(5)
                         .scale(d3.scale.linear()
-                                .domain([0, 100])
+                                .domain([0, 60])
                                 .range([-3*Math.PI/4, 3*Math.PI/4]));
 
                 var segDisplay = iopctrl.segdisplay()
@@ -118,8 +125,9 @@
 
                 segDisplay.value((<%= @car.mileage %>));
                 gauge.value(<%= @service_change %>/1000);
-
-                    console.log(gauge.value);
+                    if ((<%= @service_change %>/1000) >= 60){
+                        // alert("time for service")
+                    }
             </script>
     </div>
 
@@ -140,7 +148,12 @@
             config2.waveCount = 1;
             var gauge3 = loadLiquidFillGauge("fillgauge3", (1 - (<%= @oil_change %>/5000))*100, config2);
             var config3 = liquidFillGaugeDefaultSettings();
-        </script>
+        </script><br>
+        <% if @oil_change >= 5000 %>
+        <h5><font color="red">* time for oil change</font></h5>
+        <% else %>
+        next oil change is due in <%= 5000 - @oil_change %> miles
+        <% end %>
     </div>
  </div>
 
