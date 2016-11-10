@@ -211,7 +211,7 @@
         <hr>
 	    	      <p><% @car.recent_issues(4).each do |issue|%>
 	    	      <div class="col-md-3">
-                    <%=link_to issue.title, car_issue_path(@car) %>
+                    <%=link_to issue.title, car_issue_path(@car, issue) %>
                   </div>
                   <div class="col-md-2">
 	    	      	<%= issue.urgency %>
