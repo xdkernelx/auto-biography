@@ -1,28 +1,22 @@
 <div class="container" id="dashboard">
 	<% if current_user %>
- <table>
-    <tr>
-        <td>
-		<h3><%= @car.year %> <%=@car.make %> <%= @car.model %></h3>
-		  <p>COLOR: <%= @car.color %><br></p>
-		  <p>TRANSMISSION: <%= @car.transmission %><br></p>
-		  <p> ENGINE: <%= @car.engine %><br></p>
-	    <div>
-			<span class="glyphicon glyphicon-edit"></span> <%= link_to 'Edit Car Info', edit_car_path(@car) %><br><br>
-		</div>
-		<%= image_tag @car.image.url(:medium) %><br>
-		<%= link_to "Comprehensive History", car_history_path(@car), class: "btn btn-reverse-wide " %>
-        </td>
-        <td>
-        <div class="dashboard-container">
+    <div class="row">
+        <div class="col-md-4">
+		  <h3><%= @car.year %> <%=@car.make %> <%= @car.model %></h3>
+		    <p>COLOR: <%= @car.color %><br></p>
+		    <p>TRANSMISSION: <%= @car.transmission %><br></p>
+		    <p> ENGINE: <%= @car.engine %><br></p>
+	       <div>
+		  	<span class="glyphicon glyphicon-edit"></span> <%= link_to 'Edit Car Info', edit_car_path(@car) %><br><br>
+		   </div>
+		      <%= image_tag @car.image.url(:medium) %><br>
+		      <%= link_to "Comprehensive History", car_history_path(@car), class: "btn btn-reverse-wide " %>
+        </div>
             <style>
                 .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
             </style>
 
             <style>
-                body {
-                    font: 16px arial;
-                }
 
                 .unselectable {
                     -moz-user-select: -moz-none;
@@ -30,6 +24,7 @@
                     -webkit-user-select: none;
                     -ms-user-select: none;
                     user-select: none;
+                    stroke: #ffffff;
                 }
 
                 /* css formats for the gauge */
@@ -75,11 +70,7 @@
                     opacity: 0.15;
                 }
             </style>
-            </td>
-
-
-
-            <td>
+        <div class="col-md-4">
             <div>
                 <span id="speedometer"></span>
             </div>
@@ -124,39 +115,40 @@
 
                     console.log(gauge.value);
             </script>
-            </div>
-            </td>
-        </tr>
+        </div>
+
+    <div class="col-md-4">
+        <svg id="fillgauge3" width="80%" height="200"></svg>
+         <script language="JavaScript">
+            var config2 = liquidFillGaugeDefaultSettings();
+            config2.circleColor = "#D4AB6A";
+            config2.textColor = "#7D604D";
+            config2.waveTextColor = "#7D604D";
+            config2.waveColor = "#3B2D24";
+            config2.circleThickness = 0.1;
+            config2.circleFillGap = 0.2;
+            config2.textVertPosition = 0.8;
+            config2.waveAnimateTime = 2000;
+            config2.waveHeight = 0.3;
+            config2.waveCount = 1;
+            var gauge3 = loadLiquidFillGauge("fillgauge3", (1 - (<%= @oil_change %>/5000))*100, config2);
+            var config3 = liquidFillGaugeDefaultSettings();
+        </script>
+    </div>
+ </div>
+
+         
     <%= form_for @car, :method => :PUT, id: "mileage_form" do |f| %>
      <%= f.label "Update mileage:" %>
      <%= f.text_field :mileage, :value => @car.mileage %>
      <%= f.submit "Confirm edit" %>
      <% end %>
-</div>
-
-    <svg id="fillgauge3" width="80%" height="200"></svg>
-        <script language="JavaScript">
-        var config2 = liquidFillGaugeDefaultSettings();
-        config2.circleColor = "#D4AB6A";
-        config2.textColor = "#7D604D";
-        config2.waveTextColor = "#7D604D";
-        config2.waveColor = "#3B2D24";
-        config2.circleThickness = 0.1;
-        config2.circleFillGap = 0.2;
-        config2.textVertPosition = 0.8;
-        config2.waveAnimateTime = 2000;
-        config2.waveHeight = 0.3;
-        config2.waveCount = 1;
-      var gauge3 = loadLiquidFillGauge("fillgauge3", (1 - (<%= @oil_change %>/5000))*100, config2);
-        var config3 = liquidFillGaugeDefaultSettings();
-        </script>
-
-</div>
 <% else %>
-	<h3>You must be logged in to view this page</h3>
+    <h3>You must be logged in to view this page</h3>
 <% end %>
 </div>
 
+</div>
 	<div id="tabs">
 	  <ul>
 	    <li><a href="#fragment-1">Maintenance</a></li>
