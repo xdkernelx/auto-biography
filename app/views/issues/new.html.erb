@@ -27,8 +27,7 @@
       <%= f.label :urgency, '4', :value => '4' %>
       <%= f.radio_button :urgency, '5' %> 
       <%= f.label :urgency, '5', :value => '5' %>
-      <%= f.hidden_field :car_id, :value => @car.id %>
-    </p>
+      <%= f.hidden_field :car_id, :value => @car.id %>    </p>
     <%= f.submit "Submit Issue", class: 'btn btn-primary'  %>
   <% end %><br><br>
   <%= link_to 'Back', car_path(@car), class: 'btn btn-reverse' %>

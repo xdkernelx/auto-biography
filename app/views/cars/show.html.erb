@@ -154,6 +154,22 @@
 	  	<%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %>
 	  	<%= link_to 'Maintenance History', car_maintenances_path(@car), class: "btn btn-back" %><br><br>
         <hr>
+			<%if @car.maintenances.blank? %>
+				<p class="have-none"> You have no maintenance records. Click 'Add New Maintenance' to begin. </p>
+			<%else%>
+            <div class ="col-md-3">
+                <strong><p> Title </p></strong>
+            </div>
+            <div class ="col-md-3">
+                <strong><p>Date Completed </p></strong>
+            </div>
+            <div class ="col-md-6">
+                <strong><p> Description </p></strong>
+            </div><br><br>
+            <hr>
+	    	<p> <% @car.recent_maintenances(4).each do |maintenance|%>
+			 <div class ="col-md-3">
+	    	  <%= maintenance.title %>
 				<%if @car.maintenances.blank? %>
 					<p class="have-none"> You have no maintenance records. Click 'Add New Maintenance' to begin. </p>
 				<%else%>
@@ -189,5 +205,5 @@
 	 <%= link_to 'Back', cars_path, class: "btn btn-reverse" %>
 </div>
 <script>
-  $( "#tabs" ).tabs({collapsible: true});
+  $( "#tabs" ).tabs({collapsible: false});
 </script>
