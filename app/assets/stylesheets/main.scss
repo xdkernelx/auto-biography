@@ -68,7 +68,6 @@ h4 {
 
 form {
   background-color: $white;
-  width: 25%;
   display: inline-block;
   padding: 20px;
   color: $dark-gray-accent;
@@ -395,6 +394,9 @@ span.glyphicon-wrench {
   color: $white !important;
 }
 
+.btn-gray-email {
+  background: $dark-gray-accent !important;
+}
 
 .btn-red-outline {
   background: $gray-accent !important;
@@ -467,4 +469,12 @@ span.glyphicon-wrench {
 .bold-font {
   font-weight: bolder;
   font-size: 1.5em;
+}
+
+#mileage_form {
+  background-color: $blue-accent;
+}
+
+.email-repair-report {
+  color: $light-accent;
 }
