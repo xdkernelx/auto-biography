@@ -1,5 +1,5 @@
 class SpecialsController < ApplicationController
-
+	include MaintenancesHelper
 	def index
 		# need to test if moving the issue_id inside the if statement effects anything
 		@report_type = params[:report_type] if params[:report_type]
@@ -34,12 +34,13 @@ class SpecialsController < ApplicationController
 		elsif params[:maintenance]
 			@car = Car.find(params[:maintenance][:car_id])
 			@service = Maintenance.new(maintenance_params)
-			@service.car_id = @car.id
+			@service.car_id = @car.id		
 		end
 		p '*' * 80
 		 p @service
 		 p '*' * 80
 		if @service.save
+			update_mileage(@car, @service.mileage)
 			render 'thanks'
 		else
 			@errors = @service.errors.full_messages
