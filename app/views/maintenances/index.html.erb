@@ -8,7 +8,8 @@
 			<div class="col-md-2 title-change"><h4>Title</h4></div>
 			<div class="col-md-2 title-change"><h4>Mileage</h4></div>
 			<div class="col-md-3 title-change"><h4>Description</h4></div>
-	</div>
+			<div class="col-md-2 title-change"><%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %></div>
+		</div>
 	<hr>
 		<% @maintenances.each do |maintenance| %>
 		<div class="row">
@@ -25,7 +26,6 @@
 		</div>
 			<hr>
 		<% end %>
-		<%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %>
 	<% else %>
 		<h3>You are not authorized to view this page</h3>
 	<% end %>
