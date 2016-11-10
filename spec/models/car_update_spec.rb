@@ -36,13 +36,13 @@ end
 
   context "Car.oil_change?" do
     it "- returns 1000 if the Car.mileage is 61000 and the recent 'oil change' maintenance is at 60000" do
-      expect(@star.oil_change?).to eq(1000)
+      expect(@star.maintenance_check(5000, "oil change")).to eq(1000)
     end
   end
 
   context "Car.service?" do
     it "- returns 1000 if the Car.mileage 61000 and the most recent 'service' maintenance is at 60000" do
-      expect(@star.service?).to eq(1000)
+      expect(@star.maintenance_check(60000, "service")).to eq(1000)
     end
   end
 
