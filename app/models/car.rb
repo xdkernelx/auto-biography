@@ -34,17 +34,17 @@ class Car < ApplicationRecord
     self.issues.sort_by{|issue| issue.updated_at}.reverse!.take(limit)
   end
 
-  def service?
-    serviceable(60000, "service")
-  end
+  # def service?
+  #   serviceable(60000, "service")
+  # end
 
-  def oil_change?
-    serviceable(5000, "oil change")
-  end
+  # def oil_change?
+  #   serviceable(5000, "oil change")
+  # end
 
-  private
+  # private
 
-  def serviceable(max_value, type)
+  def maintenance_check(max_value, type)
     maintenances_array = recent_maintenances(self.maintenances.length).select { |maintenance| maintenance.title == type }
     if maintenances_array.length < 1
       return nil
