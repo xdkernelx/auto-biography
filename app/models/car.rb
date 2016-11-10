@@ -45,7 +45,7 @@ class Car < ApplicationRecord
   private
 
   def serviceable(max_value, type)
-    maintenances_array = recent_maintenances(self.maintenances.length).select { |maintenance| maintenance.title == "oil change" }
+    maintenances_array = recent_maintenances(self.maintenances.length).select { |maintenance| maintenance.title == type }
     if maintenances_array.length < 1
       return nil
     else
