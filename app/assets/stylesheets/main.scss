@@ -428,6 +428,7 @@ span.glyphicon-wrench {
   background-color: $red-accent;
 }
 
+
 /*Maps page*/
 
 .map-right-side {
@@ -456,4 +457,14 @@ span.glyphicon-wrench {
 .range-field {
   width: 100px;
   text-align: center;
+}
+
+.row-main {
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.bold-font {
+  font-weight: bolder;
+  font-size: 1.5em;
 }
