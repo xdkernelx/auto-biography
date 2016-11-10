@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" id="dashboard">
 	<% if current_user %>
     <div class="row">
-	<div class="col-md-4">
+	<div class="col-md-4 car-picture">
 		<h3><%= @car.year %> <%=@car.make %> <%= @car.model %></h3>
 		  <p>COLOR: <%= @car.color %><br></p>
 		  <p>TRANSMISSION: <%= @car.transmission %><br></p>
@@ -15,7 +15,7 @@
 		<%= image_tag @car.image.url(:medium) %><br>
 		<%= link_to "Comprehensive History", car_history_path(@car), class: "btn btn-reverse-wide " %>
 	</div>
-    <div class="col-md-4">
+    <div class="col-md-4 speedometer">
         <div class="dashboard-container">
             <style>
                 .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
@@ -232,6 +232,7 @@
                 <%end%>      
 	</div><br><br>
 	 <%= link_to 'Back', cars_path, class: "btn btn-reverse" %><br><br>
+</div>
 <script>
   $( "#tabs" ).tabs({collapsible: false});
 </script>

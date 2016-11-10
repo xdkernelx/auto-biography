@@ -133,6 +133,12 @@ textarea {
   background-color: #FFFFFF;
 }
 
+#dashboard {
+  background-color: $blue-accent;
+  width: 100%;
+
+}
+
 .navbar-brand {
   margin-top: 5px;
   margin-bottom: 10px;
@@ -482,4 +488,12 @@ span.glyphicon-wrench {
 
 .email-repair-report {
   color: $light-accent;
+}
+
+.car-picture {
+  margin-left: 50px;
+}
+
+.speedometer {
+  padding: 0px;
 }
