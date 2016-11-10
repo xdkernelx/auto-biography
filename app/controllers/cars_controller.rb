@@ -53,8 +53,10 @@ class CarsController < ApplicationController
 	end
 
 	def find_car
+		max_oil_range = 5000
+		max_service_range = 60000
 		@car = Car.find(params[:id])
-		@car.service? ? @service_change = @car.service? : @service_change = @car.mileage
-		@car.oil_change? ? @oil_change = @car.oil_change? : @oil_change = @car.mileage
+		@car.service? ? @service_change = @car.service? : @service_change = (@car.mileage < max_service_range ? @car.mileage : max_service_range )
+		@car.oil_change? ? @oil_change = @car.oil_change? : @oil_change = (@car.mileage < max_oil_range ? @car.mileage : max_oil_range )
 	end
 end
