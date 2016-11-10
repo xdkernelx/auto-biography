@@ -9,6 +9,7 @@ $gray-accent: #F1F4F8;
 $light-accent: #199CCC;
 $green-accent: #468966;
 $red-accent: #8F2C29;
+$yellow-mustard: #CCB50D;
 $dark-gray-accent: #686B6B;
 $white: #FFFFFF;
 
@@ -117,13 +118,11 @@ textarea {
   color: $white;
 }
 
-
 .card {
   border: 1px solid #ddd;
   width: 300px;
   background-color: $green-accent;
   color: $white;
-
 }
 
 .card-title {
@@ -330,8 +329,8 @@ span.glyphicon-wrench {
 ///*button styling*////
 
 .btn-primary {
-  background: $light-accent !important;
-  border-color: $light-accent !important;
+  background: $yellow-mustard !important;
+  border-color: $yellow-mustard !important;
   border-radius: 5px !important;
   width: 200px;
   font-size: 16px;
