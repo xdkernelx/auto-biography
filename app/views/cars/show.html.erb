@@ -160,9 +160,9 @@
 	    <li><a href="#fragment-2">Issues</a></li>
 	  </ul>
 	  <div id="fragment-1" class="row-main"><br>
-        <%= mail_to "me@domain.com", "Email maintenance form", subject: "#{current_user.first_name} #{@car.make} Maintenance Report", body: "Please fill out the maintenance form\r\n#{generate_url(Maintenance.new(), @car).first}" %>
-	  	<%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %>
-	  	<%= link_to 'Maintenance History', car_maintenances_path(@car), class: "btn btn-back" %><br><br>
+        <%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %>
+        <%= link_to 'Maintenance History', car_maintenances_path(@car), class: "btn btn-back" %>
+        <%= mail_to "me@domain.com", "Email maintenance form", class: "btn btn-email-main", subject: "#{current_user.first_name} #{@car.make} Maintenance Report", body: "Please fill out the maintenance form\r\n#{generate_url(Maintenance.new(), @car).first}" %><br><br>
             <hr>
 			<%if @car.maintenances.blank? %>
 				<p class="have-none"> You have no maintenance records. Click 'Add New Maintenance' to begin. </p>
@@ -202,11 +202,14 @@
                 <div class="col-md-3 bold-font">
                     <p>Title</p>  
                 </div>
-                <div class="col-md-3 bold-font">
+                <div class="col-md-2 bold-font">
                     <p>Urgency</p>
                 </div>
                 <div class="col-md-3 bold-font">
                     <p>Description</p>
+                 </div>
+                 <div class="col-md-3 bold-font">
+                    <p>Email Mechanic</p>
                  </div>
                  <div><br><br>
         <hr>
@@ -214,20 +217,20 @@
 	    	      <div class="col-md-3">
                     <%= issue.title %>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-2">
 	    	      	<%= issue.urgency %>
                   </div>
                   <div class="col-md-3">
                     <%= issue.description%>
                   </div>
-                  <div class="col-md-2">
-                  <%= mail_to "me@domain.com", "Email Repair Report", class: "email-repair-report", subject: "#{current_user.first_name} #{@car.make} Repair Report", body: "Please fill out the repair report\r\n#{generate_url(issue, @car).first}" %>
+                  <div class="col-md-3">
+                  <%= mail_to "me@domain.com", "Email Repair Report", class: "btn btn-email-main", subject: "#{current_user.first_name} #{@car.make} Repair Report", body: "Please fill out the repair report\r\n#{generate_url(issue, @car).first}" %>
                     </div><br><br>
         <hr>
 	    	      <%end%> 
             </p>
                 <%end%>      
-	</div><br>
+	</div><br><br>
 	 <%= link_to 'Back', cars_path, class: "btn btn-reverse" %><br><br>
 <script>
   $( "#tabs" ).tabs({collapsible: false});
