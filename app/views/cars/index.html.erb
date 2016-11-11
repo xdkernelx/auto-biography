@@ -10,12 +10,12 @@
 	<% @cars.each do |car| %>
 		<div class="col-md-4">
 			<div class="card">
-				 <%= link_to image_tag(car.image.url(:medium)), car_path(car) %>
-			  <div class="card-block">
-			    <h4 class="card-title">
-			    	<%= car.year%> <%=car.make%> <%=car.model%>
-			    </h4>
-			  </div>
+				<%= link_to image_tag(car.image.url(:medium)), car_path(car) %>
+				<div class="card-block">
+					<h4 class="card-title">
+						<%= car.year%> <%=car.make%> <%=car.model%>
+					</h4>
+				</div>
 			</div>
 		</div>
 	<% end %>
