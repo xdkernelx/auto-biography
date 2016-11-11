@@ -1,98 +1,136 @@
 <div class="container" id="dashboard">
 	<% if current_user %>
-    <div><h1 class="white-text"> <%= @car.year %> <%=@car.make %> <%= @car.model %> Dashboard</h1></div><br>
-            <div class="mileage-update" align='center'>
-                <%= form_for @car, :method => :PUT, id: "mileage_form" do |f| %>
+        <div>
+            <h1 class="white-text">
+                <%= @car.year %> <%=@car.make %> <%= @car.model %> Dashboard
+            </h1>
+        </div>
+        <br>
+        <div class="mileage-update" align='center'>
+            <%= form_for @car, :method => :PUT, id: "mileage_form" do |f| %>
                 <%= f.label "UPDATE MILEAGE:", class: "white-text" %>
                 <%= f.text_field :mileage, :value => @car.mileage %>
                 <%= f.submit "Submit", class: "btn btn-sm-mileage btn-xs" %>
-                <% end %>
-             </div>
-    <div class="row white-text">
-        <div class="col-md-4">
-            <h3>Car Details</h3>
-    		    <p><strong>COLOR:</strong> <%= @car.color %><br></p>
-    		    <p><strong>TRANSMISSION:</strong> <%= @car.transmission %><br></p>
-    		    <p><strong>ENGINE:</strong> <%= @car.engine %><br></p>
-    	    <div>
-    		  	<span class="glyphicon glyphicon-edit"></span> <%= link_to 'Edit Car Info', edit_car_path(@car) %><br><br>
-    		</div>
-     
-		          <%= link_to image_tag(@car.image.url(:medium)), car_history_path(@car) %><br>
+            <% end %>
+         </div>
+        <div class="row white-text">
+            <div class="col-md-4">
+                <h3>
+                    Car Details
+                </h3>
+    		    <p>
+                    <strong>
+                        COLOR:
+                    </strong>
+                    <%= @car.color %>
+                    <br>
+                </p>
+    		    <p>
+                    <strong>
+                        TRANSMISSION:
+                    </strong>
+                    <%= @car.transmission %>
+                    <br>
+                </p>
+    		    <p>
+                    <strong>
+                        ENGINE:
+                    </strong>
+                    <%= @car.engine %>
+                    <br>
+                </p>
+        	    <div>
+        		  	<span class="glyphicon glyphicon-edit">
+                    </span>
+                    <%= link_to 'Edit Car Info', edit_car_path(@car) %>
+                    <br>
+                    <br>
+        		</div>
 
-		      <%= link_to "Comprehensive History", car_history_path(@car), class: "btn btn-blue-dark " %>
-        </div>
+                <%= link_to image_tag(@car.image.url(:medium)), car_history_path(@car) %>
+                <br>
 
-        <style>
-            .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
-        </style>
-
-        <style>
-
-            .unselectable {
-                -moz-user-select: -moz-none;
-                -khtml-user-select: none;
-                -webkit-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                stroke: #ffffff;
-            }
-
-            /* css formats for the gauge */
-            .gauge .domain {
-                stroke-width: 2px;
-                stroke: #199CCC;
-            }
-
-            .gauge .tick line {
-                stroke: #CCB50D;
-                stroke-width: 2px;
-            }
-
-            .gauge line {
-                stroke: #5f9ea0;
-            }
-
-            .gauge .arc, .gauge .cursor {
-                opacity: 0;
-            }
-
-            .gauge .major {
-                fill: $-accent;
-                font-size: 20px;
-                font-family: 'Play', verdana, sans-serif;
-                font-weight: normal;
-            }
-
-            .gauge .indicator {
-                stroke: #CCB50D;
-                fill: #000;
-                stroke-width: 4px;
-            }
-
-            /* css formats for the segment display */
-            .segdisplay .on {
-                fill: #468966;
-
-            }
-
-            .segdisplay .off {
-                fill: #ff8c00;
-                opacity: 0.15;
-
-            }
-        </style>
-        <div class="col-md-4" id="post">
-                    <div>
-                <span id="speedometer"></span>
-                <% if (@service_change/1000) >= 60 %>
-                    <h5><div class="oil-reminder red-text">*Time for service</div></h5>
-                <% else%>
-                    <h5><div class="oil-reminder">*<%= 60000 - @service_change %> miles before your next service</div></h5>
-                <% end %>
+                <%= link_to "Comprehensive History", car_history_path(@car), class: "btn btn-blue-dark " %>
             </div>
 
-        </div>
+            <style>
+                .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
+            </style>
+
+            <style>
+
+                .unselectable {
+                    -moz-user-select: -moz-none;
+                    -khtml-user-select: none;
+                    -webkit-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    stroke: #ffffff;
+                }
+
+                /* css formats for the gauge */
+                .gauge .domain {
+                    stroke-width: 2px;
+                    stroke: #199CCC;
+                }
+
+                .gauge .tick line {
+                    stroke: #CCB50D;
+                    stroke-width: 2px;
+                }
+
+                .gauge line {
+                    stroke: #5f9ea0;
+                }
+
+                .gauge .arc, .gauge .cursor {
+                    opacity: 0;
+                }
+
+                .gauge .major {
+                    fill: $-accent;
+                    font-size: 20px;
+                    font-family: 'Play', verdana, sans-serif;
+                    font-weight: normal;
+                }
+
+                .gauge .indicator {
+                    stroke: #CCB50D;
+                    fill: #000;
+                    stroke-width: 4px;
+                }
+
+                /* css formats for the segment display */
+                .segdisplay .on {
+                    fill: #468966;
+
+                }
+
+                .segdisplay .off {
+                    fill: #ff8c00;
+                    opacity: 0.15;
+
+                }
+            </style>
+            <div class="col-md-4" id="post">
+                <div>
+                    <span id="speedometer">
+                    </span>
+                    <% if (@service_change/1000) >= 60 %>
+                        <h5>
+                            <div class="oil-reminder red-text">
+                                *Time for service
+                            </div>
+                        </h5>
+                    <% else%>
+                        <h5>
+                            <div class="oil-reminder">
+                                *<%= 60000 - @service_change %> miles before your next service
+                            </div>
+                        </h5>
+                    <% end %>
+                </div>
+            </div>
 
             <script>
                 var svg = d3.select("#speedometer")
@@ -135,31 +173,39 @@
                         // alert("time for service")
                     }
             </script>
-    <div class="col-md-4">
-        <!-- <h3>Oil Gauge</h3> -->
-        <svg id="fillgauge3" width="80%" height="240"></svg>
-         <script language="JavaScript">
-            var config2 = liquidFillGaugeDefaultSettings();
-            config2.circleColor = "#CCB50D";
-            config2.textColor = "#7D604D";
-            config2.waveTextColor = "#7D604D";
-            config2.waveColor = "#813005";
-            config2.circleThickness = 0.1;
-            config2.circleFillGap = 0.2;
-            config2.textVertPosition = 0.8;
-            config2.waveAnimateTime = 2000;
-            config2.waveHeight = 0.3;
-            config2.waveCount = 1;
-            var gauge3 = loadLiquidFillGauge("fillgauge3", Math.round((1 - (<%= @oil_change %>/<%= @oil_range %>))*100), config2);
-            var config3 = liquidFillGaugeDefaultSettings();
-        </script><br>
-        <% if @oil_change >= 5000 %>
-        <h5><div class="oil-reminder red-text">* Time for oil change</div></h5>
-        <% else %>
-        <div class="oil-reminder">*Next oil change in <%= 5000 - @oil_change %> miles</div>
-        <% end %>
-    </div>
-    </div>
+            <div class="col-md-4">
+                <!-- <h3>Oil Gauge</h3> -->
+                <svg id="fillgauge3" width="80%" height="240">
+                </svg>
+                <script language="JavaScript">
+                    var config2 = liquidFillGaugeDefaultSettings();
+                    config2.circleColor = "#CCB50D";
+                    config2.textColor = "#7D604D";
+                    config2.waveTextColor = "#7D604D";
+                    config2.waveColor = "#813005";
+                    config2.circleThickness = 0.1;
+                    config2.circleFillGap = 0.2;
+                    config2.textVertPosition = 0.8;
+                    config2.waveAnimateTime = 2000;
+                    config2.waveHeight = 0.3;
+                    config2.waveCount = 1;
+                    var gauge3 = loadLiquidFillGauge("fillgauge3", Math.round((1 - (<%= @oil_change %>/<%= @oil_range %>))*100), config2);
+                    var config3 = liquidFillGaugeDefaultSettings();
+                </script>
+                <br>
+                <% if @oil_change >= 5000 %>
+                    <h5>
+                        <div class="oil-reminder red-text">
+                            * Time for oil change
+                        </div>
+                    </h5>
+                <% else %>
+                    <div class="oil-reminder">
+                        *Next oil change in <%= 5000 - @oil_change %> miles
+                    </div>
+                <% end %>
+            </div>
+        </div>
  </div>
 
 

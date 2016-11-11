@@ -1,14 +1,25 @@
-<h1>Add New Car</h1>
+<h1>
+  Add New Car
+</h1>
 <div class='vin-lookup'>
   <form action="new", method="get" id="vin-lookup">
-    <p>Submit your <strong>VIN</strong> to populate car info: </p>
+    <p>
+      Submit your
+      <strong>
+        VIN
+      </strong>
+       to populate car info:
+    </p>
     <input type="string" name="vin">
-    <br><br>
+    <br>
+    <br>
     <input type="submit" value="Submit" class="btn btn-secondary">
-  </form><br>
+  </form>
+  <br>
 </div>
 <div class='manual-entry'>
   <%= render 'form' %>
-</div><br>
+</div>
+<br>
 
 <%= link_to 'Back', cars_path, class: "btn btn-reverse" %>
