@@ -230,7 +230,6 @@ function loadLiquidFillGauge(elementId, value, config) {
                 .duration(config.waveRiseTime)
                 .tween("text", textTween);
 
-            var fillPercent = Math.max(config.minValue, Math.min(config.maxValue, value))/config.maxValue;
             var waveHeight = fillCircleRadius*waveHeightScale(fillPercent*100);
             var waveRiseScale = scaleObj();
             var newHeight = waveRiseScale(fillPercent);
