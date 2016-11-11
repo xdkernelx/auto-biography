@@ -1,7 +1,7 @@
 <div class="container">
 	<% if current_user %>	
 	<h1>Issues for <%= @car.make %> <%=@car.model%></h1><br>
-	<%= link_to "New Issue", new_car_issue_path(@car), method: "get", class: "btn btn-info"%><br><br><br>
+	<%= link_to "Add New Issue", new_car_issue_path(@car), method: "get", class: "btn btn-red"%><br><br><br>
 	<div class="row title">
 		<div class="col-md-2 title-change"><h4>Date Created</h4>
 		</div>
