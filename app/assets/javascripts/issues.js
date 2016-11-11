@@ -44,11 +44,11 @@ function createMarker(place) {
     position: place.geometry.location
   });
 
-  service.getDetails(request, function(details, status) { 
+  service.getDetails(request, function(details, status) {
       var name = details.name
       var address = details.formatted_address
       var website = details.website
-      var rating = "*".repeat(parseInt(details.rating))
+      var rating = "*".repeat(parseInt(details.rating), 10)
       var phone = details.formatted_phone_number
       var content = ("<strong>" + name + "</strong><br />" + address +"<br /><a href="+ website +">" + website + "</a><br />rating: " + rating + "<br />" + phone);
       google.maps.event.addListener(marker, 'click', function() {
