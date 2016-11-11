@@ -20,6 +20,7 @@ class CarsController < ApplicationController
 	end
 
 	def edit
+		@flag = true
 	end
 
 	def create
