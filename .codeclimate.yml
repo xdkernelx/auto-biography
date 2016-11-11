@@ -10,6 +10,7 @@ engines:
     - 72f4dc737457375f33ddd4028568180e
     - fdd180703be0897bbf77a1278e24f680
     - 2d10b4133d8228c1340dae113abaec84
+    - fdd180703be0897bbf77a1278e24f680
     config:
       languages:
       - ruby
