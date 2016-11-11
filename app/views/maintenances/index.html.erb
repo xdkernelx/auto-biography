@@ -1,14 +1,13 @@
 <div class="container">
 	<% if current_user %>
 	<% if current_user.id == @car.user_id %>
-		<h1>Maintenance for <%= @car.make %> <%=@car.model%></h1><br>
+		<h1>Maintenance for <%= @car.make %> <%=@car.model%> <%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %></h1><br>
 		<%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %><br><br><br>
 		<div class="row title">
 			<div class="col-md-2 title-change"><h4>Date Completed</h4></div>
 			<div class="col-md-2 title-change"><h4>Title</h4></div>
 			<div class="col-md-2 title-change"><h4>Mileage</h4></div>
 			<div class="col-md-3 title-change"><h4>Description</h4></div>
-			<div class="col-md-2 title-change"><%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %></div>
 		</div>
 	<hr>
 		<% @maintenances.each do |maintenance| %>
