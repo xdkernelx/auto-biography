@@ -5,7 +5,7 @@ class MaintenancesController < ApplicationController
 
 	def index
 		@car = Car.find(params[:car_id])
-		@maintenances = @car.maintenances.order("date_completed DESC")
+		@maintenances = @car.recent_maintenances(@car.maintenances.length)
 	end
 
 	def show
