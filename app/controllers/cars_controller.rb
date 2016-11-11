@@ -42,6 +42,9 @@ class CarsController < ApplicationController
 	end
 
 	def destroy
+		@car.repairs.each { |repair| repair.destroy }
+		@car.issues.each { |issue| issue.destroy }
+		@car.maintenances.each { |maintenance| maintenance.destroy }
 		@car.destroy
 
 		redirect_to cars_path
