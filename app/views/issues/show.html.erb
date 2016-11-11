@@ -6,7 +6,7 @@
       <%= @issue.description %><br>
     <span>Urgency: <%= @issue.urgency %></span><br><br>
      <%= link_to "Edit", edit_car_issue_path(@car, @issue.id), class: "btn btn-back-red" %><br><br>
-     <%= link_to 'Back', car_issues_path(@car), class: "btn btn-back-blue" %>
+     <%= link_to 'Back', car_issues_path(@car), class: "btn btn-back-red" %>
   </div>
 <% else %>
   <h3>You must be logged in to view this page</h3>
