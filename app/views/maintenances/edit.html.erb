@@ -1,23 +1,29 @@
-<% if current_user %>	
+<% if current_user %>
 	<% if current_user.id == @car.user_id %>
-		<h1>Edit Maintenance Report for <%= @maintenance.title %></h1>
+		<h1>
+			Edit Maintenance Report for <%= @maintenance.title %>
+		</h1>
 
 		<% if @errors %>
 			<ul>
 				<% @errors.each do |error| %>
-					<li><%= error %></li>
+					<li>
+						<%= error %>
+					</li>
 				<% end %>
 			</ul>
 		<% end %>
 
 		<%= form_for([@car, @maintenance]) do |f| %>
 			<p>
-				<%= f.label :title %><br>
+				<%= f.label :title %>
+				<br>
 				<%= f.text_field :title, value: @maintenance.title %>
 			</p>
 
 			<p>
-				<%= f.label :description %><br>
+				<%= f.label :description %>
+				<br>
 				<%= f.text_area :description, value: @maintenance.description %>
 			</p>
 
@@ -36,8 +42,12 @@
 			</p>
 		<% end %>
 	<% else %>
-		<h3>You are not authorized to view this page</h3>
+		<h3>
+			You are not authorized to view this page
+		</h3>
 	<% end %>
 <% else %>
-	<h3>You must be logged in to view this page</h3>
+	<h3>
+		You must be logged in to view this page
+	</h3>
 <% end %>

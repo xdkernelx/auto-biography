@@ -1,56 +1,68 @@
 <% if @report_type == "Issue" %>
-	<h1>New Repair Report</h1>
+	<h1>
+    New Repair Report
+  </h1>
   <% if @errors %>
     <ul>
       <% @errors.each do |error| %>
-  	<li><%= error %></li>
-  	<% end %>
+    	<li>
+        <%= error %>
+      </li>
+    	<% end %>
     </ul>
   <% end %>
 
   <%= form_for @service, url: specials_path do |f| %>
-  <p>
-    <%= f.label :title%>:
-    <%= f.text_field :title %><br />
-  </p>
-  <p>
-    <%= f.label :mileage%>
-    <%= f.text_field :mileage %>
-  </p>
-  <p>
-  <p>
-    <%= f.label :date_completed %>
-    <%= f.date_field :date_completed %>
-  </p>
-  <p>
-    <%= f.label :description%>:
-    <%= f.text_area :description %><br />
-  </p>
+    <p>
+      <%= f.label :title%>:
+      <%= f.text_field :title %>
+      <br />
+    </p>
+    <p>
+      <%= f.label :mileage%>
+      <%= f.text_field :mileage %>
+    </p>
+    <p>
+    <p>
+      <%= f.label :date_completed %>
+      <%= f.date_field :date_completed %>
+    </p>
+    <p>
+      <%= f.label :description%>:
+      <%= f.text_area :description %>
+      <br />
+    </p>
 
-  <%= f.hidden_field :car_id, :value => @car_id %>
-  <%= f.hidden_field :issue_id, :value => @issue_id %>
-  <%= f.hidden_field :report_type, :value => @report_type %>
-  <%= f.submit %>
+    <%= f.hidden_field :car_id, :value => @car_id %>
+    <%= f.hidden_field :issue_id, :value => @issue_id %>
+    <%= f.hidden_field :report_type, :value => @report_type %>
+    <%= f.submit %>
   <% end %>
 <% elsif @report_type = "Maintenance" %>
-  <h1>Create new maintenance</h1>
+  <h1>
+    Create new maintenance
+  </h1>
 
   <% if @errors %>
     <ul>
       <% @errors.each do |error| %>
-        <li><%= error %></li>
+        <li>
+          <%= error %>
+        </li>
       <% end %>
     </ul>
   <% end %>
 
   <%= form_for @service, url: specials_path do |f| %>
     <p>
-      <%= f.label :title %><br>
+      <%= f.label :title %>
+      <br>
       <%= f.text_field :title %>
     </p>
 
     <p>
-      <%= f.label :description %><br>
+      <%= f.label :description %>
+      <br>
       <%= f.text_area :description %>
     </p>
 
