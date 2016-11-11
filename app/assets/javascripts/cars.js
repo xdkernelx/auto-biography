@@ -2,8 +2,8 @@
 // All this logic will automatically be available in application.js.
 $(document).ready(function() {
   $('.vin-lookup').on('submit', function(event){
- 	event.preventDefault();
- 	vinLookup();
+	 	event.preventDefault();
+	 	vinLookup();
   });
 });
 
@@ -25,8 +25,8 @@ var vinLookup = function (){
 			$("#car_engine").val(result.Results[0].EngineCylinders + " Cylinder")
 		},
 		error: function(xhr, ajaxOptions, thrownError){
-		console.log(xhr.status);
-		console.log(thrownError);
+			console.log(xhr.status);
+			console.log(thrownError);
 		}
 	});
 }
