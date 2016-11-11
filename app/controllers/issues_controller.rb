@@ -6,7 +6,7 @@ class IssuesController < ApplicationController
 
   def index
     @car = Car.find(params[:car_id])
-    @issues = @car.issues
+    @issues = @car.issues.order("created_at DESC")
   end
 
   def show
