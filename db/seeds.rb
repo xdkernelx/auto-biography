@@ -49,7 +49,7 @@ Maintenance.create(title: "Tire Rotation", description: "Rotate Tires and Balanc
 @i3 = Issue.create(title: "Recal", description: "Ford recall", urgency: 2, car_id: @excursion.id)
 @r3 = Repair.create(title: "Recall #09S09", description: "Speed control deactivation switch installed 8W7Z 14A411 C :wire ASY; Put jumper harness", mileage: 122120, date_completed: "21/10/2009", repairable: @i3)
 
-Maintenance.create(title: "service", description: "Change air filter, brake pads, spark plug", mileage: 150000, date_completed: "28/05/2014")
+Maintenance.create(title: "service", description: "Change air filter, brake pads, spark plug", mileage: 150000, date_completed: "28/05/2014", car_id: @excursion.id)
 
 @i2 = Issue.create(title: "No strat", description: "Car does not start. Driven 5 hours from georgia, died at stop light", urgency: 5, car_id: @excursion.id)
 @r2 = Repair.create(title: "Diag found no start no PCM communication", description: "Replaced Module - engine control - EEC; Replaced regulator - fuel pressure", mileage: 164179, date_completed: "10/06/2015", repairable: @i2)

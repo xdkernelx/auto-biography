@@ -259,7 +259,7 @@
                             <%= maintenance.date_completed %>
                         </div>
                         <div class="col-md-6">
-                            <%= maintenance.description %>
+                            <%= maintenance.description[0..110].gsub(/\s\w+$/,'...') %>
                         </div><br><br>
                         <hr>
                     <%end%>
@@ -309,7 +309,7 @@
                                     <%= issue.urgency %>
                                 </div>
                                 <div class="col-md-3">
-                                    <%= issue.description%>
+                                    <%= issue.description[0..60].gsub(/\s\w+$/,'...')%>
                                 </div>
                                 <div class="col-md-3">
                                     <%= mail_to "shopname@domain.com", "Email Repair Report", class: "btn btn-email-main", subject: "#{current_user.first_name} #{@car.make} Repair Report", body: "Please fill out the repair report\r\n#{generate_url(issue, @car).first}" %>
