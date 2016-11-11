@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def after_sign_in_path_for()
+  def after_sign_in_path_for(user)
     if !current_user.mech_status
      "/cars"
     else
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def after_sign_up_path_for()
+  def after_sign_up_path_for(user)
     if !current_user.mech_status
      "/cars"
     else
