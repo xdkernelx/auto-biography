@@ -1,7 +1,7 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-$font-stack: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+$font-stack: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 $header-font: 'Lato', sans-serif;
 $merriweather-font: 'Merriweather', serif;
 $blue-accent: #072D3B;
@@ -31,17 +31,17 @@ body {
 }
 
 .wrapper {
-min-height: 100%;
-height: auto !important;
-height: 100%;
-margin: 0 auto -4em;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
 }
 
 .footer, .push {
-height: 4em;
-padding-top: 10px;
-background-color: $blue-accent;
-color: $white;
+  height: 4em;
+  padding-top: 10px;
+  background-color: $blue-accent;
+  color: $white;
 }
 
 h1 {
@@ -102,12 +102,12 @@ textarea {
    width: 250px;
 }
 
-.main-h2 { 
+.main-h2 {
   font-family: $header-font;
   font-size: 5em;
-  position: absolute; 
-  top: 85px; 
-  width: 100%; 
+  position: absolute;
+  top: 85px;
+  width: 100%;
   color: $white;
 }
 
@@ -176,8 +176,8 @@ textarea {
   margin-right: 10px;
 }
 
-.image { 
-   position: relative; 
+.image {
+   position: relative;
    width: 100%; /* for IE 6 */
 }
 
@@ -188,9 +188,9 @@ textarea {
 }
 
 hr {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), $blue-accent, rgba(0, 0, 0, 0));
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), $blue-accent, rgba(0, 0, 0, 0));
 }
 
 /*comprehensive page */
@@ -233,7 +233,7 @@ hr {
 .md-td {
   width: 60%;
   padding: 20px;
-  text-align: left;  
+  text-align: left;
 }
 
 .col-md-4{
@@ -245,7 +245,7 @@ hr {
 }
 
 
-/////glyphicons 
+/////glyphicons
 span.glyphicon-list-alt {
   padding-bottom: 20px;
   font-size: 2.5em;
@@ -301,11 +301,11 @@ span.glyphicon-wrench {
 }
 
 #tabs .ui-tabs-nav {
-  float: none; text-align: center;  
+  float: none; text-align: center;
 }
 
 #tabs .ui-tabs-nav li {
-  display: inline-block; float: none;  
+  display: inline-block; float: none;
 }
 
 #tabs .ui-tabs .ui-tabs-nav li.ui-tabs-active a {
@@ -316,14 +316,14 @@ span.glyphicon-wrench {
   float: none;
   color: $dark-gray-accent;
   line-height: 200%;
-} 
+}
 
 #tabs .ui-tabs-nav li a {
   float: none;
   color: $dark-gray-accent;
   line-height: 200%;
   font-size: 18px;
-} 
+}
 
 #tabs .ui-tabs-panel {
   min-height: 600px;
@@ -360,7 +360,7 @@ span.glyphicon-wrench {
   width: 200px;
   font-size: 16px;
   color: #FFFFFF !important;
-  }
+}
 
 .btn-red:hover {
   background-color: #000000, !important;
@@ -455,8 +455,8 @@ span.glyphicon-wrench {
   color: $light-accent !important;
 }
 
-.btn-email-main { 
-  background-color: $dark-gray-accent;  
+.btn-email-main {
+  background-color: $dark-gray-accent;
   color: $white !important;
   font-size: 16px !important;
 }
@@ -481,7 +481,7 @@ span.glyphicon-wrench {
   height: 80%;
   padding-left: 50px;
   padding-right: 50px;
-  padding-bottom: 50px;  
+  padding-bottom: 50px;
 }
 
 .map-left-side {
