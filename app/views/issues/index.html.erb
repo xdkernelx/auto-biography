@@ -1,35 +1,70 @@
 <div class="container">
-	<% if current_user %>	
-	<h1>Issues for <%= @car.make %> <%=@car.model%> <%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %></h1><br>
-	<%= link_to "Add New Issue", new_car_issue_path(@car), method: "get", class: "btn btn-red"%><br><br><br>
-	<div class="row title">
-		<div class="col-md-2 title-change"><h4>Date Created</h4>
+	<% if current_user %>
+		<h1>
+			Issues for <%= @car.make %> <%=@car.model%> <%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %>
+		</h1>
+		<br>
+		<%= link_to "Add New Issue", new_car_issue_path(@car), method: "get", class: "btn btn-red"%>
+		<br>
+		<br>
+		<br>
+		<div class="row title">
+			<div class="col-md-2 title-change">
+				<h4>
+					Date Created
+				</h4>
+			</div>
+			<div class="col-md-2 title-change">
+				<h4>
+					Title
+				</h4>
+			</div>
+			<div class="col-md-2 title-change">
+				<h4>
+					Urgency
+				</h4>
+			</div>
+			<div class="col-md-3 title-change">
+				<h4>
+					Description
+				</h4>
+			</div>
 		</div>
-		<div class="col-md-2 title-change"><h4>Title</h4>
-		</div>
-		<div class="col-md-2 title-change"><h4>Urgency</h4>
-		</div>
-		<div class="col-md-3 title-change"><h4>Description</h4>
-		</div>
-	</div>
-	<hr>
-	<% @issues.each do |issue| %>
-	<div class="row issue-height">
-		<div class="col-md-2"><%= format_date(issue)%></div>
-		<div class="col-md-2"><span class="issue-title"><%=link_to issue.title, car_issue_path(@car, issue)%></span>
-		</div>
-		<div class="col-md-2"><%= issue.urgency %></div>
-		<div class="col-md-3"><%= issue.description %></div>
-		<div class="col-md-1"><%= link_to car_issue_path(@car, issue), method: :delete, class: "btn btn-default" do %>
-  		<span class="glyphicon glyphicon-trash"></span>
-			<% end %></div>
-		<div class="col-md-1"><%= link_to edit_car_issue_path(@car, issue), class: "btn btn-default" do %>
-  			<span class="glyphicon glyphicon-edit"></span>
-			<% end%></div>
-	</div>
-	<hr>
-	<% end %>
+		<hr>
+		<% @issues.each do |issue| %>
+			<div class="row issue-height">
+				<div class="col-md-2">
+					<%= format_date(issue)%>
+				</div>
+				<div class="col-md-2">
+					<span class="issue-title">
+						<%=link_to issue.title, car_issue_path(@car, issue)%>
+					</span>
+				</div>
+				<div class="col-md-2">
+					<%= issue.urgency %>
+				</div>
+				<div class="col-md-3">
+					<%= issue.description %>
+				</div>
+				<div class="col-md-1">
+					<%= link_to car_issue_path(@car, issue), method: :delete, class: "btn btn-default" do %>
+						<span class="glyphicon glyphicon-trash">
+						</span>
+					<% end %>
+				</div>
+				<div class="col-md-1">
+					<%= link_to edit_car_issue_path(@car, issue), class: "btn btn-default" do %>
+						<span class="glyphicon glyphicon-edit">
+						</span>
+					<% end%>
+				</div>
+			</div>
+			<hr>
+		<% end %>
 <% else %>
-	<h3>You must be logged in to view this page</h3>
+	<h3>
+		You must be logged in to view this page
+	</h3>
 <% end %>
 </div>
