@@ -31,14 +31,13 @@ function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
-
     }
   }
 }
 
 function createMarker(place) {
   var placeLoc = place.geometry.location;
-      var request = { reference: place.reference };
+  var request = { reference: place.reference };
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location
@@ -50,7 +49,9 @@ function createMarker(place) {
       var website = details.website
       var rating = "*".repeat(parseInt(details.rating, 10))
       var phone = details.formatted_phone_number
-      var content = ("<strong>" + name + "</strong><br />" + address +"<br /><a href="+ website +">" + website + "</a><br />rating: " + rating + "<br />" + phone);
+      var content = ("<strong>" + name + "</strong><br />"
+          + address +"<br /><a href="+ website +">" + website
+          + "</a><br />rating: " + rating + "<br />" + phone);
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.setContent(content);
         infowindow.open(map, this);
@@ -60,7 +61,5 @@ function createMarker(place) {
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
 }
