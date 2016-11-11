@@ -1,20 +1,19 @@
 <div class="container" id="dashboard">
 	<% if current_user %>
-    <div><h1 class="white-text"> <%= @car.year %> <%=@car.make %> <%= @car.model %> Dashboard</h1></div>
+    <div><h1 class="white-text"> <%= @car.year %> <%=@car.make %> <%= @car.model %> Dashboard</h1></div><br>
             <div class="mileage-update" align='center'>
                 <%= form_for @car, :method => :PUT, id: "mileage_form" do |f| %>
-                <%= f.label "Update mileage:" %>
+                <%= f.label "UPDATE MILEAGE:", class: "white-text" %>
                 <%= f.text_field :mileage, :value => @car.mileage %>
-                <%= f.submit "Submit" %>
+                <%= f.submit "Submit", class: "btn btn-sm-mileage btn-xs" %>
                 <% end %>
              </div>
     <div class="row white-text">
         <div class="col-md-4">
             <h3>Car Details</h3>
-    		    <p>COLOR: <%= @car.color %><br></p>
-    		    <p>TRANSMISSION: <%= @car.transmission %><br></p>
-    		    <p> ENGINE: <%= @car.engine %><br></p>
-
+    		    <p><strong>COLOR:</strong> <%= @car.color %><br></p>
+    		    <p><strong>TRANSMISSION:</strong> <%= @car.transmission %><br></p>
+    		    <p><strong>ENGINE:</strong> <%= @car.engine %><br></p>
     	    <div>
     		  	<span class="glyphicon glyphicon-edit"></span> <%= link_to 'Edit Car Info', edit_car_path(@car) %><br><br>
     		</div>
@@ -89,7 +88,7 @@
                 <% if (@service_change/1000) >= 60 %>
                     <h5><div class="oil-reminder red-text">*Time for service</div></h5>
                 <% else%>
-                    <h5><div class="oil-reminder"><%= 60000 - @service_change %> miles before your next service</div></h5>
+                    <h5><div class="oil-reminder">*<%= 60000 - @service_change %> miles before your next service</div></h5>
                 <% end %>
             </div>
 
@@ -178,7 +177,7 @@
 	  <div id="fragment-1" class="row-main"><br>
         <%= link_to 'Add New Maintenance', new_car_maintenance_path(@car), class: "btn btn-green" %>
         <%= link_to 'Maintenance History', car_maintenances_path(@car), class: "btn btn-back" %>
-        <%= mail_to "shopname@domain.com", "Email maintenance form", class: "btn btn-email-main", subject: "#{current_user.first_name} #{@car.make} Maintenance Report", body: "Please fill out the maintenance form\r\n#{generate_url(Maintenance.new(), @car).first}" %><br><br>
+        <%= mail_to "shopname@domain.com", "Email Maintenance Form", class: "btn btn-email-main", subject: "#{current_user.first_name} #{@car.make} Maintenance Report", body: "Please fill out the maintenance form\r\n#{generate_url(Maintenance.new(), @car).first}" %><br><br>
             <hr>
 			<%if @car.maintenances.blank? %>
 				<p class="have-none"> You have no maintenance records. Click 'Add New Maintenance' to begin. </p>
@@ -200,11 +199,11 @@
 	    	        </div>
 
 	    	      <div class="col-md-3">
-	    		<%= maintenance.date_completed %>
-	    	</div>
-	    	<div class="col-md-6">
-	    		<%= maintenance.description %>
-	    	</div><br><br>
+	    		     <%= maintenance.date_completed %>
+	    	      </div>
+	    	      <div class="col-md-6">
+	    		     <%= maintenance.description %>
+	    	      </div><br><br>
             <hr>
 	    	  <%end%>
 	   		</p>

@@ -120,14 +120,17 @@ textarea {
 
 .card {
   border: 1px solid #ddd;
-  width: 300px;
+  width: 302px;
   background-color: $green-accent;
   color: $white;
 }
 
 .card-title {
-  padding-top: 10px;
-  font-size: 20px;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  font-size: 25px;
 }
 
 .opacity-text {
@@ -456,6 +459,14 @@ span.glyphicon-wrench {
   background-color: $dark-gray-accent;  
   color: $white !important;
   font-size: 16px !important;
+}
+
+.btn-sm-mileage {
+  background: $yellow-mustard !important;
+  border-color: $dark-gray-accent !important;
+  border-radius: 5px !important;
+  font-size: 16px;
+  color: $dark-gray-accent !important;
 }
 
 .button_to {

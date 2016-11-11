@@ -1,6 +1,6 @@
 <div class="container">
 	<% if current_user %>	
-	<h1>Issues for <%= @car.make %> <%=@car.model%></h1><br>
+	<h1>Issues for <%= @car.make %> <%=@car.model%> <%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %></h1><br>
 	<%= link_to "Add New Issue", new_car_issue_path(@car), method: "get", class: "btn btn-red"%><br><br><br>
 	<div class="row title">
 		<div class="col-md-2 title-change"><h4>Date Created</h4>
@@ -11,7 +11,6 @@
 		</div>
 		<div class="col-md-3 title-change"><h4>Description</h4>
 		</div>
-		<div class="col-md-2 title-change">	<%= link_to 'Back', car_path(@car), class: "btn btn-reverse" %></div>
 	</div>
 	<hr>
 	<% @issues.each do |issue| %>
