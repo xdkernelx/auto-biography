@@ -1,6 +1,5 @@
 class RepairsController < ApplicationController
-
-  include RepairsHelper
+  include MaintenancesHelper
 
   before_action :find_car_and_issue_and_repair, only: [:edit, :destroy]
   before_action :find_car_and_issue_and_new_repair, only: [:new]
