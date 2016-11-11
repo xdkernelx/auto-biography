@@ -13,6 +13,14 @@ class CarsController < ApplicationController
 	end
 
 	def show
+		# @car.service_range ? @service_range = @car.service_range : @service_range = 60000
+		# @car.oil_range ? @oil_range = @car.oil_range : @oil_range = 5000
+		@service_range = 60000
+		@oil_range = 5000
+		service_check = @car.maintenance_check(@service_range, "service")
+		oil_check = @car.maintenance_check(@oil_range, "oil change")
+		service_check ? @service_change = service_check : @service_change = (@car.mileage < @service_range ? @car.mileage : @service_range )
+		oil_check ? @oil_change = oil_check : @oil_change = (@car.mileage < @oil_range ? @car.mileage : @oil_range )
 	end
 
 	def new
@@ -58,13 +66,5 @@ class CarsController < ApplicationController
 
 	def find_car
 		@car = Car.find(params[:id])
-		# @car.service_range ? @service_range = @car.service_range : @service_range = 60000
-		# @car.oil_range ? @oil_range = @car.oil_range : @oil_range = 5000
-		@service_range = 60000
-		@oil_range = 5000
-		service_check = @car.maintenance_check(@service_range, "service")
-		oil_check = @car.maintenance_check(@oil_range, "oil change")
-		service_check ? @service_change = service_check : @service_change = (@car.mileage < @service_range ? @car.mileage : @service_range )
-		oil_check ? @oil_change = oil_check : @oil_change = (@car.mileage < @oil_range ? @car.mileage : @oil_range )
 	end
 end
