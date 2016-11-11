@@ -40,11 +40,11 @@ class RepairsController < ApplicationController
     @car = Car.find(params[:car_id])
     @issue = Issue.find(params[:issue_id])
     if @repair.update(repair_params)
-     update_mileage(@car, @repair.mileage)
-	   redirect_to car_issues_path(@car)
+      update_mileage(@car, @repair.mileage)
+      redirect_to car_issues_path(@car)
     else
-	   @errors = @issue.errors.full_messages
-	   render 'edit'
+      @errors = @issue.errors.full_messages
+      render 'edit'
     end
   end
 

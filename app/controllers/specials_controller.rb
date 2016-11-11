@@ -51,7 +51,7 @@ class SpecialsController < ApplicationController
 
 	private
 	def repair_params
-	  params.require(:repair).permit(:title, :description, :mileage, :date_completed)
+		params.require(:repair).permit(:title, :description, :mileage, :date_completed)
 	end
 
   def maintenance_params
