@@ -6,7 +6,7 @@ class IssuesController < ApplicationController
 
   def index
     @car = Car.find(params[:car_id])
-    @issues = @car.issues
+    @issues = @car.issues.order("created_at DESC")
   end
 
   def show
@@ -23,7 +23,7 @@ class IssuesController < ApplicationController
     @issue = Issue.new(issue_params)
     @car = Car.find(params[:car_id])
       if @issue.save
-        redirect_to car_issues_path(@car)
+        redirect_to car_path(@car)
       else
         @errors = @issue.errors.full_messages
       render 'new'
