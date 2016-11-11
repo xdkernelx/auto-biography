@@ -1,6 +1,6 @@
 class IssuesController < ApplicationController
   include SpecialsHelper
-  
+
   before_action :find_car_and_issue, only: [:show, :edit, :update, :destroy]
   before_action :find_car_and_new_issue, only: [:new]
 
@@ -10,11 +10,11 @@ class IssuesController < ApplicationController
   end
 
   def show
-    @repairs = @issue.repairs 
+    @repairs = @issue.repairs
   end
 
   def new
-  end 
+  end
 
   def edit
   end
@@ -39,11 +39,12 @@ class IssuesController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
+    @issue.repairs.each { |repair| repair.destroy }
     @issue.destroy
     redirect_to car_issues_path(@car)
-  end 
-	
+  end
+
   private
 
   def issue_params
@@ -53,7 +54,7 @@ class IssuesController < ApplicationController
   def find_car_and_issue
     @issue = Issue.find(params[:id])
     @car = Car.find(params[:car_id])
-  end 
+  end
 
   def find_car_and_new_issue
     @issue = Issue.new
