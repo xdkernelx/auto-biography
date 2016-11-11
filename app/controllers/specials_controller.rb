@@ -27,9 +27,6 @@ class SpecialsController < ApplicationController
 		# NEED TO SORT THIS TO INCLUDE MAINTENANCE
 		# already added form to index
 		# need to include maintenance strong_params
-		p '*' * 80
-		p params
-		p '*' * 80
 
 		if params[:repair]
 			@car = Car.find(params[:repair][:car_id])
@@ -54,8 +51,8 @@ class SpecialsController < ApplicationController
 
 	private
 	def repair_params
-    params.require(:repair).permit(:title, :description, :mileage, :date_completed)
-  end
+	  params.require(:repair).permit(:title, :description, :mileage, :date_completed)
+	end
 
   def maintenance_params
   	params.require(:maintenance).permit(:title, :description, :mileage, :date_completed, :car_id)
