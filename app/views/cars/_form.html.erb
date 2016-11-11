@@ -63,7 +63,7 @@
     <%= f.submit "Submit", class: 'btn btn-primary' %>
   </p>
   <p>
-    <% if @car.nil? %>
+    <% if @flag %>
       <%= link_to "Delete", car_path(@car), method: :delete, class: "btn btn-red" %>
     <% end %>
   </p>
