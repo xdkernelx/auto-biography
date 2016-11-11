@@ -2,6 +2,7 @@
 <% if @maintenances.blank? %>
 <% else %>
   <h2 class="blue-report-header"> MAINTENANCE </h2>
+<%= link_to "Print", '#', class: "btn btn-primary print", onclick: 'window.print();return false;' %>
     <table class="maintenance-report">
       <tr>
         <td class="head-td">
