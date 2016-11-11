@@ -22,7 +22,7 @@ class MaintenancesController < ApplicationController
 		@maintenance.car_id = @car.id
 		if @maintenance.save
 			update_mileage(@car, @maintenance.mileage)
-			redirect_to car_maintenances_path(@car)
+			redirect_to car_path(@car)
 		else
 			@errors = @maintenance.errors.full_messages
 			render 'new'
