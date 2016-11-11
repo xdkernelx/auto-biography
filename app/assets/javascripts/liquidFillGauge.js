@@ -31,7 +31,7 @@ function liquidFillGaugeDefaultSettings(){
 }
 
 function loadLiquidFillGauge(elementId, value, config) {
-    if(config == null) config = liquidFillGaugeDefaultSettings();
+    if(config === null) config = liquidFillGaugeDefaultSettings();
 
     var gauge = d3.select("#" + elementId);
     var radius = Math.min(parseInt(gauge.style("width")), parseInt(gauge.style("height")))/2;
@@ -66,10 +66,10 @@ function loadLiquidFillGauge(elementId, value, config) {
 
     // Rounding functions so that the correct number of decimal places is always displayed as the value counts up.
     var textRounder = function(value){ return Math.round(value); };
-    if(parseFloat(textFinalValue) != parseFloat(textRounder(textFinalValue))){
+    if(parseFloat(textFinalValue) !== parseFloat(textRounder(textFinalValue))){
         textRounder = function(value){ return parseFloat(value).toFixed(1); };
     }
-    if(parseFloat(textFinalValue) != parseFloat(textRounder(textFinalValue))){
+    if(parseFloat(textFinalValue) !== parseFloat(textRounder(textFinalValue))){
         textRounder = function(value){ return parseFloat(value).toFixed(2); };
     }
 
@@ -203,10 +203,10 @@ function loadLiquidFillGauge(elementId, value, config) {
         this.update = function(value){
             var newFinalValue = parseFloat(value).toFixed(2);
             var textRounderUpdater = function(value){ return Math.round(value); };
-            if(parseFloat(newFinalValue) != parseFloat(textRounderUpdater(newFinalValue))){
+            if(parseFloat(newFinalValue) !== parseFloat(textRounderUpdater(newFinalValue))){
                 textRounderUpdater = function(value){ return parseFloat(value).toFixed(1); };
             }
-            if(parseFloat(newFinalValue) != parseFloat(textRounderUpdater(newFinalValue))){
+            if(parseFloat(newFinalValue) !== parseFloat(textRounderUpdater(newFinalValue))){
                 textRounderUpdater = function(value){ return parseFloat(value).toFixed(2); };
             }
 
