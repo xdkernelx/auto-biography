@@ -1,3 +1,13 @@
 // Place all the styles related to the Cars controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mileage-update form {
+  background: -webkit-linear-gradient(bottom, #072D3B, #EEEEEE 500px);
+  background: -moz-linear-gradient(bottom, #072D3B, #EEEEEE 200px);
+  background: linear-gradient(bottom, #072D3B, #EEEEEE 200px);
+
+  width: 425px;
+}
+
+

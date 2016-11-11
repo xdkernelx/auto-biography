@@ -1,8 +1,10 @@
-<h1><%= current_user.first_name %>'s <%= @car.year %> <%= @car.make %> <%= @car.model %></h1>
+<div id="history-header">
+  <h1><%= current_user.first_name %>'s <%= @car.year %> <%= @car.make %> <%= @car.model %></h1>
+</div>
+  <%= link_to "Print/Save", '#', class: "btn btn-primary print", onclick: 'window.print();return false;' %>
 <% if @maintenances.blank? %>
 <% else %>
   <h2 class="blue-report-header"> MAINTENANCE </h2>
-<%= link_to "Print", '#', class: "btn btn-primary print", onclick: 'window.print();return false;' %>
     <table class="maintenance-report">
       <tr>
         <td class="head-td">

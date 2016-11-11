@@ -7,8 +7,7 @@ before_script:
 - psql -c 'create database travis_ci_test;' -U postgres
 deploy:
   provider: heroku
-  api_key:
-    secure: dojZvjUn97iPyLP6+hdaCXhwB/29Wt0iNaIZlwRMR1gcBYAi99pItS+dUAceE2CZvM26Yrsnwm4TXpQhXyknErkRdJugqKIgIpUCJsfYrHo1sfQoq9NI36u0f/MgVLeQTbPymiqXNy+Pce3nyjJ/Av4mhfX1jYnx/GIM4+2FkU+nhwbLpEXU3yfn8njKSPz7nzSn+hS9XvlgWhpzG8idwKao73KRX/XaqYSZAfcge9VhSaIBIjHpWxTIN9F5EEYYlj2hSUE8LALN0p1KcYGYQHl1f2WePYQ8w2MVZy2Sx1BhKDdR5SFDENN6yTs6Z14JOeQbqw0hxqGOohPHNLSDmGSwH9bcK2CfWrPQsYPKsJSywsANfPzVGC0uiCTZLMSebd3silrSOLNIiDElFtxsZmIjW6Id5W/YUoBVAEqqhsw0w7clzdgo0ldISVWfZX4XE0o5rnXYtx5K+gEeXzXrily+k/AS43xqCvq9lgfwE2yKO9mK2KbHM78MMpCO1MTwlxUxkeQhgCZz+vUReuZFBpH0XqNsWUd1nbX3I7lSV9nvJ6osOLIoA7LaY2R4Y0xGU2yzyCLm+D1vL9+0seRbTSMbK3t4g6vh1YXZxnXZ0FkzBYeyXCGXU5stxw5yMzMjUj9VR639Q4XYRE4ddj9ag7p5uKBLvkQ6vvHtwVrTtuY=
+  api_key: da24db08-47b7-408c-8550-9df85119c56c
   app: auto-biography
   on:
     branch: development

@@ -234,7 +234,7 @@ hr {
 }
 
 .col-md-4{
-  padding:50px;
+  padding:40px;
 }
 
 .have-none {
@@ -555,9 +555,21 @@ span.glyphicon-wrench {
   height: auto;
 }
 
-.print{
-  float: right;
+#history-header{
+  margin-bottom: -50px;
 }
 
+.print{
+  margin-right: 0;
+  margin-left: 82%;
+}
 
+.oil-reminder {
+  font-size: 20px;
+  padding-top: 25px;
+}
 
+.red-text {
+  color: red;
+  font-weight: bold;
+}
