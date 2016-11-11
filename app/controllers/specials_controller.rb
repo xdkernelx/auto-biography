@@ -2,16 +2,21 @@ class SpecialsController < ApplicationController
 	include MaintenancesHelper
 	def index
 		# need to test if moving the issue_id inside the if statement effects anything
-		@report_type = params[:report_type] if params[:report_type]
-		@car_id = params[:car_id] if params[:car_id]
-		@token = params[:token] if params[:token]
-		if @report_type == "Issue"
-			@issue_id = params[:issue_id] if params[:issue_id]
-			@service = Repair.new
-			@service.repairable = Issue.find(params[:issue_id])
-			p @service.repairable
-		elsif @report_type == "Maintenance"
-			@service = Maintenance.new
+		if params[:report_type] && params[:car_id] && params[:token]
+			@report_type = params[:report_type]
+			@car_id = params[:car_id]
+			@token = params[:token]
+			if @report_type == "Issue"
+				@issue_id = params[:issue_id] if params[:issue_id]
+				@service = Repair.new
+				@service.repairable = Issue.find(params[:issue_id])
+			elsif @report_type == "Maintenance"
+				@service = Maintenance.new
+			# TODO else
+			# 	redirect_to error page
+			end
+		else
+			redirect_to root_path
 		end
 	end
 
@@ -21,7 +26,7 @@ class SpecialsController < ApplicationController
 	def create
 		# NEED TO SORT THIS TO INCLUDE MAINTENANCE
 		# already added form to index
-		# need to include maintenance strong_params 
+		# need to include maintenance strong_params
 		p '*' * 80
 		p params
 		p '*' * 80
@@ -34,11 +39,9 @@ class SpecialsController < ApplicationController
 		elsif params[:maintenance]
 			@car = Car.find(params[:maintenance][:car_id])
 			@service = Maintenance.new(maintenance_params)
-			@service.car_id = @car.id		
+			@service.car_id = @car.id
 		end
-		p '*' * 80
-		 p @service
-		 p '*' * 80
+
 		if @service.save
 			update_mileage(@car, @service.mileage)
 			render 'thanks'
@@ -46,7 +49,7 @@ class SpecialsController < ApplicationController
 			@errors = @service.errors.full_messages
 			redirect_to request.original_url
 			# need to fix the redirect_to
-		end	
+		end
 	end
 
 	private
