@@ -6,8 +6,8 @@ class SpecialsController < ApplicationController
 			@report_type = params[:report_type]
 			@car_id = params[:car_id]
 			@token = params[:token]
-			if @report_type == "Issue"
-				@issue_id = params[:issue_id] if params[:issue_id]
+			if @report_type == "Issue" && params[:issue_id]
+				@issue_id = params[:issue_id]
 				@service = Repair.new
 				@service.repairable = Issue.find(params[:issue_id])
 			elsif @report_type == "Maintenance"
