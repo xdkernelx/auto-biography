@@ -128,10 +128,7 @@ function loadLiquidFillGauge(elementId, value, config) {
         .attr('transform','translate('+radius+','+textRiseScaleY(config.textVertPosition)+')');
 
     // The clipping wave area.
-    var clipArea = d3.svg.area()
-        .x(function(d) { return waveScaleX(d.x); } )
-        .y0(function(d) { return waveScaleY(Math.sin(Math.PI*2*config.waveOffset*-1 + Math.PI*2*(1-config.waveCount) + d.y*2*Math.PI));} )
-        .y1(function(d) { return (fillCircleRadius*2 + waveHeight); } );
+    var clipArea = areaObj();
     var waveGroup = gaugeGroup.append("defs")
         .append("clipPath")
         .attr("id", "clipWave" + elementId);
@@ -199,6 +196,12 @@ function loadLiquidFillGauge(elementId, value, config) {
             });
     }
 
+    function areaObj() {
+        return d3.svg.area()
+        .x(function(d) { return waveScaleX(d.x); } )
+        .y0(function(d) { return waveScaleY(Math.sin(Math.PI*2*config.waveOffset*-1 + Math.PI*2*(1-config.waveCount) + d.y*2*Math.PI));} )
+        .y1(function(d) { return (fillCircleRadius*2 + waveHeight); } );
+    }
     function GaugeUpdater(){
         this.update = function(value){
             var newFinalValue = parseFloat(value).toFixed(2);
@@ -235,10 +238,7 @@ function loadLiquidFillGauge(elementId, value, config) {
             var waveScaleY = d3.scale.linear().range([0,waveHeight]).domain([0,1]);
             var newClipArea;
             if(config.waveHeightScaling){
-                newClipArea = d3.svg.area()
-                    .x(function(d) { return waveScaleX(d.x); } )
-                    .y0(function(d) { return waveScaleY(Math.sin(Math.PI*2*config.waveOffset*-1 + Math.PI*2*(1-config.waveCount) + d.y*2*Math.PI));} )
-                    .y1(function(d) { return (fillCircleRadius*2 + waveHeight); } );
+                newClipArea = areaObj();
             } else {
                 newClipArea = clipArea;
             }
